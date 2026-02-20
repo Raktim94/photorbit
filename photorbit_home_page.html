@@ -1,358 +1,1526 @@
-<div id="po-home-embed" style="font-family: inherit; color: #333; line-height: 1.6;">
+<!-- ============================================================
+     PHOTORBIT — Odoo Embeddable Homepage
+     Paste this inside a Custom HTML / Embed Code block in Odoo.
+     All CSS/JS is fully scoped to #pb-wrap — safe for Odoo.
+     ============================================================ -->
+<div id="pb-wrap">
+
     <style>
-        /* Scoped styles to prevent breaking Odoo UI */
-        #po-home-embed {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+        /* ── Google Font ── */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap');
+
+        /* ── Reset & Scope ── */
+        #pb-wrap,
+        #pb-wrap * {
             box-sizing: border-box;
-        }
-        #po-home-embed * {
-            box-sizing: border-box;
-        }
-        
-        /* Hero Section */
-        #po-home-embed .po-hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: linear-gradient(135deg, rgba(203, 94, 238, 0.1) 0%, rgba(236, 231, 75, 0.1) 100%);
-            border-radius: 20px;
-            padding: 50px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-        #po-home-embed .po-hero-text {
-            flex: 1;
-            min-width: 300px;
-        }
-        #po-home-embed .po-hero-title {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #1e142e;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            line-height: 1.1;
-        }
-        #po-home-embed .po-hero-subtitle {
-            font-size: 1.25rem;
-            color: #555;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        #po-home-embed .po-hero-desc {
-            font-size: 1.15rem;
-            color: #444;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-        #po-home-embed .po-hero-img-wrap {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            justify-content: center;
-        }
-        #po-home-embed .po-hero-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 50%;
-            width: 400px;
-            height: 400px;
-            object-fit: cover;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-        
-        /* Explore Section */
-        #po-home-embed .po-cat-sec {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        #po-home-embed .po-sec-title {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #1e142e;
-            margin-bottom: 40px;
-        }
-        #po-home-embed .po-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        #po-home-embed .po-card {
-            background: #fff;
-            border-radius: 30px;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-            border: 1px solid #f0f0f0;
-        }
-        #po-home-embed .po-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 16px 35px rgba(0,0,0,0.12);
-        }
-        #po-home-embed .po-card-img-wrap {
-            width: 100%;
-            height: 240px;
-            position: relative;
-            overflow: hidden;
-            background-color: #fafafa;
-        }
-        #po-home-embed .po-card-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-        #po-home-embed .po-card:hover .po-card-img {
-            transform: scale(1.08);
-        }
-        #po-home-embed .po-card-body {
-            padding: 30px 20px;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: #fff;
-            flex-grow: 1;
-        }
-        #po-home-embed .po-card-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin: 0 0 20px 0;
-            color: #1e142e;
-        }
-        #po-home-embed .po-btn {
-            display: inline-block;
-            background: #e9ecef;
-            color: #1e142e !important;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            margin: 0 auto;
-            transition: all 0.3s ease;
-        }
-        #po-home-embed .po-card:hover .po-btn {
-            background: #1e142e;
-            color: #fff !important;
-        }
-        #po-home-embed .po-btn-primary {
-            background: #1e142e;
-            color: #fff !important;
-        }
-        #po-home-embed .po-btn-primary:hover {
-            background: #fff;
-            color: #1e142e !important;
-            border: 2px solid #1e142e;
-            padding: 10px 28px; /* adjust for border */
+            margin: 0;
+            padding: 0;
         }
 
-        /* 3 Pillars Section */
-        #po-home-embed .po-trio {
+        #pb-wrap {
+            font-family: 'Outfit', sans-serif;
+            color: #1e142e;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ── Keyframe Animations ── */
+        @keyframes pb-fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pb-fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pb-scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.85);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pb-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-18px);
+            }
+        }
+
+        @keyframes pb-shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes pb-spin {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pb-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(223, 42, 107, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 18px rgba(223, 42, 107, 0);
+            }
+        }
+
+        @keyframes pb-gradientBg {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* ── Scroll-reveal helper ── */
+        #pb-wrap .pb-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.75s cubic-bezier(.22, 1, .36, 1), transform 0.75s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        #pb-wrap .pb-reveal.pb-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #pb-wrap .pb-reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.75s, transform 0.75s;
+        }
+
+        #pb-wrap .pb-reveal-left.pb-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #pb-wrap .pb-reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.75s, transform 0.75s;
+        }
+
+        #pb-wrap .pb-reveal-right.pb-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ─────────────── HERO ─────────────── */
+        #pb-wrap .pb-hero {
+            position: relative;
+            min-height: 92vh;
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #1e142e, #490AB1, #df2a6b, #ff8c42);
+            background-size: 400% 400%;
+            animation: pb-gradientBg 10s ease infinite;
+            overflow: hidden;
+            padding: 80px 40px;
             text-align: center;
-            padding: 50px 0;
-            border-top: 2px dashed #eee;
-            border-bottom: 2px dashed #eee;
-            margin-bottom: 60px;
+        }
+
+        #pb-wrap .pb-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(255, 255, 255, 0.07) 0%, transparent 60%);
+        }
+
+        #pb-wrap .pb-hero-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        #pb-wrap .pb-hero-particles span {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            animation: pb-float 6s ease-in-out infinite;
+        }
+
+        #pb-wrap .pb-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        #pb-wrap .pb-hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+            padding: 8px 22px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            animation: pb-fadeIn 1s ease 0.2s both;
+        }
+
+        #pb-wrap .pb-hero-title {
+            font-size: clamp(3.5rem, 10vw, 7rem);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 30%, #f7c6ce);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pb-fadeUp 1s ease 0.4s both;
+        }
+
+        #pb-wrap .pb-hero-sub {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 12px;
+            font-weight: 500;
+            animation: pb-fadeUp 1s ease 0.6s both;
+        }
+
+        #pb-wrap .pb-hero-gst {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 12px;
+            animation: pb-fadeUp 1s ease 0.65s both;
+        }
+
+        #pb-wrap .pb-hero-tagline {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: pb-fadeUp 1s ease 0.7s both;
+        }
+
+        #pb-wrap .pb-hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            animation: pb-fadeUp 1s ease 0.9s both;
         }
-        #po-home-embed .po-trio-item {
+
+        #pb-wrap .pb-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            text-decoration: none !important;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        #pb-wrap .pb-btn-white {
+            background: #fff;
+            color: #1e142e !important;
+        }
+
+        #pb-wrap .pb-btn-white:hover {
+            background: #f7c6ce;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        #pb-wrap .pb-btn-outline {
+            background: transparent;
+            color: #fff !important;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+        }
+
+        #pb-wrap .pb-btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        #pb-wrap .pb-hero-scroll {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: pb-fadeIn 2s ease 1.5s both;
+        }
+
+        #pb-wrap .pb-hero-scroll::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+            animation: pb-float 2s ease-in-out infinite;
+        }
+
+        /* ─────────────── SECTION WRAPPER ─────────────── */
+        #pb-wrap .pb-section {
+            padding: 90px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #pb-wrap .pb-section-full {
+            padding: 90px 40px;
+            background: #f8f4ff;
+        }
+
+        #pb-wrap .pb-section-full>.pb-section {
+            padding: 0;
+            background: none;
+        }
+
+        #pb-wrap .pb-sec-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #df2a6b;
+            margin-bottom: 14px;
+        }
+
+        #pb-wrap .pb-sec-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: #1e142e;
+            margin-bottom: 18px;
+            line-height: 1.15;
+        }
+
+        #pb-wrap .pb-sec-sub {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 580px;
+            margin-bottom: 50px;
+        }
+
+        /* ─────────────── TAB SECTION ─────────────── */
+        #pb-wrap .pb-tabs-section {
+            padding: 80px 40px;
+            background: #fff;
+        }
+
+        #pb-wrap .pb-tabs-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        #pb-wrap .pb-company-meta {
+            background: linear-gradient(135deg, #1e142e 0%, #490AB1 100%);
+            border-radius: 24px;
+            padding: 40px;
+            color: #fff;
+            text-align: center;
+            margin: 0 auto 50px;
+            max-width: 700px;
+        }
+
+        #pb-wrap .pb-company-meta h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        #pb-wrap .pb-company-meta p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+
+        #pb-wrap .pb-company-meta .pb-gst-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 6px 18px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        /* Tab Buttons */
+        #pb-wrap .pb-tab-btns {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        #pb-wrap .pb-tab-btn {
+            background: #f0ecff;
+            color: #490AB1;
+            border: none;
+            cursor: pointer;
+            padding: 18px 40px;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.35s cubic-bezier(.22, 1, .36, 1);
+            letter-spacing: 0.3px;
+            font-family: 'Outfit', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #pb-wrap .pb-tab-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #df2a6b, #490AB1);
+            opacity: 0;
+            transition: opacity 0.35s;
+        }
+
+        #pb-wrap .pb-tab-btn.active,
+        #pb-wrap .pb-tab-btn:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(73, 10, 177, 0.35);
+        }
+
+        #pb-wrap .pb-tab-btn.active::before,
+        #pb-wrap .pb-tab-btn:hover::before {
+            opacity: 1;
+        }
+
+        #pb-wrap .pb-tab-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Tab Content */
+        #pb-wrap .pb-tab-pane {
+            display: none;
+            animation: pb-fadeIn 0.5s ease;
+        }
+
+        #pb-wrap .pb-tab-pane.active {
+            display: block;
+        }
+
+        /* ─────────────── PRODUCT CATEGORY GRID ─────────────── */
+        #pb-wrap .pb-cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 28px;
+        }
+
+        #pb-wrap .pb-cat-card {
+            background: #fff;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(73, 10, 177, 0.07);
+            border: 1px solid rgba(73, 10, 177, 0.08);
+            text-decoration: none !important;
+            color: inherit !important;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(.22, 1, .36, 1), box-shadow 0.4s ease;
+            position: relative;
+        }
+
+        #pb-wrap .pb-cat-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(223, 42, 107, 0.0), rgba(73, 10, 177, 0.0));
+            transition: background 0.4s;
+            pointer-events: none;
+        }
+
+        #pb-wrap .pb-cat-card:hover {
+            transform: translateY(-10px) scale(1.015);
+            box-shadow: 0 20px 50px rgba(73, 10, 177, 0.15);
+        }
+
+        #pb-wrap .pb-cat-card:hover::after {
+            background: linear-gradient(135deg, rgba(223, 42, 107, 0.05), rgba(73, 10, 177, 0.05));
+        }
+
+        #pb-wrap .pb-cat-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        #pb-wrap .pb-cat-card:hover .pb-cat-img {
+            transform: scale(1.07);
+        }
+
+        #pb-wrap .pb-cat-img-wrap {
+            overflow: hidden;
+            position: relative;
+        }
+
+        #pb-wrap .pb-cat-num {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: linear-gradient(135deg, #df2a6b, #490AB1);
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 0.9rem;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(223, 42, 107, 0.4);
+        }
+
+        #pb-wrap .pb-cat-body {
+            padding: 22px;
             flex: 1;
-            min-width: 250px;
-            background: #fdfafb;
-            padding: 30px;
-            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
         }
-        #po-home-embed .po-trio-title {
-            font-size: 1.6rem;
+
+        #pb-wrap .pb-cat-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #1e142e;
+        }
+
+        #pb-wrap .pb-cat-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #f0ecff, #ffe0ec);
+            color: #490AB1 !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none !important;
+            align-self: flex-start;
+            transition: all 0.3s ease;
+        }
+
+        #pb-wrap .pb-cat-card:hover .pb-cat-link {
+            background: linear-gradient(135deg, #df2a6b, #490AB1);
+            color: #fff !important;
+        }
+
+        /* ─────────────── PERSONALISED PLACEHOLDER ─────────────── */
+        #pb-wrap .pb-coming-soon {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #f0ecff, #ffe0ec);
+            border-radius: 24px;
+            border: 2px dashed rgba(73, 10, 177, 0.2);
+        }
+
+        #pb-wrap .pb-coming-soon .pb-cs-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        #pb-wrap .pb-coming-soon h3 {
+            font-size: 2rem;
             font-weight: 800;
             color: #490AB1;
-            margin: 0 0 10px 0;
+            margin-bottom: 12px;
         }
-        #po-home-embed .po-trio-item p {
-            margin: 0;
-            color: #666;
+
+        #pb-wrap .pb-coming-soon p {
+            color: #888;
             font-size: 1.1rem;
         }
 
-        /* About Section */
-        #po-home-embed .po-about {
-            display: flex;
-            background: #fddddd;
-            border-radius: 30px;
-            overflow: hidden;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        /* ─────────────── SERVICES BAND ─────────────── */
+        #pb-wrap .pb-services {
+            background: linear-gradient(135deg, #1e142e 0%, #490AB1 100%);
+            padding: 90px 40px;
         }
-        #po-home-embed .po-about-content {
+
+        #pb-wrap .pb-services-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #pb-wrap .pb-services .pb-sec-eyebrow {
+            color: #f7c6ce;
+        }
+
+        #pb-wrap .pb-services .pb-sec-title {
+            color: #fff;
+        }
+
+        #pb-wrap .pb-services .pb-sec-sub {
+            color: rgba(255, 255, 255, 0.65);
+        }
+
+        #pb-wrap .pb-srv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        #pb-wrap .pb-srv-card {
+            background: rgba(255, 255, 255, 0.07);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 24px;
+            padding: 40px 32px;
+            color: #fff;
+            transition: transform 0.4s cubic-bezier(.22, 1, .36, 1), background 0.3s;
+        }
+
+        #pb-wrap .pb-srv-card:hover {
+            background: rgba(255, 255, 255, 0.13);
+            transform: translateY(-8px);
+        }
+
+        #pb-wrap .pb-srv-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        #pb-wrap .pb-srv-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        #pb-wrap .pb-srv-card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        #pb-wrap .pb-srv-card a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #f7c6ce !important;
+            font-weight: 700;
+            text-decoration: none !important;
+            border-bottom: 2px solid rgba(247, 198, 206, 0.4);
+            padding-bottom: 2px;
+            transition: border-color 0.3s;
+        }
+
+        #pb-wrap .pb-srv-card:hover a {
+            border-color: #f7c6ce;
+        }
+
+        /* ─────────────── GALLERY MASONRY ─────────────── */
+        #pb-wrap .pb-gallery {
+            padding: 90px 40px;
+            background: #fff;
+        }
+
+        #pb-wrap .pb-gallery-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #pb-wrap .pb-gallery-grid {
+            columns: 3;
+            column-gap: 20px;
+        }
+
+        @media(max-width:768px) {
+            #pb-wrap .pb-gallery-grid {
+                columns: 2;
+            }
+        }
+
+        @media(max-width:480px) {
+            #pb-wrap .pb-gallery-grid {
+                columns: 1;
+            }
+        }
+
+        #pb-wrap .pb-gallery-item {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: block;
+            position: relative;
+        }
+
+        #pb-wrap .pb-gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.6s cubic-bezier(.22, 1, .36, 1), filter 0.4s;
+            filter: brightness(0.95);
+        }
+
+        #pb-wrap .pb-gallery-item:hover img {
+            transform: scale(1.06);
+            filter: brightness(1.05);
+        }
+
+        #pb-wrap .pb-gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(73, 10, 177, 0.6) 0%, transparent 55%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        #pb-wrap .pb-gallery-item:hover .pb-gallery-overlay {
+            opacity: 1;
+        }
+
+        /* ─────────────── ABOUT ─────────────── */
+        #pb-wrap .pb-about {
+            padding: 90px 40px;
+            background: #f8f4ff;
+        }
+
+        #pb-wrap .pb-about-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #pb-wrap .pb-about-text {
             flex: 1;
-            min-width: 320px;
-            padding: 60px 50px;
+            min-width: 300px;
+        }
+
+        #pb-wrap .pb-about-media {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        #pb-wrap .pb-about-media img {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 30px 70px rgba(73, 10, 177, 0.2);
+        }
+
+        #pb-wrap .pb-about-deco {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #df2a6b, #490AB1);
+            opacity: 0.1;
+            z-index: -1;
+            animation: pb-float 6s ease-in-out infinite;
+        }
+
+        #pb-wrap .pb-stat-row {
+            display: flex;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        #pb-wrap .pb-stat {
+            text-align: center;
+        }
+
+        #pb-wrap .pb-stat-num {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #df2a6b, #490AB1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        #pb-wrap .pb-stat-label {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ─────────────── SHOWCASE TRIO ─────────────── */
+        #pb-wrap .pb-trio {
+            padding: 90px 40px;
+            background: #fff;
+        }
+
+        #pb-wrap .pb-trio-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #pb-wrap .pb-trio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        #pb-wrap .pb-trio-card {
+            border-radius: 28px;
+            padding: 48px 36px;
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(.22, 1, .36, 1), box-shadow 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #pb-wrap .pb-trio-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 1;
+            transition: opacity 0.4s;
+        }
+
+        #pb-wrap .pb-tc1 {
+            background: linear-gradient(135deg, #fff5f8, #ffe0ec);
+        }
+
+        #pb-wrap .pb-tc2 {
+            background: linear-gradient(135deg, #f3f0ff, #e5daff);
+        }
+
+        #pb-wrap .pb-tc3 {
+            background: linear-gradient(135deg, #fff8f0, #ffe8cc);
+        }
+
+        #pb-wrap .pb-trio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 24px 60px rgba(73, 10, 177, 0.12);
+        }
+
+        #pb-wrap .pb-trio-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        #pb-wrap .pb-trio-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1e142e;
+            margin-bottom: 12px;
+        }
+
+        #pb-wrap .pb-trio-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* ─────────────── CTA BAND ─────────────── */
+        #pb-wrap .pb-cta {
+            padding: 90px 40px;
+            background: linear-gradient(-45deg, #df2a6b, #490AB1, #1e142e, #ff6a95);
+            background-size: 300% 300%;
+            animation: pb-gradientBg 8s ease infinite;
+            text-align: center;
+        }
+
+        #pb-wrap .pb-cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        #pb-wrap .pb-cta h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        #pb-wrap .pb-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+        }
+
+        #pb-wrap .pb-btn-cta {
+            background: #fff;
+            color: #490AB1 !important;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none !important;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            display: inline-block;
+            animation: pb-pulse 2s infinite;
+        }
+
+        #pb-wrap .pb-btn-cta:hover {
+            transform: scale(1.06);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        /* ─────────────── CONTACT STRIP ─────────────── */
+        #pb-wrap .pb-contact {
+            padding: 70px 40px;
+            background: #f8f4ff;
+        }
+
+        #pb-wrap .pb-contact-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        #pb-wrap .pb-contact-text {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        #pb-wrap .pb-contact-text h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        #pb-wrap .pb-contact-meta {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            gap: 10px;
+            font-size: 1.05rem;
+            color: #444;
         }
-        #po-home-embed .po-about-title {
-            color: #490AB1;
-            font-size: 2.6rem;
-            font-weight: 800;
-            margin: 0 0 20px 0;
+
+        #pb-wrap .pb-contact-meta a {
+            color: #490AB1 !important;
+            text-decoration: none !important;
+            font-weight: 600;
         }
-        #po-home-embed .po-about-text {
-            color: #333;
-            font-size: 1.15rem;
-            margin-bottom: 30px;
-        }
-        #po-home-embed .po-about-img {
+
+        #pb-wrap .pb-contact-actions {
             flex: 1;
-            min-width: 320px;
-            background-color: #f7c6ce; 
-            padding: 40px;
+            min-width: 240px;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffffff" opacity="0.3"><circle cx="50" cy="50" r="40"/></svg>');
-            background-size: 200px;
-            background-position: center;
-            background-repeat: no-repeat;
+            flex-direction: column;
+            gap: 14px;
         }
-        #po-home-embed .po-about-img img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+
+        #pb-wrap .pb-contact-btn {
+            display: block;
+            padding: 16px 32px;
+            border-radius: 14px;
+            text-align: center;
+            font-weight: 700;
+            text-decoration: none !important;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #pb-wrap .pb-cb-primary {
+            background: linear-gradient(135deg, #490AB1, #df2a6b);
+            color: #fff !important;
+        }
+
+        #pb-wrap .pb-cb-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(73, 10, 177, 0.3);
+        }
+
+        #pb-wrap .pb-cb-secondary {
+            background: #fff;
+            color: #490AB1 !important;
+            border: 2px solid rgba(73, 10, 177, 0.2);
+        }
+
+        #pb-wrap .pb-cb-secondary:hover {
+            border-color: #490AB1;
+            transform: translateY(-3px);
+        }
+
+        /* ─────────────── RESPONSIVE ─────────────── */
+        @media(max-width:768px) {
+            #pb-wrap .pb-hero {
+                padding: 80px 20px 100px;
+            }
+
+            #pb-wrap .pb-section,
+            #pb-wrap .pb-tabs-section,
+            #pb-wrap .pb-gallery,
+            #pb-wrap .pb-about,
+            #pb-wrap .pb-trio,
+            #pb-wrap .pb-cta,
+            #pb-wrap .pb-services,
+            #pb-wrap .pb-contact {
+                padding: 60px 20px;
+            }
+
+            #pb-wrap .pb-about-inner,
+            #pb-wrap .pb-contact-inner {
+                flex-direction: column;
+            }
+
+            #pb-wrap .pb-about-deco {
+                display: none;
+            }
         }
     </style>
 
-    <!-- 1. Hero Area -->
-    <div class="po-hero">
-        <div class="po-hero-text">
-            <h1 class="po-hero-title">PHOTORBIT</h1>
-            <div class="po-hero-subtitle">(An ISO:9001::2015 Certified Company)</div>
-            <p class="po-hero-desc">
-                A world of entire Photography and Videography service. Manufacturer of Premium Photo Albums and Gift products.
-                <br><br>
-                <strong>GSTIN No:</strong> 19GDCPR6624C1ZF
-            </p>
-            <a href="/shop" class="po-btn po-btn-primary" style="font-size: 1.2rem;">Shop Now</a>
-            <a href="/contactus" class="po-btn" style="font-size: 1.2rem; margin-left: 10px; background: transparent; border: 2px solid #1e142e;">Contact Us</a>
+    <!-- ════════════════════════════════
+     SECTION 1 — HERO
+════════════════════════════════ -->
+    <section class="pb-hero">
+        <!-- Floating particles -->
+        <div class="pb-hero-particles">
+            <span style="width:80px;height:80px;top:10%;left:8%;animation-delay:0s;"></span>
+            <span style="width:40px;height:40px;top:20%;right:12%;animation-delay:1s;"></span>
+            <span style="width:60px;height:60px;bottom:20%;left:15%;animation-delay:2s;"></span>
+            <span style="width:30px;height:30px;bottom:30%;right:8%;animation-delay:0.5s;"></span>
+            <span style="width:100px;height:100px;top:50%;left:3%;animation-delay:3s;opacity:0.07;"></span>
+            <span style="width:50px;height:50px;top:70%;right:20%;animation-delay:1.5s;"></span>
         </div>
-        <div class="po-hero-img-wrap">
-            <img class="po-hero-img" src="/web/image/5637-c6d8aa8c/istockphoto-1366258243-612x612.jpg" alt="Photorbit Hero Photography">
-        </div>
-    </div>
 
-    <!-- 2. Services Grid -->
-    <div class="po-cat-sec">
-        <h2 class="po-sec-title">Explore Our Categories</h2>
-        <div class="po-grid">
-            
-            <a href="/shop/category/corporates-schools-colleges-38" class="po-card">
-                <div class="po-card-img-wrap">
-                    <img class="po-card-img" src="/web/image/2634-e1c9c348/51Y2jpWtuoL._AC_UF894%2C1000_QL80_.jpg" alt="Corporates Schools Colleges">
-                </div>
-                <div class="po-card-body">
-                    <h3 class="po-card-title">Corporates / Schools / Colleges</h3>
-                    <span class="po-btn">Click Here</span>
-                </div>
-            </a>
-            
-            <a href="/shop/category/photography-photo-books-album-42" class="po-card">
-                <div class="po-card-img-wrap">
-                    <img class="po-card-img" src="/web/image/2650-b167a3e7/6291bd203135a_266.jpg" alt="Photo Books & Album">
-                </div>
-                <div class="po-card-body">
-                    <h3 class="po-card-title">Photo Books & Album</h3>
-                    <span class="po-btn">Click Here</span>
-                </div>
-            </a>
-            
-            <a href="/photo" class="po-card">
-                <div class="po-card-img-wrap">
-                    <img class="po-card-img" src="/web/image/2619-ce1a6e46/Types-of-Shots-for-Filmmakers-e1641493485327-1024x590.webp" alt="Photography & Videography">
-                </div>
-                <div class="po-card-body">
-                    <h3 class="po-card-title">Photography & Videography</h3>
-                    <span class="po-btn">Click Here</span>
-                </div>
-            </a>
-
-            <a href="/shop/category/special-categories-22" class="po-card">
-                <div class="po-card-img-wrap">
-                    <img class="po-card-img" src="/web/image/692-0c75f184/website.s_three_columns_default_image_3" alt="Customised Products">
-                </div>
-                <div class="po-card-body">
-                    <h3 class="po-card-title">Customised Products</h3>
-                    <span class="po-btn">Click Here</span>
-                </div>
-            </a>
-
-            <a href="/shop/category/blank-product-93" class="po-card">
-                <div class="po-card-img-wrap">
-                    <img class="po-card-img" src="/web/image/2661-c8287cca/WhatsApp%20Image%202025-03-14%20at%2012.11.09_d506cd8d.jpg" alt="Blank Product">
-                </div>
-                <div class="po-card-body">
-                    <h3 class="po-card-title">Blank Product</h3>
-                    <span class="po-btn">Click Here</span>
-                </div>
-            </a>
-
-            <a href="/shop/category/retail-products-43" class="po-card">
-                <div class="po-card-img-wrap">
-                    <img class="po-card-img" src="/web/image/2662-80fcc03e/Untitled-1_3a3112e1-be31-41d8-93e6-7808e8c0b47e.webp" alt="Retail Products">
-                </div>
-                <div class="po-card-body">
-                    <h3 class="po-card-title">Retail Products</h3>
-                    <span class="po-btn">Click Here</span>
-                </div>
-            </a>
-
-        </div>
-    </div>
-
-    <!-- 3. Showcases Trio -->
-    <div class="po-trio">
-        <div class="po-trio-item">
-            <h3 class="po-trio-title">📸 Photorbit Capture</h3>
-            <p>Premium photography & videography services tailored to perfection.</p>
-        </div>
-        <div class="po-trio-item">
-            <h3 class="po-trio-title">🎁 Photorbit Gift</h3>
-            <p>Curated premium and customised gift items for every occasion.</p>
-        </div>
-        <div class="po-trio-item">
-            <h3 class="po-trio-title">✨ Photorbit Laser</h3>
-            <p>Outstanding precision laser cutting and engraving mastery.</p>
-        </div>
-    </div>
-
-    <!-- 4. About Story -->
-    <div class="po-about">
-        <div class="po-about-content">
-            <h2 class="po-about-title">The Gifted Orchid</h2>
-            <div class="po-about-text">
-                <strong>Our Story</strong><br><br>
-                In a world where every occasion deserves something extraordinary, Photorbit is your ultimate destination for finding the perfect present. Imagine stepping into a realm where every gift is a delightful surprise, crafted with care and tailored to touch the hearts of your loved ones. That’s the magic of Giftopia! 
-                <br><br>
-                From our heart to your doorstep, discover the joy of gift-giving with our carefully curated selection. At our gift shop, you'll always find something special for those who appreciate the little things in life.
-            </div>
-            <div>
-                <a href="/contactus" class="po-btn po-btn-primary" style="background:#490AB1;">Get in touch with us</a>
+        <div class="pb-hero-content">
+            <div class="pb-hero-badge">🏆 ISO 9001:2015 Certified Company</div>
+            <h1 class="pb-hero-title">PHOTORBIT</h1>
+            <p class="pb-hero-sub">Manufacturer of Premium Photo Albums &amp; Gift Products</p>
+            <p class="pb-hero-gst">GSTIN No: 19GDCPR6624C1ZF &nbsp;|&nbsp; 📍 Sonarpur, Kolkata - 700150</p>
+            <p class="pb-hero-tagline">A world of entire Photography and Videography service — from our heart to your
+                doorstep.</p>
+            <div class="pb-hero-btns">
+                <a href="/shop" class="pb-btn pb-btn-white">🛍️ Shop Now</a>
+                <a href="/contactus" class="pb-btn pb-btn-outline">📞 Contact Us</a>
             </div>
         </div>
-        <div class="po-about-img">
-            <img src="/web/image/2475-525f7cf6/USTOMIZED%20WOODEN%20MEMENTO%20%281%29.webp" alt="Wooden Memento Customised">
+        <div class="pb-hero-scroll">Scroll to explore</div>
+    </section>
+
+    <!-- ════════════════════════════════
+     SECTION 2 — TABS (Wireframe Layout)
+════════════════════════════════ -->
+    <section class="pb-tabs-section">
+        <div style="max-width:1200px;margin:0 auto;">
+
+            <!-- Company Meta Card -->
+            <div class="pb-company-meta pb-reveal">
+                <h2>PHOTORBIT</h2>
+                <p>Manufacturer of Premium Gift Items</p>
+                <p>Bylane 2, Vivekananda Road, Sonarpur, Kolkata - 700150</p>
+                <span class="pb-gst-badge">GSTIN: 19GDCPR6624C1ZF</span>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="pb-tab-btns pb-reveal" id="pb-tab-btns">
+                <button class="pb-tab-btn active" onclick="pbSwitchTab(event,'readymade')" id="pb-btn-readymade">
+                    <span>🎨 Ready Made Products</span>
+                </button>
+                <button class="pb-tab-btn" onclick="pbSwitchTab(event,'personalised')" id="pb-btn-personalised">
+                    <span>✨ Personalised Products</span>
+                </button>
+            </div>
+
+            <!-- ─── TAB: Ready Made Products ─── -->
+            <div class="pb-tab-pane active" id="pb-tab-readymade">
+                <div style="text-align:center;margin-bottom:40px;">
+                    <span class="pb-sec-eyebrow">Browse Categories</span>
+                    <h2 class="pb-sec-title" style="margin-bottom:8px;">Ready Made Products</h2>
+                    <p style="color:#888;font-size:1.05rem;">Click any category to explore our collection</p>
+                </div>
+                <div class="pb-cat-grid">
+
+                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">1</span>
+                            <img class="pb-cat-img"
+                                src="/web/image/692-0c75f184/website.s_three_columns_default_image_3"
+                                alt="Fridge & Almirah Magnets"
+                                onerror="this.src='https://images.unsplash.com/photo-1612208695882-02f2322b7fee?w=400&h=300&fit=crop'">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🧲 Fridge / Almirah Magnets</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">2</span>
+                            <img class="pb-cat-img" src="/web/image/2473-f6ba7607/3.webp" alt="Devotional"
+                                onerror="this.src='https://images.unsplash.com/photo-1574169208507-84376144848b?w=400&h=300&fit=crop'">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🙏 Devotional</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">3</span>
+                            <img class="pb-cat-img" src="/web/image/2474-21d9159c/2.webp" alt="Photo Frames"
+                                onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=400&h=300&fit=crop'">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🖼️ Photo Frames</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">4</span>
+                            <img class="pb-cat-img"
+                                src="/web/image/2478-d1ebaf7d/USTOMIZED%20WOODEN%20MEMENTO%20%283%29.webp"
+                                alt="Wall Hangings"
+                                onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop'">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🪵 Wall Hangings</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">5</span>
+                            <img class="pb-cat-img" src="/web/image/2476-b5d30483/2.webp" alt="Door Plates"
+                                onerror="this.src='https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop'">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🚪 Door Plates</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">6</span>
+                            <img class="pb-cat-img"
+                                src="/web/image/2475-525f7cf6/USTOMIZED%20WOODEN%20MEMENTO%20%281%29.webp"
+                                alt="Desktops"
+                                onerror="this.src='https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?w=400&h=300&fit=crop'">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🖥️ Desktops</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">7</span>
+                            <img class="pb-cat-img" src="/web/image/2477-7addf313/2.webp" alt="Ring Holders"
+                                onerror="this.src='https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=300&fit=crop'">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">💍 Ring Holders</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">8</span>
+                            <img class="pb-cat-img"
+                                src="/web/image/2661-c8287cca/WhatsApp%20Image%202025-03-14%20at%2012.11.09_d506cd8d.jpg"
+                                alt="Others"
+                                onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&h=300&fit=crop'">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🎁 Others</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ─── TAB: Personalised Products ─── -->
+            <div class="pb-tab-pane" id="pb-tab-personalised">
+                <div class="pb-cat-grid">
+
+                    <a href="/shop/category/corporates-schools-colleges-38" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">1</span>
+                            <img class="pb-cat-img"
+                                src="/web/image/2634-e1c9c348/51Y2jpWtuoL._AC_UF894%2C1000_QL80_.jpg" alt="Corporates">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🏢 Corporates / Schools / Colleges</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/photography-photo-books-album-42" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">2</span>
+                            <img class="pb-cat-img" src="/web/image/2650-b167a3e7/6291bd203135a_266.jpg"
+                                alt="Photo Books">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">📸 Photo Books &amp; Album</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">3</span>
+                            <img class="pb-cat-img"
+                                src="/web/image/2662-80fcc03e/Untitled-1_3a3112e1-be31-41d8-93e6-7808e8c0b47e.webp"
+                                alt="Customised Products">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🎨 Customised Products</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/blank-product-93" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">4</span>
+                            <img class="pb-cat-img"
+                                src="/web/image/2661-c8287cca/WhatsApp%20Image%202025-03-14%20at%2012.11.09_d506cd8d.jpg"
+                                alt="Blank Products">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">📦 Blank Products</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/shop/category/retail-products-43" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">5</span>
+                            <img class="pb-cat-img"
+                                src="/web/image/2664-77c4d266/Untitled-1_3a3112e1-be31-41d8-93e6-7808e8c0b47e.webp"
+                                alt="Retail Products">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🛒 Retail Products</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                    <a href="/photo" class="pb-cat-card">
+                        <div class="pb-cat-img-wrap">
+                            <span class="pb-cat-num">6</span>
+                            <img class="pb-cat-img"
+                                src="/web/image/2619-ce1a6e46/Types-of-Shots-for-Filmmakers-e1641493485327-1024x590.webp"
+                                alt="Photography">
+                        </div>
+                        <div class="pb-cat-body">
+                            <div class="pb-cat-name">🎬 Photography &amp; Videography</div>
+                            <span class="pb-cat-link">Explore →</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
         </div>
-    </div>
+    </section>
+
+    <!-- ════════════════════════════════
+     SECTION 3 — SERVICES (Glassmorphism)
+════════════════════════════════ -->
+    <section class="pb-services">
+        <div class="pb-services-inner">
+            <div style="margin-bottom:50px;" class="pb-reveal">
+                <span class="pb-sec-eyebrow">What We Do</span>
+                <h2 class="pb-sec-title">Our Divisions</h2>
+                <p class="pb-sec-sub">Three powerful wings under the Photorbit brand working together to delight you.
+                </p>
+            </div>
+            <div class="pb-srv-grid">
+                <div class="pb-srv-card pb-reveal">
+                    <div class="pb-srv-icon">📸</div>
+                    <h3>Photorbit Capture</h3>
+                    <p>Premium photography &amp; videography services for weddings, corporate events, product shoots and
+                        more. Every moment, beautifully frozen in time.</p>
+                    <a href="/photo">Learn more →</a>
+                </div>
+                <div class="pb-srv-card pb-reveal" style="transition-delay:0.15s;">
+                    <div class="pb-srv-icon">🎁</div>
+                    <h3>Photorbit Gift</h3>
+                    <p>Curated &amp; customised premium gift items tailored for every occasion — birthdays,
+                        anniversaries, weddings, corporate gifting and more.</p>
+                    <a href="/shop">Explore gifts →</a>
+                </div>
+                <div class="pb-srv-card pb-reveal" style="transition-delay:0.3s;">
+                    <div class="pb-srv-icon">✨</div>
+                    <h3>Photorbit Laser</h3>
+                    <p>Precision laser engraving and cutting for bespoke products. Wooden mementos, crystal trophies,
+                        acrylic plaques crafted with mastery.</p>
+                    <a href="/shop">Our laser products →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════
+     SECTION 4 — GALLERY WALL
+════════════════════════════════ -->
+    <section class="pb-gallery">
+        <div class="pb-gallery-inner">
+            <div style="margin-bottom:50px;text-align:center;" class="pb-reveal">
+                <span class="pb-sec-eyebrow">Portfolio</span>
+                <h2 class="pb-sec-title">Our Work</h2>
+                <p class="pb-sec-sub" style="margin:0 auto;">A glimpse of our finest moments and masterfully crafted
+                    products.</p>
+            </div>
+            <div class="pb-gallery-grid pb-reveal">
+                <a href="/shop" class="pb-gallery-item">
+                    <img src="/web/image/2473-f6ba7607/3.webp" alt="Product 1">
+                    <div class="pb-gallery-overlay">Photo Albums &amp; Frames</div>
+                </a>
+                <a href="/shop" class="pb-gallery-item">
+                    <img src="/web/image/2478-d1ebaf7d/USTOMIZED%20WOODEN%20MEMENTO%20%283%29.webp"
+                        alt="Wooden Memento">
+                    <div class="pb-gallery-overlay">Wooden Mementos</div>
+                </a>
+                <a href="/shop" class="pb-gallery-item">
+                    <img src="/web/image/2475-525f7cf6/USTOMIZED%20WOODEN%20MEMENTO%20%281%29.webp" alt="Memento 2">
+                    <div class="pb-gallery-overlay">Customised Gifts</div>
+                </a>
+                <a href="/shop" class="pb-gallery-item">
+                    <img src="/web/image/2474-21d9159c/2.webp" alt="Product gallery 2">
+                    <div class="pb-gallery-overlay">Premium Frames</div>
+                </a>
+                <a href="/shop" class="pb-gallery-item">
+                    <img src="/web/image/2476-b5d30483/2.webp" alt="Product gallery 3">
+                    <div class="pb-gallery-overlay">Gift Items</div>
+                </a>
+                <a href="/shop" class="pb-gallery-item">
+                    <img src="/web/image/2477-7addf313/2.webp" alt="Product gallery 4">
+                    <div class="pb-gallery-overlay">Exclusive Products</div>
+                </a>
+            </div>
+            <div style="text-align:center;margin-top:50px;" class="pb-reveal">
+                <a href="/shop" class="pb-btn"
+                    style="background:linear-gradient(135deg,#490AB1,#df2a6b);color:#fff!important;font-size:1.1rem;padding:18px 50px;">
+                    View Full Shop →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════
+     SECTION 5 — ABOUT / STORY
+════════════════════════════════ -->
+    <section class="pb-about">
+        <div class="pb-about-inner">
+            <div class="pb-about-text pb-reveal-left">
+                <span class="pb-sec-eyebrow">Our Story</span>
+                <h2 class="pb-sec-title">The Gifted Orchid</h2>
+                <p style="color:#555;font-size:1.1rem;margin-bottom:20px;line-height:1.8;">
+                    In a world where every occasion deserves something extraordinary, <strong>Photorbit</strong> is your
+                    ultimate destination for finding the perfect present. We crafted with care and tailored to touch the
+                    hearts of your loved ones.
+                </p>
+                <p style="color:#555;font-size:1.1rem;margin-bottom:40px;line-height:1.8;">
+                    From our heart to your doorstep, discover the joy of gift-giving with our carefully curated
+                    selection. At our gift shop, you'll always find something special for those who appreciate the
+                    little things in life.
+                </p>
+                <div class="pb-stat-row">
+                    <div class="pb-stat">
+                        <div class="pb-stat-num">500+</div>
+                        <div class="pb-stat-label">Products</div>
+                    </div>
+                    <div class="pb-stat">
+                        <div class="pb-stat-num">10K+</div>
+                        <div class="pb-stat-label">Happy Customers</div>
+                    </div>
+                    <div class="pb-stat">
+                        <div class="pb-stat-num">ISO</div>
+                        <div class="pb-stat-label">9001:2015 Certified</div>
+                    </div>
+                </div>
+                <div style="margin-top:40px;">
+                    <a href="/contactus" class="pb-btn"
+                        style="background:linear-gradient(135deg,#490AB1,#df2a6b);color:#fff!important;">Get Inspired
+                        →</a>
+                </div>
+            </div>
+            <div class="pb-about-media pb-reveal-right">
+                <div class="pb-about-deco"></div>
+                <img src="/web/image/2475-525f7cf6/USTOMIZED%20WOODEN%20MEMENTO%20%281%29.webp"
+                    alt="Customised Gift Product"
+                    onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&h=500&fit=crop'">
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════
+     SECTION 6 — THREE PILLARS
+════════════════════════════════ -->
+    <section class="pb-trio">
+        <div class="pb-trio-inner">
+            <div style="text-align:center;" class="pb-reveal">
+                <span class="pb-sec-eyebrow">Why Choose Us</span>
+                <h2 class="pb-sec-title">Crafted With Love</h2>
+            </div>
+            <div class="pb-trio-grid">
+                <div class="pb-trio-card pb-tc1 pb-reveal">
+                    <div class="pb-trio-icon">🌺</div>
+                    <h3>Premium Quality</h3>
+                    <p>Every product is crafted with exceptional quality materials and precision. ISO 9001:2015
+                        certified manufacturing processes guarantee excellence.</p>
+                </div>
+                <div class="pb-trio-card pb-tc2 pb-reveal" style="transition-delay:0.15s;">
+                    <div class="pb-trio-icon">⚡</div>
+                    <h3>Fast Delivery</h3>
+                    <p>We understand the importance of timely gifting. Same-day and next-day delivery available across
+                        Kolkata for select products.</p>
+                </div>
+                <div class="pb-trio-card pb-tc3 pb-reveal" style="transition-delay:0.3s;">
+                    <div class="pb-trio-icon">💎</div>
+                    <h3>Fully Customised</h3>
+                    <p>Every gift can be personalised to perfection — names, photos, messages. We turn your vision into
+                        a cherished lasting memory.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════
+     SECTION 7 — CTA BAND
+════════════════════════════════ -->
+    <section class="pb-cta">
+        <div class="pb-cta-inner pb-reveal">
+            <h2>At our gift shop, you'll always find something special.</h2>
+            <p>Thousands of premium, customised and ready-made products await you. Explore the complete Photorbit
+                collection and find the perfect gift today.</p>
+            <a href="/shop" class="pb-btn-cta">🛍️ Explore Full Shop</a>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════
+     SECTION 8 — CONTACT STRIP
+════════════════════════════════ -->
+    <section class="pb-contact">
+        <div class="pb-contact-inner">
+            <div class="pb-contact-text pb-reveal-left">
+                <span class="pb-sec-eyebrow">Get In Touch</span>
+                <h3 class="pb-sec-title" style="font-size:2rem;">How can we help?</h3>
+                <div class="pb-contact-meta">
+                    <span>📧 <a href="mailto:info@photorbit.in">info@photorbit.in</a></span>
+                    <span>📞 <a href="tel:+918335932426">83359 32426</a></span>
+                    <span>📞 <a href="tel:+918697815372">8697815372</a></span>
+                    <span style="margin-top:8px;">🚩 Photorbit, Ashiyana Building, Ground Floor,<br>
+                        Bylane 2, Vivekananda Road, Sonarpur,<br>
+                        Kolkata, West Bengal, India. Pin: 700150.</span>
+                </div>
+            </div>
+            <div class="pb-contact-actions pb-reveal-right">
+                <a href="/contactus" class="pb-contact-btn pb-cb-primary">✉️ Send us a Message</a>
+                <a href="https://wa.me/918335932426" class="pb-contact-btn pb-cb-secondary" target="_blank">💬 Chat on
+                    WhatsApp</a>
+                <a href="/shop" class="pb-contact-btn pb-cb-secondary">🛍️ Browse the Shop</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ════════════════════════════════
+     JAVASCRIPT — Tabs + Scroll Reveal
+════════════════════════════════ -->
+    <script>
+        (function () {
+            /* ── Tab switching ── */
+            function pbSwitchTab(evt, id) {
+                if (evt) evt.preventDefault();
+                document.querySelectorAll('#pb-wrap .pb-tab-pane').forEach(function (p) { p.classList.remove('active'); });
+                document.querySelectorAll('#pb-wrap .pb-tab-btn').forEach(function (b) { b.classList.remove('active'); });
+                var pane = document.getElementById('pb-tab-' + id);
+                if (pane) pane.classList.add('active');
+                if (evt && evt.currentTarget) evt.currentTarget.classList.add('active');
+            }
+            window.pbSwitchTab = pbSwitchTab;
+
+            /* ── Scroll reveal (Intersection Observer) ── */
+            var revealClasses = ['.pb-reveal', '.pb-reveal-left', '.pb-reveal-right'];
+            var els = document.querySelectorAll(revealClasses.join(','));
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('pb-visible');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+                els.forEach(function (el) { io.observe(el); });
+            } else {
+                els.forEach(function (el) { el.classList.add('pb-visible'); });
+            }
+        })();
+    </script>
 
 </div>
+<!-- END PHOTORBIT EMBED -->
