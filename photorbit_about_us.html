@@ -1,0 +1,1114 @@
+<!-- ============================================================
+     PHOTORBIT — About Us Page (Odoo Embeddable)
+     Paste this inside a Custom HTML / Embed Code block in Odoo.
+     All CSS/JS is fully scoped to #pb-about-wrap — safe for Odoo.
+     ============================================================ -->
+<div id="pb-about-wrap">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap');
+
+        #pb-about-wrap,
+        #pb-about-wrap * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        #pb-about-wrap {
+            font-family: 'Outfit', sans-serif;
+            color: #1e142e;
+            background: #fff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ── Keyframes ── */
+        @keyframes pba-fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pba-fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes pba-scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.85);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes pba-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-18px);
+            }
+        }
+
+        @keyframes pba-gradientBg {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        @keyframes pba-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(223, 42, 107, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 18px rgba(223, 42, 107, 0);
+            }
+        }
+
+        @keyframes pba-shimmer {
+            0% {
+                background-position: -200% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes pba-countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes pba-slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pba-slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes pba-rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-10deg) scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+        }
+
+        /* ── Scroll Reveal ── */
+        #pb-about-wrap .pba-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.75s cubic-bezier(.22, 1, .36, 1), transform 0.75s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        #pb-about-wrap .pba-reveal.pba-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        #pb-about-wrap .pba-reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.75s, transform 0.75s;
+        }
+
+        #pb-about-wrap .pba-reveal-left.pba-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #pb-about-wrap .pba-reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.75s, transform 0.75s;
+        }
+
+        #pb-about-wrap .pba-reveal-right.pba-visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ─────────── HERO ─────────── */
+        #pb-about-wrap .pba-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(-45deg, #1e142e, #490AB1, #df2a6b, #ff8c42);
+            background-size: 400% 400%;
+            animation: pba-gradientBg 10s ease infinite;
+            overflow: hidden;
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        #pb-about-wrap .pba-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 70% 50%, rgba(255, 255, 255, 0.07) 0%, transparent 60%);
+        }
+
+        #pb-about-wrap .pba-hero-particles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        #pb-about-wrap .pba-hero-particles span {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            animation: pba-float 6s ease-in-out infinite;
+        }
+
+        #pb-about-wrap .pba-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        #pb-about-wrap .pba-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            color: #fff;
+            padding: 10px 26px;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 28px;
+            text-transform: uppercase;
+            animation: pba-fadeIn 1s ease 0.2s both;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #pb-about-wrap .pba-hero h1 {
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 20%, #ffd6e0 60%, #c4b5fd 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: pba-fadeUp 1s ease 0.4s both;
+            filter: drop-shadow(0 4px 24px rgba(255, 255, 255, 0.15));
+        }
+
+        #pb-about-wrap .pba-hero p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 620px;
+            margin: 0 auto 40px;
+            line-height: 1.75;
+            font-weight: 400;
+            animation: pba-fadeUp 1s ease 0.7s both;
+        }
+
+        #pb-about-wrap .pba-hero-scroll {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: pba-fadeIn 2s ease 1.5s both;
+        }
+
+        #pb-about-wrap .pba-hero-scroll::after {
+            content: '';
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
+            animation: pba-float 2s ease-in-out infinite;
+        }
+
+        /* ─────────── SECTION COMMON ─────────── */
+        #pb-about-wrap .pba-section {
+            padding: 90px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        #pb-about-wrap .pba-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #df2a6b;
+            margin-bottom: 14px;
+        }
+
+        #pb-about-wrap .pba-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: #1e142e;
+            margin-bottom: 18px;
+            line-height: 1.15;
+        }
+
+        #pb-about-wrap .pba-sub {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        /* ─────────── OUR STORY ─────────── */
+        #pb-about-wrap .pba-story {
+            padding: 90px 40px;
+            background: #f8f4ff;
+        }
+
+        #pb-about-wrap .pba-story-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        #pb-about-wrap .pba-story-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        #pb-about-wrap .pba-story-text p {
+            color: #555;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        #pb-about-wrap .pba-story-media {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+
+        #pb-about-wrap .pba-story-media img {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 30px 70px rgba(73, 10, 177, 0.2);
+        }
+
+        #pb-about-wrap .pba-story-deco {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #df2a6b, #490AB1);
+            opacity: 0.1;
+            z-index: -1;
+            animation: pba-float 6s ease-in-out infinite;
+        }
+
+        /* ─────────── STATS BAND ─────────── */
+        #pb-about-wrap .pba-stats {
+            background: linear-gradient(145deg, #0d0820, #1e142e 40%, #490AB1 100%);
+            padding: 80px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #pb-about-wrap .pba-stats::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(223, 42, 107, 0.15), transparent 70%);
+        }
+
+        #pb-about-wrap .pba-stats-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        #pb-about-wrap .pba-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        #pb-about-wrap .pba-stat-card {
+            padding: 30px 20px;
+        }
+
+        #pb-about-wrap .pba-stat-num {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, #ffd6e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+
+        #pb-about-wrap .pba-stat-label {
+            font-size: 0.95rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* ─────────── MISSION / VISION / VALUES ─────────── */
+        #pb-about-wrap .pba-mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        #pb-about-wrap .pba-mvv-card {
+            border-radius: 28px;
+            padding: 48px 36px;
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(.22, 1, .36, 1), box-shadow 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #pb-about-wrap .pba-mvv-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 24px 60px rgba(73, 10, 177, 0.12);
+        }
+
+        #pb-about-wrap .pba-mc1 {
+            background: linear-gradient(135deg, #fff5f8, #ffe0ec);
+        }
+
+        #pb-about-wrap .pba-mc2 {
+            background: linear-gradient(135deg, #f3f0ff, #e5daff);
+        }
+
+        #pb-about-wrap .pba-mc3 {
+            background: linear-gradient(135deg, #fff8f0, #ffe8cc);
+        }
+
+        #pb-about-wrap .pba-mvv-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        #pb-about-wrap .pba-mvv-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #1e142e;
+            margin-bottom: 12px;
+        }
+
+        #pb-about-wrap .pba-mvv-card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        /* ─────────── DIVISIONS ─────────── */
+        #pb-about-wrap .pba-divisions {
+            background: linear-gradient(145deg, #0d0820, #1e142e 40%, #490AB1 100%);
+            padding: 100px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #pb-about-wrap .pba-divisions::before {
+            content: '';
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 140, 66, 0.1), transparent 70%);
+        }
+
+        #pb-about-wrap .pba-divisions-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        #pb-about-wrap .pba-divisions .pba-eyebrow {
+            color: #f7c6ce;
+        }
+
+        #pb-about-wrap .pba-divisions .pba-title {
+            color: #fff;
+        }
+
+        #pb-about-wrap .pba-divisions .pba-sub {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        #pb-about-wrap .pba-div-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        #pb-about-wrap .pba-div-card {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid rgba(223, 42, 107, 0.6);
+            border-radius: 24px;
+            padding: 44px 34px;
+            color: #fff;
+            transition: transform 0.4s cubic-bezier(.22, 1, .36, 1), background 0.3s;
+        }
+
+        #pb-about-wrap .pba-div-card:nth-child(2) {
+            border-top-color: rgba(73, 10, 177, 0.7);
+        }
+
+        #pb-about-wrap .pba-div-card:nth-child(3) {
+            border-top-color: rgba(255, 140, 66, 0.7);
+        }
+
+        #pb-about-wrap .pba-div-card:hover {
+            background: rgba(255, 255, 255, 0.11);
+            transform: translateY(-10px);
+        }
+
+        #pb-about-wrap .pba-div-icon {
+            font-size: 3.2rem;
+            margin-bottom: 22px;
+            display: block;
+        }
+
+        #pb-about-wrap .pba-div-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 14px;
+        }
+
+        #pb-about-wrap .pba-div-card p {
+            color: rgba(255, 255, 255, 0.68);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* ─────────── TIMELINE ─────────── */
+        #pb-about-wrap .pba-timeline-section {
+            padding: 90px 40px;
+            background: #fff;
+        }
+
+        #pb-about-wrap .pba-timeline-inner {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        #pb-about-wrap .pba-timeline {
+            position: relative;
+            padding-left: 60px;
+        }
+
+        #pb-about-wrap .pba-timeline::before {
+            content: '';
+            position: absolute;
+            left: 22px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #df2a6b, #490AB1, #ff8c42);
+            border-radius: 3px;
+        }
+
+        #pb-about-wrap .pba-tl-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+
+        #pb-about-wrap .pba-tl-item:last-child {
+            margin-bottom: 0;
+        }
+
+        #pb-about-wrap .pba-tl-dot {
+            position: absolute;
+            left: -60px;
+            top: 0;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #df2a6b, #490AB1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 0.85rem;
+            box-shadow: 0 6px 20px rgba(223, 42, 107, 0.4);
+            z-index: 1;
+        }
+
+        #pb-about-wrap .pba-tl-content {
+            background: #f8f4ff;
+            border-radius: 20px;
+            padding: 28px 32px;
+            border: 1.5px solid rgba(73, 10, 177, 0.08);
+            box-shadow: 0 4px 20px rgba(73, 10, 177, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s;
+        }
+
+        #pb-about-wrap .pba-tl-content:hover {
+            transform: translateX(8px);
+            box-shadow: 0 12px 36px rgba(73, 10, 177, 0.12);
+        }
+
+        #pb-about-wrap .pba-tl-year {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #df2a6b;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        #pb-about-wrap .pba-tl-content h4 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #1e142e;
+            margin-bottom: 8px;
+        }
+
+        #pb-about-wrap .pba-tl-content p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* ─────────── VALUES PILLS ─────────── */
+        #pb-about-wrap .pba-values-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        #pb-about-wrap .pba-vpill {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            background: #fff;
+            border: 1.5px solid rgba(73, 10, 177, 0.12);
+            color: #1e142e;
+            box-shadow: 0 2px 12px rgba(73, 10, 177, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        #pb-about-wrap .pba-vpill:hover {
+            border-color: #df2a6b;
+            color: #df2a6b;
+            box-shadow: 0 6px 20px rgba(223, 42, 107, 0.12);
+            transform: translateY(-3px);
+        }
+
+        /* ─────────── CTA ─────────── */
+        #pb-about-wrap .pba-cta {
+            padding: 90px 40px;
+            background: linear-gradient(-45deg, #df2a6b, #490AB1, #1e142e, #ff6a95);
+            background-size: 300% 300%;
+            animation: pba-gradientBg 8s ease infinite;
+            text-align: center;
+        }
+
+        #pb-about-wrap .pba-cta-inner {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        #pb-about-wrap .pba-cta h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        #pb-about-wrap .pba-cta p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.15rem;
+            margin-bottom: 40px;
+        }
+
+        #pb-about-wrap .pba-cta-btn {
+            background: #fff;
+            color: #490AB1 !important;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            text-decoration: none !important;
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease;
+            display: inline-block;
+            animation: pba-pulse 2s infinite;
+        }
+
+        #pb-about-wrap .pba-cta-btn:hover {
+            transform: scale(1.06);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        /* ─────────── CONTACT ─────────── */
+        #pb-about-wrap .pba-contact {
+            padding: 70px 40px;
+            background: #f8f4ff;
+        }
+
+        #pb-about-wrap .pba-contact-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        #pb-about-wrap .pba-contact-text {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        #pb-about-wrap .pba-contact-text h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        #pb-about-wrap .pba-contact-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            font-size: 1.05rem;
+            color: #444;
+        }
+
+        #pb-about-wrap .pba-contact-meta a {
+            color: #490AB1 !important;
+            text-decoration: none !important;
+            font-weight: 600;
+        }
+
+        #pb-about-wrap .pba-contact-actions {
+            flex: 1;
+            min-width: 240px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        #pb-about-wrap .pba-contact-btn {
+            display: block;
+            padding: 16px 32px;
+            border-radius: 14px;
+            text-align: center;
+            font-weight: 700;
+            text-decoration: none !important;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #pb-about-wrap .pba-cb-primary {
+            background: linear-gradient(135deg, #490AB1, #df2a6b);
+            color: #fff !important;
+        }
+
+        #pb-about-wrap .pba-cb-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(73, 10, 177, 0.3);
+        }
+
+        #pb-about-wrap .pba-cb-secondary {
+            background: #fff;
+            color: #490AB1 !important;
+            border: 2px solid rgba(73, 10, 177, 0.2);
+        }
+
+        #pb-about-wrap .pba-cb-secondary:hover {
+            border-color: #490AB1;
+            transform: translateY(-3px);
+        }
+
+        /* ─────────── RESPONSIVE ─────────── */
+        @media(max-width:768px) {
+            #pb-about-wrap .pba-hero {
+                padding: 80px 20px 100px;
+            }
+
+            #pb-about-wrap .pba-section,
+            #pb-about-wrap .pba-story,
+            #pb-about-wrap .pba-divisions,
+            #pb-about-wrap .pba-timeline-section,
+            #pb-about-wrap .pba-cta,
+            #pb-about-wrap .pba-contact,
+            #pb-about-wrap .pba-stats {
+                padding: 60px 20px;
+            }
+
+            #pb-about-wrap .pba-story-inner,
+            #pb-about-wrap .pba-contact-inner {
+                flex-direction: column;
+            }
+
+            #pb-about-wrap .pba-story-deco {
+                display: none;
+            }
+
+            #pb-about-wrap .pba-timeline {
+                padding-left: 50px;
+            }
+
+            #pb-about-wrap .pba-tl-dot {
+                left: -50px;
+                width: 38px;
+                height: 38px;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+
+    <!-- ═══════ HERO ═══════ -->
+    <section class="pba-hero">
+        <div class="pba-hero-particles">
+            <span style="width:80px;height:80px;top:10%;left:8%;animation-delay:0s;"></span>
+            <span style="width:40px;height:40px;top:20%;right:12%;animation-delay:1s;"></span>
+            <span style="width:60px;height:60px;bottom:20%;left:15%;animation-delay:2s;"></span>
+            <span style="width:100px;height:100px;top:50%;left:3%;animation-delay:3s;opacity:0.07;"></span>
+            <span style="width:50px;height:50px;top:70%;right:20%;animation-delay:1.5s;"></span>
+        </div>
+        <div class="pba-hero-content">
+            <div class="pba-hero-badge">🏆 ISO 9001:2015 Certified</div>
+            <h1>About PHOTORBIT</h1>
+            <p>Crafting premium gift products, personalised keepsakes, and capturing life's most beautiful moments —
+                from our heart to your doorstep since day one.</p>
+        </div>
+        <div class="pba-hero-scroll">Scroll to explore</div>
+    </section>
+
+    <!-- ═══════ OUR STORY ═══════ -->
+    <section class="pba-story">
+        <div class="pba-story-inner">
+            <div class="pba-story-text pba-reveal-left">
+                <span class="pba-eyebrow">Our Story</span>
+                <h2 class="pba-title">The Heart Behind Photorbit</h2>
+                <p>In a world where every occasion deserves something extraordinary, <strong>Photorbit</strong> was born
+                    from a simple idea — to make gifting deeply personal, beautifully crafted, and unforgettable.</p>
+                <p>What started as a small workshop in Sonarpur, Kolkata, has grown into a trusted name for premium
+                    photo albums, customised gift items, laser-engraved mementos, and professional photography services.
+                </p>
+                <p>Every product that leaves our workshop carries a piece of our heart. We don't just make gifts — we
+                    create moments that people cherish forever. From the finest materials to meticulous craftsmanship,
+                    quality is woven into everything we do.</p>
+            </div>
+            <div class="pba-story-media pba-reveal-right">
+                <div class="pba-story-deco"></div>
+                <img src="/web/image/2475-525f7cf6/USTOMIZED%20WOODEN%20MEMENTO%20%281%29.webp"
+                    alt="Photorbit Craftsmanship"
+                    onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&h=500&fit=crop'">
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ STATS ═══════ -->
+    <section class="pba-stats">
+        <div class="pba-stats-inner">
+            <div class="pba-stats-grid">
+                <div class="pba-stat-card pba-reveal">
+                    <div class="pba-stat-num">500+</div>
+                    <div class="pba-stat-label">Products</div>
+                </div>
+                <div class="pba-stat-card pba-reveal" style="transition-delay:0.1s;">
+                    <div class="pba-stat-num">10K+</div>
+                    <div class="pba-stat-label">Happy Customers</div>
+                </div>
+                <div class="pba-stat-card pba-reveal" style="transition-delay:0.2s;">
+                    <div class="pba-stat-num">ISO</div>
+                    <div class="pba-stat-label">9001:2015 Certified</div>
+                </div>
+                <div class="pba-stat-card pba-reveal" style="transition-delay:0.3s;">
+                    <div class="pba-stat-num">3</div>
+                    <div class="pba-stat-label">Business Divisions</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ MISSION / VISION / VALUES ═══════ -->
+    <section class="pba-section">
+        <div style="text-align:center;" class="pba-reveal">
+            <span class="pba-eyebrow">What Drives Us</span>
+            <h2 class="pba-title">Mission, Vision & Values</h2>
+        </div>
+        <div class="pba-mvv-grid">
+            <div class="pba-mvv-card pba-mc1 pba-reveal">
+                <div class="pba-mvv-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>To deliver premium, personalised gift products and photography services at accessible prices — making
+                    every occasion unforgettable with quality craftsmanship and heartfelt design.</p>
+            </div>
+            <div class="pba-mvv-card pba-mc2 pba-reveal" style="transition-delay:0.15s;">
+                <div class="pba-mvv-icon">🔭</div>
+                <h3>Our Vision</h3>
+                <p>To become India's most loved gifting and photography brand — known for innovation, personalisation,
+                    and the joy of creating lasting memories for every family and business.</p>
+            </div>
+            <div class="pba-mvv-card pba-mc3 pba-reveal" style="transition-delay:0.3s;">
+                <div class="pba-mvv-icon">💎</div>
+                <h3>Our Values</h3>
+                <p>Quality over quantity. Creativity in every product. Customer delight at every touchpoint. We believe
+                    that the best gifts are the ones made with love, precision, and a personal touch.</p>
+            </div>
+        </div>
+        <div class="pba-values-pills pba-reveal">
+            <span class="pba-vpill">🌺 Premium Quality</span>
+            <span class="pba-vpill">🎨 Creative Design</span>
+            <span class="pba-vpill">⚡ Fast Delivery</span>
+            <span class="pba-vpill">🤝 Customer First</span>
+            <span class="pba-vpill">🔒 Trust & Integrity</span>
+            <span class="pba-vpill">♻️ Sustainable Craft</span>
+        </div>
+    </section>
+
+    <!-- ═══════ OUR JOURNEY TIMELINE ═══════ -->
+    <section class="pba-timeline-section">
+        <div class="pba-timeline-inner">
+            <div style="text-align:center;margin-bottom:50px;" class="pba-reveal">
+                <span class="pba-eyebrow">Our Journey</span>
+                <h2 class="pba-title">Milestones That Define Us</h2>
+                <p class="pba-sub" style="margin:0 auto;">From a small idea to a flourishing brand — every step has been
+                    a labour of love.</p>
+            </div>
+            <div class="pba-timeline">
+                <div class="pba-tl-item pba-reveal">
+                    <div class="pba-tl-dot">🌱</div>
+                    <div class="pba-tl-content">
+                        <div class="pba-tl-year">The Beginning</div>
+                        <h4>Photorbit Was Born</h4>
+                        <p>Started as a small photo studio and gift shop in Sonarpur, Kolkata, with a dream to make
+                            gifting more personal and meaningful.</p>
+                    </div>
+                </div>
+                <div class="pba-tl-item pba-reveal" style="transition-delay:0.1s;">
+                    <div class="pba-tl-dot">📸</div>
+                    <div class="pba-tl-content">
+                        <div class="pba-tl-year">Expansion</div>
+                        <h4>Photography Division Launched</h4>
+                        <p>Photorbit Capture was born — offering professional photography & videography services for
+                            weddings, events, and corporate functions.</p>
+                    </div>
+                </div>
+                <div class="pba-tl-item pba-reveal" style="transition-delay:0.2s;">
+                    <div class="pba-tl-dot">✨</div>
+                    <div class="pba-tl-content">
+                        <div class="pba-tl-year">Innovation</div>
+                        <h4>Laser Engraving Studio</h4>
+                        <p>Photorbit Laser was established — precision laser engraving & cutting for bespoke wooden
+                            mementos, crystal trophies, and acrylic plaques.</p>
+                    </div>
+                </div>
+                <div class="pba-tl-item pba-reveal" style="transition-delay:0.3s;">
+                    <div class="pba-tl-dot">🏆</div>
+                    <div class="pba-tl-content">
+                        <div class="pba-tl-year">Certification</div>
+                        <h4>ISO 9001:2015 Certified</h4>
+                        <p>Achieved ISO certification, ensuring world-class quality standards across all our
+                            manufacturing processes and customer service operations.</p>
+                    </div>
+                </div>
+                <div class="pba-tl-item pba-reveal" style="transition-delay:0.4s;">
+                    <div class="pba-tl-dot">🚀</div>
+                    <div class="pba-tl-content">
+                        <div class="pba-tl-year">Today</div>
+                        <h4>Going Digital & Pan-India</h4>
+                        <p>Launched our online store, expanded delivery across India, and continuing to innovate with
+                            500+ products, 10K+ happy customers, and growing every day.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ THREE DIVISIONS ═══════ -->
+    <section class="pba-divisions">
+        <div class="pba-divisions-inner">
+            <div style="margin-bottom:50px;" class="pba-reveal">
+                <span class="pba-eyebrow">Our Wings</span>
+                <h2 class="pba-title">Three Powerful Divisions</h2>
+                <p class="pba-sub">Under the Photorbit umbrella, three specialised divisions work together to deliver
+                    excellence.</p>
+            </div>
+            <div class="pba-div-grid">
+                <div class="pba-div-card pba-reveal">
+                    <div class="pba-div-icon">📸</div>
+                    <h3>Photorbit Capture</h3>
+                    <p>Premium photography & videography services for weddings, corporate events, product shoots and
+                        more. Every moment, beautifully frozen in time with artistic precision.</p>
+                </div>
+                <div class="pba-div-card pba-reveal" style="transition-delay:0.15s;">
+                    <div class="pba-div-icon">🎁</div>
+                    <h3>Photorbit Gift</h3>
+                    <p>Curated & customised premium gift items for every occasion — fridge magnets, photo frames,
+                        devotional items, desk organisers, ring holders, and much more.</p>
+                </div>
+                <div class="pba-div-card pba-reveal" style="transition-delay:0.3s;">
+                    <div class="pba-div-icon">✨</div>
+                    <h3>Photorbit Laser</h3>
+                    <p>Precision laser engraving and cutting for bespoke products. Wooden mementos, crystal trophies,
+                        acrylic plaques — crafted with mastery and attention to every detail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ CTA ═══════ -->
+    <section class="pba-cta">
+        <div class="pba-cta-inner pba-reveal">
+            <h2>Ready to create something special?</h2>
+            <p>Whether it's a personalised gift, a professional photoshoot, or a stunning laser-engraved memento — we're
+                here to make it happen.</p>
+            <a href="/shop" class="pba-cta-btn">🛍️ Explore Our Shop</a>
+        </div>
+    </section>
+
+    <!-- ═══════ CONTACT ═══════ -->
+    <section class="pba-contact">
+        <div class="pba-contact-inner">
+            <div class="pba-contact-text pba-reveal-left">
+                <span class="pba-eyebrow">Get In Touch</span>
+                <h3 class="pba-title" style="font-size:2rem;">Visit Us or Say Hello</h3>
+                <div class="pba-contact-meta">
+                    <span>📧 <a href="mailto:info@photorbit.in">info@photorbit.in</a></span>
+                    <span>📞 <a href="tel:+918335932426">83359 32426</a></span>
+                    <span>📞 <a href="tel:+918697815372">8697815372</a></span>
+                    <span style="margin-top:8px;">🚩 Photorbit, Ashiyana Building, Ground Floor,<br>
+                        Bylane 2, Vivekananda Road, Sonarpur,<br>
+                        Kolkata, West Bengal, India. Pin: 700150.</span>
+                </div>
+            </div>
+            <div class="pba-contact-actions pba-reveal-right">
+                <a href="/contactus" class="pba-contact-btn pba-cb-primary">✉️ Send us a Message</a>
+                <a href="https://wa.me/918335932426" class="pba-contact-btn pba-cb-secondary" target="_blank">💬 Chat on
+                    WhatsApp</a>
+                <a href="/" class="pba-contact-btn pba-cb-secondary">🏠 Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════ JAVASCRIPT ═══════ -->
+    <script>
+        (function () {
+            var revealClasses = ['.pba-reveal', '.pba-reveal-left', '.pba-reveal-right'];
+            var els = document.querySelectorAll('#pb-about-wrap ' + revealClasses.join(',#pb-about-wrap '));
+            if ('IntersectionObserver' in window) {
+                var io = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('pba-visible');
+                            io.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.12 });
+                els.forEach(function (el) { io.observe(el); });
+            } else {
+                els.forEach(function (el) { el.classList.add('pba-visible'); });
+            }
+        })();
+    </script>
+
+</div>
+<!-- END PHOTORBIT ABOUT US EMBED -->
