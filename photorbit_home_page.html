@@ -1293,6 +1293,280 @@
             font-size: 1rem;
         }
 
+        /* ─────────────── SUBCATEGORY DRAWER ─────────────── */
+        #pb-wrap .pb-subcat-drawer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.65s cubic-bezier(.22, 1, .36, 1), opacity 0.4s ease, margin 0.5s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        #pb-wrap .pb-subcat-drawer.pb-drawer-open {
+            max-height: 1200px;
+            opacity: 1;
+            margin-top: 50px;
+        }
+
+        #pb-wrap .pb-subcat-panel {
+            display: none;
+            animation: pb-fadeUp 0.5s ease both;
+        }
+
+        #pb-wrap .pb-subcat-panel.active {
+            display: block;
+        }
+
+        #pb-wrap .pb-subcat-header {
+            background: linear-gradient(135deg, #1e142e 0%, #490AB1 60%, #df2a6b 100%);
+            border-radius: 24px 24px 0 0;
+            padding: 36px 40px 28px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #pb-wrap .pb-subcat-header::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        #pb-wrap .pb-subcat-header::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: 30%;
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: rgba(255, 140, 66, 0.1);
+        }
+
+        #pb-wrap .pb-subcat-header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
+
+        #pb-wrap .pb-subcat-header h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #pb-wrap .pb-subcat-header p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 8px;
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        #pb-wrap .pb-subcat-close {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-family: 'Outfit', sans-serif;
+            flex-shrink: 0;
+        }
+
+        #pb-wrap .pb-subcat-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(90deg) scale(1.1);
+        }
+
+        #pb-wrap .pb-subcat-body {
+            background: linear-gradient(180deg, #f8f4ff 0%, #fff 100%);
+            border: 2px solid rgba(73, 10, 177, 0.1);
+            border-top: none;
+            border-radius: 0 0 24px 24px;
+            padding: 36px 40px 44px;
+        }
+
+        #pb-wrap .pb-subcat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 18px;
+        }
+
+        @keyframes pb-chipIn {
+            from {
+                opacity: 0;
+                transform: translateY(24px) scale(0.92);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        #pb-wrap .pb-subcat-chip {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 20px 24px;
+            background: #fff;
+            border-radius: 18px;
+            border: 1.5px solid rgba(73, 10, 177, 0.08);
+            box-shadow: 0 4px 16px rgba(73, 10, 177, 0.06);
+            text-decoration: none !important;
+            color: #1e142e !important;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.35s cubic-bezier(.22, 1, .36, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: pb-chipIn 0.5s ease both;
+        }
+
+        #pb-wrap .pb-subcat-chip:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        #pb-wrap .pb-subcat-chip:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        #pb-wrap .pb-subcat-chip:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        #pb-wrap .pb-subcat-chip:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        #pb-wrap .pb-subcat-chip:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        #pb-wrap .pb-subcat-chip:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        #pb-wrap .pb-subcat-chip:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+
+        #pb-wrap .pb-subcat-chip:nth-child(8) {
+            animation-delay: 0.4s;
+        }
+
+        #pb-wrap .pb-subcat-chip::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #f0ecff, #ffe0ec);
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 18px;
+        }
+
+        #pb-wrap .pb-subcat-chip:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 16px 40px rgba(73, 10, 177, 0.15);
+            border-color: rgba(223, 42, 107, 0.3);
+        }
+
+        #pb-wrap .pb-subcat-chip:hover::before {
+            opacity: 1;
+        }
+
+        #pb-wrap .pb-subcat-chip-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #f0ecff, #ffe0ec);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        #pb-wrap .pb-subcat-chip:hover .pb-subcat-chip-icon {
+            background: linear-gradient(135deg, #df2a6b, #490AB1);
+            transform: scale(1.08);
+            box-shadow: 0 6px 20px rgba(223, 42, 107, 0.35);
+        }
+
+        #pb-wrap .pb-subcat-chip-text {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        #pb-wrap .pb-subcat-chip-name {
+            font-size: 0.98rem;
+            font-weight: 700;
+            color: #1e142e;
+            line-height: 1.3;
+        }
+
+        #pb-wrap .pb-subcat-chip-arrow {
+            font-size: 0.82rem;
+            color: #490AB1;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateX(-6px);
+            transition: all 0.3s ease;
+        }
+
+        #pb-wrap .pb-subcat-chip:hover .pb-subcat-chip-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        #pb-wrap .pb-subcat-explore-all {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 28px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, #490AB1, #df2a6b);
+            color: #fff !important;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 50px;
+            text-decoration: none !important;
+            transition: all 0.35s ease;
+            box-shadow: 0 8px 28px rgba(73, 10, 177, 0.3);
+        }
+
+        #pb-wrap .pb-subcat-explore-all:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 14px 40px rgba(73, 10, 177, 0.4);
+        }
+
         /* ─────────────── RESPONSIVE ─────────────── */
         @media(max-width:768px) {
             #pb-wrap .pb-hero {
@@ -1326,6 +1600,27 @@
 
             #pb-wrap .pb-hero-title {
                 letter-spacing: -1px;
+            }
+
+            #pb-wrap .pb-subcat-header {
+                padding: 28px 20px 22px;
+            }
+
+            #pb-wrap .pb-subcat-header h3 {
+                font-size: 1.3rem;
+            }
+
+            #pb-wrap .pb-subcat-body {
+                padding: 24px 20px 32px;
+            }
+
+            #pb-wrap .pb-subcat-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            #pb-wrap .pb-subcat-chip {
+                padding: 16px 18px;
             }
         }
     </style>
@@ -1414,7 +1709,7 @@
                 </div>
                 <div class="pb-cat-grid">
 
-                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                    <a href="javascript:void(0)" onclick="pbOpenSubcat(event,0)" class="pb-cat-card">
                         <div class="pb-cat-img-wrap">
                             <span class="pb-cat-num">1</span>
                             <img class="pb-cat-img"
@@ -1428,7 +1723,7 @@
                         </div>
                     </a>
 
-                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                    <a href="javascript:void(0)" onclick="pbOpenSubcat(event,1)" class="pb-cat-card">
                         <div class="pb-cat-img-wrap">
                             <span class="pb-cat-num">2</span>
                             <img class="pb-cat-img" src="/web/image/2473-f6ba7607/3.webp" alt="Devotional"
@@ -1440,7 +1735,7 @@
                         </div>
                     </a>
 
-                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                    <a href="javascript:void(0)" onclick="pbOpenSubcat(event,2)" class="pb-cat-card">
                         <div class="pb-cat-img-wrap">
                             <span class="pb-cat-num">3</span>
                             <img class="pb-cat-img" src="/web/image/2474-21d9159c/2.webp" alt="Photo Frames"
@@ -1452,7 +1747,7 @@
                         </div>
                     </a>
 
-                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                    <a href="javascript:void(0)" onclick="pbOpenSubcat(event,3)" class="pb-cat-card">
                         <div class="pb-cat-img-wrap">
                             <span class="pb-cat-num">4</span>
                             <img class="pb-cat-img"
@@ -1466,7 +1761,7 @@
                         </div>
                     </a>
 
-                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                    <a href="javascript:void(0)" onclick="pbOpenSubcat(event,4)" class="pb-cat-card">
                         <div class="pb-cat-img-wrap">
                             <span class="pb-cat-num">5</span>
                             <img class="pb-cat-img" src="/web/image/2476-b5d30483/2.webp" alt="Door Plates"
@@ -1478,7 +1773,7 @@
                         </div>
                     </a>
 
-                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                    <a href="javascript:void(0)" onclick="pbOpenSubcat(event,5)" class="pb-cat-card">
                         <div class="pb-cat-img-wrap">
                             <span class="pb-cat-num">6</span>
                             <img class="pb-cat-img"
@@ -1492,7 +1787,7 @@
                         </div>
                     </a>
 
-                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                    <a href="javascript:void(0)" onclick="pbOpenSubcat(event,6)" class="pb-cat-card">
                         <div class="pb-cat-img-wrap">
                             <span class="pb-cat-num">7</span>
                             <img class="pb-cat-img" src="/web/image/2477-7addf313/2.webp" alt="Ring Holders"
@@ -1504,7 +1799,7 @@
                         </div>
                     </a>
 
-                    <a href="/shop/category/special-categories-22" class="pb-cat-card">
+                    <a href="javascript:void(0)" onclick="pbOpenSubcat(event,7)" class="pb-cat-card">
                         <div class="pb-cat-img-wrap">
                             <span class="pb-cat-num">8</span>
                             <img class="pb-cat-img"
@@ -1517,6 +1812,380 @@
                             <span class="pb-cat-link">Explore →</span>
                         </div>
                     </a>
+
+                </div>
+
+                <!-- ═══════ SUBCATEGORY DRAWER ═══════ -->
+                <div class="pb-subcat-drawer" id="pb-subcat-drawer">
+
+                    <!-- ── 0: Fridge / Almirah Magnets ── -->
+                    <div class="pb-subcat-panel" data-subcat="0">
+                        <div class="pb-subcat-header">
+                            <div class="pb-subcat-header-top">
+                                <div>
+                                    <h3>🧲 Fridge / Almirah Magnets</h3>
+                                    <p>Explore our exquisite range of decorative magnets</p>
+                                </div>
+                                <button class="pb-subcat-close" onclick="pbCloseSubcat()">✕</button>
+                            </div>
+                        </div>
+                        <div class="pb-subcat-body">
+                            <div class="pb-subcat-grid">
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🙏</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">God & Goddess</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🍕</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Foods</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">👤</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Personalities</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🎨</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Cartoons</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🏷️</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Logos</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">💬</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Quotes</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">✈️</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Tour Destinations</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🎁</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Others</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="/shop/category/special-categories-22" class="pb-subcat-explore-all">🧲 Explore All
+                                Fridge Magnets →</a>
+                        </div>
+                    </div>
+
+                    <!-- ── 1: Devotional ── -->
+                    <div class="pb-subcat-panel" data-subcat="1">
+                        <div class="pb-subcat-header">
+                            <div class="pb-subcat-header-top">
+                                <div>
+                                    <h3>🙏 Devotional</h3>
+                                    <p>Sacred & spiritual products crafted with devotion</p>
+                                </div>
+                                <button class="pb-subcat-close" onclick="pbCloseSubcat()">✕</button>
+                            </div>
+                        </div>
+                        <div class="pb-subcat-body">
+                            <div class="pb-subcat-grid">
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🛕</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Singhashan / Puja Room</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🛏️</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Gopal Bed</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🎠</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Gopal Jhula</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🖼️</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">God/Goddess Wall Decor</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="/shop/category/special-categories-22" class="pb-subcat-explore-all">🙏 Explore All
+                                Devotional →</a>
+                        </div>
+                    </div>
+
+                    <!-- ── 2: Photo Frames ── -->
+                    <div class="pb-subcat-panel" data-subcat="2">
+                        <div class="pb-subcat-header">
+                            <div class="pb-subcat-header-top">
+                                <div>
+                                    <h3>🖼️ Photo Frames</h3>
+                                    <p>Beautifully crafted frames to treasure every memory</p>
+                                </div>
+                                <button class="pb-subcat-close" onclick="pbCloseSubcat()">✕</button>
+                            </div>
+                        </div>
+                        <div class="pb-subcat-body">
+                            <div class="pb-subcat-grid">
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🏔️</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Kashmiri Photo Frames</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🔊</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Audio Photo Frames</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🧲</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Magnetic Frames</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🎉</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Occasional Frames</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="/shop/category/special-categories-22" class="pb-subcat-explore-all">🖼️ Explore All
+                                Photo Frames →</a>
+                        </div>
+                    </div>
+
+                    <!-- ── 3: Wall Hangings ── -->
+                    <div class="pb-subcat-panel" data-subcat="3">
+                        <div class="pb-subcat-header">
+                            <div class="pb-subcat-header-top">
+                                <div>
+                                    <h3>🪵 Wall Hangings</h3>
+                                    <p>Stunning wall art & decorative hangings for every space</p>
+                                </div>
+                                <button class="pb-subcat-close" onclick="pbCloseSubcat()">✕</button>
+                            </div>
+                        </div>
+                        <div class="pb-subcat-body">
+                            <div class="pb-subcat-grid">
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🎨</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Decorative Wall Hangings</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🪵</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Wooden Wall Art</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">✨</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Laser Cut Hangings</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="/shop/category/special-categories-22" class="pb-subcat-explore-all">🪵 Explore All
+                                Wall Hangings →</a>
+                        </div>
+                    </div>
+
+                    <!-- ── 4: Door Plates ── -->
+                    <div class="pb-subcat-panel" data-subcat="4">
+                        <div class="pb-subcat-header">
+                            <div class="pb-subcat-header-top">
+                                <div>
+                                    <h3>🚪 Door Plates</h3>
+                                    <p>Personalised name plates & door signs for homes & offices</p>
+                                </div>
+                                <button class="pb-subcat-close" onclick="pbCloseSubcat()">✕</button>
+                            </div>
+                        </div>
+                        <div class="pb-subcat-body">
+                            <div class="pb-subcat-grid">
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🏠</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Home Name Plates</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🏢</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Office Door Signs</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">✨</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Designer Plates</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="/shop/category/special-categories-22" class="pb-subcat-explore-all">🚪 Explore All
+                                Door Plates →</a>
+                        </div>
+                    </div>
+
+                    <!-- ── 5: Desktops ── -->
+                    <div class="pb-subcat-panel" data-subcat="5">
+                        <div class="pb-subcat-header">
+                            <div class="pb-subcat-header-top">
+                                <div>
+                                    <h3>🖥️ Desktops</h3>
+                                    <p>Premium desktop accessories & organisers</p>
+                                </div>
+                                <button class="pb-subcat-close" onclick="pbCloseSubcat()">✕</button>
+                            </div>
+                        </div>
+                        <div class="pb-subcat-body">
+                            <div class="pb-subcat-grid">
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">📅</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Lifetime Calendar</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">📋</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Organiser</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🖊️</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Pen Stand</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="/shop/category/special-categories-22" class="pb-subcat-explore-all">🖥️ Explore All
+                                Desktops →</a>
+                        </div>
+                    </div>
+
+                    <!-- ── 6: Ring Holders ── -->
+                    <div class="pb-subcat-panel" data-subcat="6">
+                        <div class="pb-subcat-header">
+                            <div class="pb-subcat-header-top">
+                                <div>
+                                    <h3>💍 Ring Holders</h3>
+                                    <p>Elegant ring holders & jewellery organisers</p>
+                                </div>
+                                <button class="pb-subcat-close" onclick="pbCloseSubcat()">✕</button>
+                            </div>
+                        </div>
+                        <div class="pb-subcat-body">
+                            <div class="pb-subcat-grid">
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">💍</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Wedding Ring Holders</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">💎</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Jewellery Organisers</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🎀</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Decorative Holders</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="/shop/category/special-categories-22" class="pb-subcat-explore-all">💍 Explore All
+                                Ring Holders →</a>
+                        </div>
+                    </div>
+
+                    <!-- ── 7: Others ── -->
+                    <div class="pb-subcat-panel" data-subcat="7">
+                        <div class="pb-subcat-header">
+                            <div class="pb-subcat-header-top">
+                                <div>
+                                    <h3>🎁 Others</h3>
+                                    <p>Unique & exclusive gift items for every occasion</p>
+                                </div>
+                                <button class="pb-subcat-close" onclick="pbCloseSubcat()">✕</button>
+                            </div>
+                        </div>
+                        <div class="pb-subcat-body">
+                            <div class="pb-subcat-grid">
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🏆</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Trophies & Awards</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">🎀</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Gift Hampers</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                                <a href="/shop/category/special-categories-22" class="pb-subcat-chip">
+                                    <div class="pb-subcat-chip-icon">✨</div>
+                                    <div class="pb-subcat-chip-text">
+                                        <span class="pb-subcat-chip-name">Exclusive Items</span>
+                                        <span class="pb-subcat-chip-arrow">View Collection →</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <a href="/shop/category/special-categories-22" class="pb-subcat-explore-all">🎁 Explore All
+                                Others →</a>
+                        </div>
+                    </div>
 
                 </div>
             </div>
@@ -1888,8 +2557,62 @@
                 var pane = document.getElementById('pb-tab-' + id);
                 if (pane) pane.classList.add('active');
                 if (evt && evt.currentTarget) evt.currentTarget.classList.add('active');
+                /* Close subcategory drawer when switching tabs */
+                pbCloseSubcat();
             }
             window.pbSwitchTab = pbSwitchTab;
+
+            /* ── Subcategory Drawer ── */
+            function pbOpenSubcat(evt, index) {
+                if (evt) evt.preventDefault();
+                var drawer = document.getElementById('pb-subcat-drawer');
+                if (!drawer) return;
+
+                /* Hide all panels first */
+                drawer.querySelectorAll('.pb-subcat-panel').forEach(function (p) {
+                    p.classList.remove('active');
+                });
+
+                /* Show the matching panel */
+                var panel = drawer.querySelector('[data-subcat="' + index + '"]');
+                if (panel) panel.classList.add('active');
+
+                /* Open the drawer */
+                drawer.classList.add('pb-drawer-open');
+
+                /* Highlight the clicked card */
+                document.querySelectorAll('#pb-tab-readymade .pb-cat-card').forEach(function (c, i) {
+                    c.style.opacity = (i === index) ? '1' : '0.45';
+                    c.style.transform = (i === index) ? 'scale(1.03)' : 'scale(0.97)';
+                    c.style.transition = 'opacity 0.4s, transform 0.4s';
+                });
+
+                /* Smooth-scroll to the drawer */
+                setTimeout(function () {
+                    drawer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 80);
+            }
+            window.pbOpenSubcat = pbOpenSubcat;
+
+            function pbCloseSubcat() {
+                var drawer = document.getElementById('pb-subcat-drawer');
+                if (!drawer) return;
+                drawer.classList.remove('pb-drawer-open');
+
+                /* Restore all card opacities */
+                document.querySelectorAll('#pb-tab-readymade .pb-cat-card').forEach(function (c) {
+                    c.style.opacity = '';
+                    c.style.transform = '';
+                });
+
+                /* After close animation, hide panels */
+                setTimeout(function () {
+                    drawer.querySelectorAll('.pb-subcat-panel').forEach(function (p) {
+                        p.classList.remove('active');
+                    });
+                }, 500);
+            }
+            window.pbCloseSubcat = pbCloseSubcat;
 
             /* ── Scroll reveal (Intersection Observer) ── */
             var revealClasses = ['.pb-reveal', '.pb-reveal-left', '.pb-reveal-right'];
