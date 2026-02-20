@@ -1,0 +1,358 @@
+<div id="po-home-embed" style="font-family: inherit; color: #333; line-height: 1.6;">
+    <style>
+        /* Scoped styles to prevent breaking Odoo UI */
+        #po-home-embed {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        #po-home-embed * {
+            box-sizing: border-box;
+        }
+        
+        /* Hero Section */
+        #po-home-embed .po-hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, rgba(203, 94, 238, 0.1) 0%, rgba(236, 231, 75, 0.1) 100%);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        #po-home-embed .po-hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        #po-home-embed .po-hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1e142e;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+        #po-home-embed .po-hero-subtitle {
+            font-size: 1.25rem;
+            color: #555;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        #po-home-embed .po-hero-desc {
+            font-size: 1.15rem;
+            color: #444;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        #po-home-embed .po-hero-img-wrap {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+        }
+        #po-home-embed .po-hero-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        /* Explore Section */
+        #po-home-embed .po-cat-sec {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        #po-home-embed .po-sec-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #1e142e;
+            margin-bottom: 40px;
+        }
+        #po-home-embed .po-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        #po-home-embed .po-card {
+            background: #fff;
+            border-radius: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid #f0f0f0;
+        }
+        #po-home-embed .po-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+        }
+        #po-home-embed .po-card-img-wrap {
+            width: 100%;
+            height: 240px;
+            position: relative;
+            overflow: hidden;
+            background-color: #fafafa;
+        }
+        #po-home-embed .po-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        #po-home-embed .po-card:hover .po-card-img {
+            transform: scale(1.08);
+        }
+        #po-home-embed .po-card-body {
+            padding: 30px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #fff;
+            flex-grow: 1;
+        }
+        #po-home-embed .po-card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            color: #1e142e;
+        }
+        #po-home-embed .po-btn {
+            display: inline-block;
+            background: #e9ecef;
+            color: #1e142e !important;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+        #po-home-embed .po-card:hover .po-btn {
+            background: #1e142e;
+            color: #fff !important;
+        }
+        #po-home-embed .po-btn-primary {
+            background: #1e142e;
+            color: #fff !important;
+        }
+        #po-home-embed .po-btn-primary:hover {
+            background: #fff;
+            color: #1e142e !important;
+            border: 2px solid #1e142e;
+            padding: 10px 28px; /* adjust for border */
+        }
+
+        /* 3 Pillars Section */
+        #po-home-embed .po-trio {
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            padding: 50px 0;
+            border-top: 2px dashed #eee;
+            border-bottom: 2px dashed #eee;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        #po-home-embed .po-trio-item {
+            flex: 1;
+            min-width: 250px;
+            background: #fdfafb;
+            padding: 30px;
+            border-radius: 20px;
+        }
+        #po-home-embed .po-trio-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: #490AB1;
+            margin: 0 0 10px 0;
+        }
+        #po-home-embed .po-trio-item p {
+            margin: 0;
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        #po-home-embed .po-about {
+            display: flex;
+            background: #fddddd;
+            border-radius: 30px;
+            overflow: hidden;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        #po-home-embed .po-about-content {
+            flex: 1;
+            min-width: 320px;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #po-home-embed .po-about-title {
+            color: #490AB1;
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin: 0 0 20px 0;
+        }
+        #po-home-embed .po-about-text {
+            color: #333;
+            font-size: 1.15rem;
+            margin-bottom: 30px;
+        }
+        #po-home-embed .po-about-img {
+            flex: 1;
+            min-width: 320px;
+            background-color: #f7c6ce; 
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="%23ffffff" opacity="0.3"><circle cx="50" cy="50" r="40"/></svg>');
+            background-size: 200px;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        #po-home-embed .po-about-img img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+    </style>
+
+    <!-- 1. Hero Area -->
+    <div class="po-hero">
+        <div class="po-hero-text">
+            <h1 class="po-hero-title">PHOTORBIT</h1>
+            <div class="po-hero-subtitle">(An ISO:9001::2015 Certified Company)</div>
+            <p class="po-hero-desc">
+                A world of entire Photography and Videography service. Manufacturer of Premium Photo Albums and Gift products.
+                <br><br>
+                <strong>GSTIN No:</strong> 19GDCPR6624C1ZF
+            </p>
+            <a href="/shop" class="po-btn po-btn-primary" style="font-size: 1.2rem;">Shop Now</a>
+            <a href="/contactus" class="po-btn" style="font-size: 1.2rem; margin-left: 10px; background: transparent; border: 2px solid #1e142e;">Contact Us</a>
+        </div>
+        <div class="po-hero-img-wrap">
+            <img class="po-hero-img" src="/web/image/5637-c6d8aa8c/istockphoto-1366258243-612x612.jpg" alt="Photorbit Hero Photography">
+        </div>
+    </div>
+
+    <!-- 2. Services Grid -->
+    <div class="po-cat-sec">
+        <h2 class="po-sec-title">Explore Our Categories</h2>
+        <div class="po-grid">
+            
+            <a href="/shop/category/corporates-schools-colleges-38" class="po-card">
+                <div class="po-card-img-wrap">
+                    <img class="po-card-img" src="/web/image/2634-e1c9c348/51Y2jpWtuoL._AC_UF894%2C1000_QL80_.jpg" alt="Corporates Schools Colleges">
+                </div>
+                <div class="po-card-body">
+                    <h3 class="po-card-title">Corporates / Schools / Colleges</h3>
+                    <span class="po-btn">Click Here</span>
+                </div>
+            </a>
+            
+            <a href="/shop/category/photography-photo-books-album-42" class="po-card">
+                <div class="po-card-img-wrap">
+                    <img class="po-card-img" src="/web/image/2650-b167a3e7/6291bd203135a_266.jpg" alt="Photo Books & Album">
+                </div>
+                <div class="po-card-body">
+                    <h3 class="po-card-title">Photo Books & Album</h3>
+                    <span class="po-btn">Click Here</span>
+                </div>
+            </a>
+            
+            <a href="/photo" class="po-card">
+                <div class="po-card-img-wrap">
+                    <img class="po-card-img" src="/web/image/2619-ce1a6e46/Types-of-Shots-for-Filmmakers-e1641493485327-1024x590.webp" alt="Photography & Videography">
+                </div>
+                <div class="po-card-body">
+                    <h3 class="po-card-title">Photography & Videography</h3>
+                    <span class="po-btn">Click Here</span>
+                </div>
+            </a>
+
+            <a href="/shop/category/special-categories-22" class="po-card">
+                <div class="po-card-img-wrap">
+                    <img class="po-card-img" src="/web/image/692-0c75f184/website.s_three_columns_default_image_3" alt="Customised Products">
+                </div>
+                <div class="po-card-body">
+                    <h3 class="po-card-title">Customised Products</h3>
+                    <span class="po-btn">Click Here</span>
+                </div>
+            </a>
+
+            <a href="/shop/category/blank-product-93" class="po-card">
+                <div class="po-card-img-wrap">
+                    <img class="po-card-img" src="/web/image/2661-c8287cca/WhatsApp%20Image%202025-03-14%20at%2012.11.09_d506cd8d.jpg" alt="Blank Product">
+                </div>
+                <div class="po-card-body">
+                    <h3 class="po-card-title">Blank Product</h3>
+                    <span class="po-btn">Click Here</span>
+                </div>
+            </a>
+
+            <a href="/shop/category/retail-products-43" class="po-card">
+                <div class="po-card-img-wrap">
+                    <img class="po-card-img" src="/web/image/2662-80fcc03e/Untitled-1_3a3112e1-be31-41d8-93e6-7808e8c0b47e.webp" alt="Retail Products">
+                </div>
+                <div class="po-card-body">
+                    <h3 class="po-card-title">Retail Products</h3>
+                    <span class="po-btn">Click Here</span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+
+    <!-- 3. Showcases Trio -->
+    <div class="po-trio">
+        <div class="po-trio-item">
+            <h3 class="po-trio-title">📸 Photorbit Capture</h3>
+            <p>Premium photography & videography services tailored to perfection.</p>
+        </div>
+        <div class="po-trio-item">
+            <h3 class="po-trio-title">🎁 Photorbit Gift</h3>
+            <p>Curated premium and customised gift items for every occasion.</p>
+        </div>
+        <div class="po-trio-item">
+            <h3 class="po-trio-title">✨ Photorbit Laser</h3>
+            <p>Outstanding precision laser cutting and engraving mastery.</p>
+        </div>
+    </div>
+
+    <!-- 4. About Story -->
+    <div class="po-about">
+        <div class="po-about-content">
+            <h2 class="po-about-title">The Gifted Orchid</h2>
+            <div class="po-about-text">
+                <strong>Our Story</strong><br><br>
+                In a world where every occasion deserves something extraordinary, Photorbit is your ultimate destination for finding the perfect present. Imagine stepping into a realm where every gift is a delightful surprise, crafted with care and tailored to touch the hearts of your loved ones. That’s the magic of Giftopia! 
+                <br><br>
+                From our heart to your doorstep, discover the joy of gift-giving with our carefully curated selection. At our gift shop, you'll always find something special for those who appreciate the little things in life.
+            </div>
+            <div>
+                <a href="/contactus" class="po-btn po-btn-primary" style="background:#490AB1;">Get in touch with us</a>
+            </div>
+        </div>
+        <div class="po-about-img">
+            <img src="/web/image/2475-525f7cf6/USTOMIZED%20WOODEN%20MEMENTO%20%281%29.webp" alt="Wooden Memento Customised">
+        </div>
+    </div>
+
+</div>
