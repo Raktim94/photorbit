@@ -563,6 +563,7 @@
             background-size: 300% 300%;
             animation: gradShift 6s ease infinite;
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: xor;
             mask-composite: exclude;
             pointer-events: none;
@@ -1611,7 +1612,7 @@
             }
 
             // Scroll-based parallax for background orbs
-            const orbs = document.querySelectorAll('.bmm-orb');
+            const orbs = widget.querySelectorAll('.bmm-orb');
             window.addEventListener('scroll', () => {
                 const scrolled = window.scrollY;
                 orbs.forEach((orb, i) => {
@@ -1654,10 +1655,10 @@
                 });
             }, observerOptions);
 
-            document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+            widget.querySelectorAll('.hidden').forEach(el => observer.observe(el));
 
             // Premium 3D Tilt Effect for multiple elements
-            const interactiveElements = document.querySelectorAll('.interactive-image, .service-card, .feature-item, .about-card');
+            const interactiveElements = widget.querySelectorAll('.interactive-image, .service-card, .feature-item, .about-card');
             interactiveElements.forEach(el => {
                 el.addEventListener('mousemove', (e) => {
                     const rect = el.getBoundingClientRect();
@@ -1690,7 +1691,7 @@
             });
 
             // Magnetic Buttons Effect
-            const magneticBtns = document.querySelectorAll('.btn, .btn-icon, .audience-pill');
+            const magneticBtns = widget.querySelectorAll('.btn, .btn-icon, .audience-pill');
             magneticBtns.forEach(btn => {
                 btn.addEventListener('mousemove', (e) => {
                     const rect = btn.getBoundingClientRect();
