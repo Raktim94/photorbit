@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santu Das | BMM Finance — Digital Marketing Expert</title>
+    <meta name="description"
+        content="Santu Das - Content Creator, Digital Marketing Expert, Blogger & Founder of Bengal Money Mentor">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        #bmm-widget-root *,
+        #bmm-widget-root *::before,
+        #bmm-widget-root *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #bmm-widget-root {
+            --bg: #0a0705;
+            --bg2: #120d0a;
+            --surface: rgba(255, 255, 255, 0.02);
+            --glass: rgba(255, 255, 255, 0.03);
+            --gborder: rgba(175, 132, 76, 0.15);
+            --t1: #fdfbf8;
+            --t2: #d2c4b3;
+            --t3: #9f8f7b;
+            /* Client Palette */
+            --c1: #af844c;
+            --c2: #e0c3a4;
+            --c3: #9fc5dc;
+            --c4: #bce4ec;
+            --c5: #f4ac94;
+            --grad1: linear-gradient(135deg, var(--c1), var(--c5));
+            --font: 'Outfit', system-ui, sans-serif;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+            font-family: var(--font);
+            background: var(--bg);
+            color: var(--t1);
+            line-height: 1.7;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: block;
+        }
+
+        #bmm-widget-root a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        #bmm-widget-root .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px
+        }
+
+        /* MOUSE FOLLOWER */
+        #bmm-widget-root .cursor-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle, rgba(175, 132, 76, 0.08) 0%, rgba(244, 172, 148, 0.03) 40%, transparent 70%);
+            transform: translate(-50%, -50%);
+            transition: transform 0.05s linear
+        }
+
+        /* HERO */
+        #bmm-widget-root .hero {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        #bmm-widget-root .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0
+        }
+
+        #bmm-widget-root .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            animation: orbFloat 20s ease-in-out infinite
+        }
+
+        .orb1 {
+            width: 700px;
+            height: 700px;
+            background: var(--c1);
+            top: -20%;
+            left: -15%;
+            animation-delay: 0s
+        }
+
+        .orb2 {
+            width: 550px;
+            height: 550px;
+            background: var(--c3);
+            bottom: -15%;
+            right: -10%;
+            animation-delay: -7s
+        }
+
+        .orb3 {
+            width: 450px;
+            height: 450px;
+            background: var(--c5);
+            top: 30%;
+            left: 50%;
+            animation-delay: -14s
+        }
+
+        @keyframes orbFloat {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            33% {
+                transform: translate(50px, -60px) scale(1.1)
+            }
+
+            66% {
+                transform: translate(-40px, 50px) scale(0.9)
+            }
+        }
+
+        #bmm-widget-root .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            max-width: 1200px;
+            width: 100%
+        }
+
+        #bmm-widget-root .hero-visual {
+            position: relative;
+            flex-shrink: 0
+        }
+
+        /* ANIMATED SVG AVATAR */
+        #bmm-widget-root .avatar-wrap {
+            width: 360px;
+            height: 360px;
+            position: relative
+        }
+
+        .avatar-rings {
+            position: absolute;
+            inset: -50px;
+            width: calc(100% + 100px);
+            height: calc(100% + 100px)
+        }
+
+        .avatar-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 60px rgba(175, 132, 76, 0.25))
+        }
+
+        .hero-info {
+            flex: 1
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--c2);
+            border: 1px solid rgba(224, 195, 164, 0.2);
+            background: rgba(224, 195, 164, 0.05);
+            margin-bottom: 24px;
+            backdrop-filter: blur(10px);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0;
+            animation: fadeSlide 1s 0.2s var(--ease) forwards
+        }
+
+        .hero-name {
+            font-size: clamp(3.5rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -2px
+        }
+
+        .hero-name .ln {
+            display: block;
+            overflow: hidden
+        }
+
+        .hero-name .ln span {
+            display: inline-block;
+            transform: translateY(110%);
+            animation: wordUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards
+        }
+
+        .hero-name .ln:nth-child(1) span {
+            color: var(--t1)
+        }
+
+        .hero-name .ln:nth-child(2) span {
+            animation-delay: 0.1s;
+            background: linear-gradient(135deg, var(--c2), var(--c1));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text
+        }
+
+        @keyframes wordUp {
+            to {
+                transform: translateY(0)
+            }
+        }
+
+        .hero-role {
+            font-size: 1.4rem;
+            color: var(--c4);
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeSlide 1s 0.4s var(--ease) forwards;
+            font-weight: 300
+        }
+
+        .hero-role strong {
+            color: var(--c3);
+            font-weight: 600
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--t2);
+            max-width: 540px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeSlide 1s 0.5s var(--ease) forwards;
+            line-height: 1.8
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeSlide 1s 0.7s var(--ease) forwards
+        }
+
+        @keyframes fadeSlide {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .hero-badge,
+        .hero-role,
+        .hero-desc,
+        .hero-actions {
+            transform: translateY(30px)
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            font-family: var(--font);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+            position: relative
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--c1), var(--c2));
+            color: #110a05;
+            box-shadow: 0 10px 30px rgba(175, 132, 76, 0.3)
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--c5), var(--c1));
+            opacity: 0;
+            transition: opacity 0.4s
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(175, 132, 76, 0.4)
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1
+        }
+
+        .btn-primary span,
+        .btn-primary svg {
+            position: relative;
+            z-index: 1
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(159, 197, 220, 0.3);
+            color: var(--c3);
+            background: transparent
+        }
+
+        .btn-outline:hover {
+            border-color: var(--c3);
+            color: var(--bg);
+            background: var(--c3);
+            transform: translateY(-4px)
+        }
+
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            border: 1px solid rgba(244, 172, 148, 0.2);
+            color: var(--c5);
+            transition: all 0.4s
+        }
+
+        .btn-icon:hover {
+            background: rgba(244, 172, 148, 0.1);
+            border-color: var(--c5);
+            transform: translateY(-4px)
+        }
+
+        /* RETRACTABLE NAV (New Palette) */
+        #bmm-widget-root .navbar {
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 12px;
+            border-radius: 60px;
+            background: rgba(10, 7, 5, 0.75);
+            backdrop-filter: blur(24px);
+            border: 1px solid var(--gborder);
+            transition: all 0.6s var(--ease);
+            max-width: fit-content;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar.expanded {
+            padding: 10px 24px;
+            gap: 16px
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 4px 8px
+        }
+
+        .nav-brand span {
+            font-weight: 800;
+            font-size: 1rem;
+            color: var(--t1);
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-items {
+            display: flex;
+            gap: 4px;
+            max-width: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s var(--ease)
+        }
+
+        .navbar.expanded .nav-items {
+            max-width: 500px;
+            opacity: 1;
+            gap: 4px
+        }
+
+        .nav-items a {
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--t2);
+            white-space: nowrap;
+            transition: all 0.3s
+        }
+
+        .nav-items a:hover {
+            color: var(--bg);
+            background: var(--c2)
+        }
+
+        .nav-hamburger {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass);
+            border: 1px solid var(--gborder);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s var(--ease);
+            flex-shrink: 0;
+            color: var(--c2);
+        }
+
+        .nav-hamburger:hover {
+            background: rgba(175, 132, 76, 0.15);
+            border-color: var(--c1);
+            color: var(--c1);
+            transform: scale(1.05);
+        }
+
+        .nav-hamburger svg {
+            transition: transform 0.5s var(--ease)
+        }
+
+        .navbar.expanded .nav-hamburger svg {
+            transform: rotate(180deg)
+        }
+
+        /* TEXT ANIMATIONS */
+        .anim-text-reveal {
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .anim-text-reveal span {
+            display: inline-block;
+            transform: translateY(100%);
+            animation: wordUp 1s var(--ease) forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s !important;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s !important;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s !important;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:960px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px
+            }
+
+            .avatar-wrap {
+                width: 280px;
+                height: 280px
+            }
+
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto
+            }
+
+            .hero-actions {
+                justify-content: center
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="bmm-widget-root">
+
+        <div class="cursor-glow" id="cursorGlow"></div>
+
+        <!-- Retractable Navbar -->
+        <nav class="navbar" id="navbar">
+            <div class="nav-brand" id="navBrand">
+                <svg width="32" height="32" viewBox="0 0 32 32">
+                    <defs>
+                        <linearGradient id="navLg" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#af844c" />
+                            <stop offset="100%" stop-color="#e0c3a4" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="16" cy="16" r="14" fill="none" stroke="url(#navLg)" stroke-width="1.5">
+                        <animate attributeName="r" values="13;15;13" dur="4s" repeatCount="indefinite" />
+                    </circle>
+                    <text x="16" y="21" text-anchor="middle" fill="url(#navLg)" font-size="14" font-weight="900"
+                        font-family="Outfit">B</text>
+                </svg>
+                <span>BMM</span>
+            </div>
+            <div class="nav-items">
+                <a href="#home">Home</a>
+                <a href="mailto:info@bmmfinance.in">Contact</a>
+                <a href="https://www.youtube.com/@BengalMoneyMentor" target="_blank">YouTube</a>
+            </div>
+            <div class="nav-hamburger" id="navHam">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <line x1="4" y1="8" x2="20" y2="8" />
+                    <line x1="4" y1="16" x2="20" y2="16" />
+                </svg>
+            </div>
+        </nav>
+
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <div class="hero-orb orb1"></div>
+                <div class="hero-orb orb2"></div>
+                <div class="hero-orb orb3"></div>
+            </div>
+
+            <div class="container hero-content">
+                <div class="hero-visual">
+                    <div class="avatar-wrap" id="avatarWrap">
+                        <!-- Outermost rings -->
+                        <svg class="avatar-rings" viewBox="0 0 460 460" xmlns="http://www.w3.org/2000/svg">
+                            <ellipse cx="230" cy="230" rx="210" ry="40" fill="none" stroke="rgba(175,132,76,0.2)"
+                                stroke-width="1" transform="rotate(-30,230,230)">
+                                <animateTransform attributeName="transform" type="rotate" from="0 230 230"
+                                    to="360 230 230" dur="30s" repeatCount="indefinite" />
+                            </ellipse>
+                            <circle r="6" fill="#af844c" opacity="0.9">
+                                <animateMotion dur="30s" repeatCount="indefinite">
+                                    <mpath href="#or1" />
+                                </animateMotion>
+                            </circle>
+                            <path id="or1" d="M20,230 A210,40 0 1,1 440,230 A210,40 0 1,1 20,230" fill="none"
+                                transform="rotate(-30,230,230)" />
+
+                            <ellipse cx="230" cy="230" rx="190" ry="30" fill="none" stroke="rgba(159,197,220,0.15)"
+                                stroke-width="1" transform="rotate(25,230,230)">
+                                <animateTransform attributeName="transform" type="rotate" from="360 230 230"
+                                    to="0 230 230" dur="22s" repeatCount="indefinite" />
+                            </ellipse>
+                            <circle r="5" fill="#9fc5dc" opacity="0.8">
+                                <animateMotion dur="22s" repeatCount="indefinite">
+                                    <mpath href="#or2" />
+                                </animateMotion>
+                            </circle>
+                            <path id="or2" d="M40,230 A190,30 0 1,0 420,230 A190,30 0 1,0 40,230" fill="none"
+                                transform="rotate(25,230,230)" />
+
+                            <!-- Sparkles -->
+                            <circle cx="80" cy="120" r="2.5" fill="#e0c3a4" opacity="0">
+                                <animate attributeName="opacity" values="0;1;0" dur="4s" repeatCount="indefinite" />
+                            </circle>
+                            <circle cx="380" cy="140" r="2" fill="#bce4ec" opacity="0">
+                                <animate attributeName="opacity" values="0;0.8;0" dur="3s" begin="1s"
+                                    repeatCount="indefinite" />
+                            </circle>
+                            <circle cx="350" cy="340" r="3" fill="#f4ac94" opacity="0">
+                                <animate attributeName="opacity" values="0;0.9;0" dur="5s" begin="2s"
+                                    repeatCount="indefinite" />
+                            </circle>
+                            <circle cx="100" cy="350" r="2" fill="#af844c" opacity="0">
+                                <animate attributeName="opacity" values="0;1;0" dur="3.5s" begin="0.5s"
+                                    repeatCount="indefinite" />
+                            </circle>
+                        </svg>
+
+                        <!-- Main Avatar -->
+                        <svg class="avatar-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="abg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#af844c" stop-opacity="0.15" />
+                                    <stop offset="100%" stop-color="#9fc5dc" stop-opacity="0.15" />
+                                </linearGradient>
+                                <linearGradient id="skin" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#d4a574" />
+                                    <stop offset="100%" stop-color="#ab784e" />
+                                </linearGradient>
+                                <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#e0c3a4" stop-opacity="0.3" />
+                                    <stop offset="100%" stop-color="transparent" />
+                                </radialGradient>
+                                <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000"
+                                        flood-opacity="0.5" />
+                                </filter>
+                            </defs>
+                            <circle cx="150" cy="150" r="140" fill="url(#abg)" />
+                            <circle cx="150" cy="150" r="125" fill="url(#glow)">
+                                <animate attributeName="r" values="120;130;120" dur="6s" repeatCount="indefinite" />
+                            </circle>
+
+                            <!-- Body -->
+                            <path d="M80 295 Q80 220 150 195 Q220 220 220 295" fill="#181310" filter="url(#shadow)" />
+                            <path d="M110 215 L150 245 L190 215" fill="none" stroke="#af844c" stroke-width="2.5"
+                                opacity="0.8" />
+                            <path d="M128 210 L150 238 L172 210" fill="none" stroke="#e0c3a4" stroke-width="1.5"
+                                opacity="0.4" />
+
+                            <!-- Neck -->
+                            <rect x="135" y="180" width="30" height="28" rx="8" fill="url(#skin)" />
+                            <path d="M135 195 Q150 210 165 195" fill="none" stroke="rgba(0,0,0,0.15)"
+                                stroke-width="2" />
+
+                            <!-- Head -->
+                            <ellipse cx="150" cy="142" rx="55" ry="65" fill="url(#skin)" filter="url(#shadow)" />
+
+                            <!-- Hair -->
+                            <path d="M93 125 Q93 72 150 65 Q207 72 207 125 Q202 88 150 82 Q98 88 93 125Z"
+                                fill="#181310" />
+
+                            <!-- Eyes -->
+                            <g>
+                                <ellipse cx="128" cy="138" rx="10" ry="6.5" fill="white" />
+                                <circle cx="130" cy="138" r="4" fill="#2d1b00">
+                                    <animate attributeName="cx" values="130;133;130;127;130" dur="7s"
+                                        repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="131" cy="136" r="1.5" fill="white" opacity="0.9" />
+                            </g>
+                            <g>
+                                <ellipse cx="172" cy="138" rx="10" ry="6.5" fill="white" />
+                                <circle cx="174" cy="138" r="4" fill="#2d1b00">
+                                    <animate attributeName="cx" values="174;177;174;171;174" dur="7s"
+                                        repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="175" cy="136" r="1.5" fill="white" opacity="0.9" />
+                            </g>
+
+                            <!-- Eyebrows -->
+                            <path d="M114 125 Q128 118 142 125" fill="none" stroke="#181310" stroke-width="3"
+                                stroke-linecap="round">
+                                <animate attributeName="d"
+                                    values="M114 125 Q128 118 142 125;M114 123 Q128 116 142 123;M114 125 Q128 118 142 125"
+                                    dur="4.5s" repeatCount="indefinite" />
+                            </path>
+                            <path d="M158 125 Q172 118 186 125" fill="none" stroke="#181310" stroke-width="3"
+                                stroke-linecap="round">
+                                <animate attributeName="d"
+                                    values="M158 125 Q172 118 186 125;M158 123 Q172 116 186 123;M158 125 Q172 118 186 125"
+                                    dur="4.5s" repeatCount="indefinite" />
+                            </path>
+
+                            <!-- Nose -->
+                            <path d="M147 146 Q144 160 140 163 Q150 167 160 163 Q156 160 153 146" fill="#ab784e"
+                                opacity="0.6" />
+
+                            <!-- Smile -->
+                            <path d="M130 170 Q150 185 170 170" fill="none" stroke="#8b4513" stroke-width="2.5"
+                                stroke-linecap="round">
+                                <animate attributeName="d"
+                                    values="M130 170 Q150 185 170 170;M128 168 Q150 188 172 168;M130 170 Q150 185 170 170"
+                                    dur="5.5s" repeatCount="indefinite" />
+                            </path>
+                            <path d="M130 170 Q150 185 170 170 Q150 190 130 170" fill="#fff" opacity="0.8">
+                                <animate attributeName="d"
+                                    values="M130 170 Q150 185 170 170 Q150 185 130 170;M128 168 Q150 188 172 168 Q150 192 128 168;M130 170 Q150 185 170 170 Q150 185 130 170"
+                                    dur="5.5s" repeatCount="indefinite" />
+                            </path>
+
+                            <!-- Glasses (Premium Gold) -->
+                            <rect x="108" y="128" width="38" height="24" rx="8" fill="none" stroke="#e0c3a4"
+                                stroke-width="2" opacity="0.8" />
+                            <rect x="154" y="128" width="38" height="24" rx="8" fill="none" stroke="#e0c3a4"
+                                stroke-width="2" opacity="0.8" />
+                            <line x1="146" y1="140" x2="154" y2="140" stroke="#e0c3a4" stroke-width="2.5"
+                                opacity="0.9" />
+                            <line x1="90" y1="135" x2="108" y2="135" stroke="#e0c3a4" stroke-width="2" opacity="0.7" />
+                            <line x1="192" y1="135" x2="210" y2="135" stroke="#e0c3a4" stroke-width="2" opacity="0.7" />
+
+                            <!-- Ears -->
+                            <ellipse cx="95" cy="144" rx="8" ry="14" fill="url(#skin)" opacity="0.9" />
+                            <ellipse cx="205" cy="144" rx="8" ry="14" fill="url(#skin)" opacity="0.9" />
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="hero-info">
+                    <div class="hero-badge">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <polygon
+                                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                        </svg>
+                        Digital Marketing Expert
+                    </div>
+                    <h1 class="hero-name"><span class="ln"><span>Santu</span></span><span
+                            class="ln"><span>Das</span></span>
+                    </h1>
+                    <p class="hero-role">Founder of <strong>Bengal Money Mentor</strong></p>
+                    <p class="hero-desc">Elevating businesses through strategic digital marketing, premium branding, and
+                        authentic influencer partnerships in the Indian market.</p>
+
+                    <div class="hero-actions">
+                        <a href="mailto:info@bmmfinance.in" class="btn btn-primary"><span>Work with Me</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg></a>
+                        <a href="https://www.youtube.com/@BengalMoneyMentor" target="_blank" class="btn btn-outline">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.9 31.9 0 000 12a31.9 31.9 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.9 31.9 0 0024 12a31.9 31.9 0 00-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z" />
+                            </svg>
+                            Bengal Money Mentor</a>
+                        <a href="tel:+918016803593" class="btn-icon" aria-label="Call">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M22 16.9v3a2 2 0 01-2.2 2A19.8 19.8 0 013.1 5.2 2 2 0 015.1 3h3a2 2 0 012 1.7 12.7 12.7 0 00.7 2.8 2 2 0 01-.5 2.1l-1.3 1.3a16 16 0 006.1 6.1l1.3-1.3a2 2 0 012.1-.5 12.7 12.7 0 002.8.7 2 2 0 011.7 2z" />
+                            </svg></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        /* RETRACTABLE NAV */
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbar = document.getElementById('navbar');
+            const navHam = document.getElementById('navHam');
+            let navOpen = false;
+
+            navHam.addEventListener('click', () => {
+                navOpen = !navOpen;
+                navbar.classList.toggle('expanded', navOpen);
+            });
+
+            document.querySelectorAll('.nav-items a').forEach(a => {
+                a.addEventListener('click', () => {
+                    navOpen = false;
+                    navbar.classList.remove('expanded');
+                });
+            });
+
+            let lastScroll = 0;
+            window.addEventListener('scroll', () => {
+                if (Math.abs(window.scrollY - lastScroll) > 50 && navOpen) {
+                    navOpen = false;
+                    navbar.classList.remove('expanded');
+                }
+                lastScroll = window.scrollY;
+            });
+        });
+
+        /* MOUSE GLOW & 3D TILT */
+        document.addEventListener('DOMContentLoaded', () => {
+            const glow = document.getElementById('cursorGlow');
+            const avatarWrap = document.getElementById('avatarWrap');
+            const hero = document.querySelector('.hero');
+            const widget = document.getElementById('bmm-widget-root');
+
+            let mx = window.innerWidth / 2, my = window.innerHeight / 2;
+            let gx = mx, gy = my;
+
+            if (window.matchMedia("(pointer: fine)").matches) {
+                // Listen on the widget rather than the whole document to avoid Odoo conflict
+                widget.addEventListener('mousemove', e => {
+                    const rect = widget.getBoundingClientRect();
+                    mx = e.clientX - rect.left;
+                    my = e.clientY - rect.top;
+                });
+
+                function tick() {
+                    gx += (mx - gx) * 0.1;
+                    gy += (my - gy) * 0.1;
+                    glow.style.left = gx + 'px';
+                    glow.style.top = gy + 'px';
+                    requestAnimationFrame(tick);
+                }
+                tick();
+
+                hero.addEventListener('mousemove', e => {
+                    const r = hero.getBoundingClientRect();
+                    const x = (e.clientX - r.left) / r.width - 0.5;
+                    const y = (e.clientY - r.top) / r.height - 0.5;
+                    avatarWrap.style.transform = `perspective(800px) rotateY(${x * 20}deg) rotateX(${y * -15}deg) scale(1.05)`;
+                });
+
+                hero.addEventListener('mouseleave', () => {
+                    avatarWrap.style.transform = 'perspective(800px) rotateY(0) rotateX(0) scale(1)';
+                });
+                avatarWrap.style.transition = 'transform 0.15s cubic-bezier(0.22,1,0.36,1)';
+            } else {
+                glow.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+
+</html>
