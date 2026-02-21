@@ -728,7 +728,23 @@
             margin-bottom: 40px;
         }
 
-        /* TEXT ANIMATIONS */
+        /* SCROLL ANIMATIONS & TEXT ANIMATIONS */
+        .hidden {
+            opacity: 0;
+            filter: blur(8px);
+            transform: translateY(50px) scale(0.95);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform, filter;
+        }
+
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0) scale(1);
+        }
+
         .anim-text-reveal {
             overflow: hidden;
             display: inline-block;
@@ -741,14 +757,17 @@
         }
 
         .delay-1 {
+            transition-delay: 0.1s !important;
             animation-delay: 0.1s !important;
         }
 
         .delay-2 {
+            transition-delay: 0.2s !important;
             animation-delay: 0.2s !important;
         }
 
         .delay-3 {
+            transition-delay: 0.3s !important;
             animation-delay: 0.3s !important;
         }
 
@@ -999,7 +1018,7 @@
         <!-- ABOUT SECTION -->
         <section class="section" id="about">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header hidden">
                     <h2 class="section-title">Welcome to My Official Website</h2>
                     <p class="section-subtitle">Hello, I’m Santu Das, a passionate Content Creator, Digital Marketing
                         Expert, and Blogger dedicated to helping business owners, entrepreneurs, and personal brands
@@ -1119,7 +1138,7 @@
         <!-- SERVICES SECTION -->
         <section class="section" id="services">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header hidden">
                     <h2 class="section-title">What I Do</h2>
                     <p class="section-subtitle">Every business is unique. I create personalized marketing plans tailored
                         to
@@ -1128,7 +1147,7 @@
 
                 <div class="services-grid">
                     <!-- Service 1 -->
-                    <div class="service-card">
+                    <div class="service-card hidden">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1147,7 +1166,7 @@
                     </div>
 
                     <!-- Service 2 -->
-                    <div class="service-card">
+                    <div class="service-card hidden">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1171,7 +1190,7 @@
                     </div>
 
                     <!-- Service 3 -->
-                    <div class="service-card">
+                    <div class="service-card hidden">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1193,7 +1212,7 @@
                     </div>
 
                     <!-- Service 4 -->
-                    <div class="service-card">
+                    <div class="service-card hidden">
                         <div class="service-icon">
                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1218,14 +1237,14 @@
         <!-- WHY WORK WITH ME SECTION -->
         <section class="section" id="features" style="background: var(--bg2);">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header hidden">
                     <h2 class="section-title">Why Work With Me?</h2>
                     <p class="section-subtitle">I focus on long-term growth, not shortcuts. Success in the digital world
                         is not about luck — it’s about the right strategy.</p>
                 </div>
 
                 <div class="features-grid">
-                    <div class="feature-item">
+                    <div class="feature-item hidden">
                         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -1233,7 +1252,7 @@
                         </svg>
                         <div class="text">Proven Digital Experience</div>
                     </div>
-                    <div class="feature-item">
+                    <div class="feature-item hidden">
                         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -1241,7 +1260,7 @@
                         </svg>
                         <div class="text">Strong Personal Brand & Online Presence</div>
                     </div>
-                    <div class="feature-item">
+                    <div class="feature-item hidden">
                         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -1249,7 +1268,7 @@
                         </svg>
                         <div class="text">Strategic Approach (Not Random Marketing)</div>
                     </div>
-                    <div class="feature-item">
+                    <div class="feature-item hidden">
                         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -1257,7 +1276,7 @@
                         </svg>
                         <div class="text">Transparent Communication</div>
                     </div>
-                    <div class="feature-item">
+                    <div class="feature-item hidden">
                         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -1265,7 +1284,7 @@
                         </svg>
                         <div class="text">Result-Oriented Campaigns</div>
                     </div>
-                    <div class="feature-item">
+                    <div class="feature-item hidden">
                         <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
@@ -1280,20 +1299,20 @@
         <!-- AUDIENCE SECTION -->
         <section class="section">
             <div class="container">
-                <div class="section-header">
+                <div class="section-header hidden">
                     <h2 class="section-title">Who I Help</h2>
                     <p class="section-subtitle" style="color: var(--t2);">If you want to grow your business online,
                         increase visibility, and generate more leads — I’m here to help.</p>
                 </div>
                 <div class="audience-wrap">
-                    <div class="audience-pill">Small Business Owners</div>
-                    <div class="audience-pill">Startups</div>
-                    <div class="audience-pill">Coaches & Consultants</div>
-                    <div class="audience-pill">Financial Advisors</div>
-                    <div class="audience-pill">E-commerce Brands</div>
-                    <div class="audience-pill">Local Businesses</div>
-                    <div class="audience-pill">Personal Brands</div>
-                    <div class="audience-pill">Influencers</div>
+                    <div class="audience-pill hidden">Small Business Owners</div>
+                    <div class="audience-pill hidden">Startups</div>
+                    <div class="audience-pill hidden">Coaches & Consultants</div>
+                    <div class="audience-pill hidden">Financial Advisors</div>
+                    <div class="audience-pill hidden">E-commerce Brands</div>
+                    <div class="audience-pill hidden">Local Businesses</div>
+                    <div class="audience-pill hidden">Personal Brands</div>
+                    <div class="audience-pill hidden">Influencers</div>
                 </div>
             </div>
         </section>
@@ -1301,7 +1320,7 @@
         <!-- YOUTUBE JOURNEY SECTION -->
         <section class="section" id="youtube">
             <div class="container hidden">
-                <div class="section-header">
+                <div class="section-header hidden">
                     <h2 class="section-title">My YouTube Journey</h2>
                     <p class="section-subtitle">Bengal Money Mentor</p>
                 </div>
@@ -1460,29 +1479,85 @@
                 glow.style.display = 'none';
             }
 
-            // Interactive Image 3D effect (About Section)
-            const interactiveImages = document.querySelectorAll('.interactive-image');
-            interactiveImages.forEach(img => {
-                img.addEventListener('mousemove', (e) => {
-                    const rect = img.getBoundingClientRect();
+            // Intersection Observer for Scroll Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                let delayCount = 0;
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Dynamic stagger for grid items appearing simultaneously
+                        if (!entry.target.className.includes('delay-')) {
+                            entry.target.style.transitionDelay = `${delayCount * 0.1}s`;
+                            delayCount++;
+                        }
+                        // Reset count slightly after a frame if it gets too high, or just let it increment.
+                        // We reset it using a timeout
+                        clearTimeout(observer.delayTimeout);
+                        observer.delayTimeout = setTimeout(() => { delayCount = 0; }, 100);
+
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+
+            // Premium 3D Tilt Effect for multiple elements
+            const interactiveElements = document.querySelectorAll('.interactive-image, .service-card, .feature-item, .about-card');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mousemove', (e) => {
+                    const rect = el.getBoundingClientRect();
                     const x = e.clientX - rect.left;
                     const y = e.clientY - rect.top;
 
                     const centerX = rect.width / 2;
                     const centerY = rect.height / 2;
 
-                    // Moderate tilt factor
-                    const rotateX = ((y - centerY) / centerY) * -12;
-                    const rotateY = ((x - centerX) / centerX) * 12;
+                    let intensity = el.classList.contains('interactive-image') ? 12 : 6;
 
-                    img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                    const rotateX = ((y - centerY) / centerY) * -intensity;
+                    const rotateY = ((x - centerX) / centerX) * intensity;
+
+                    let baseTransform = '';
+                    if (el.classList.contains('service-card')) {
+                        baseTransform = 'translateY(-10px) ';
+                    }
+
+                    el.style.transform = `perspective(1000px) ${baseTransform}rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                    el.style.transition = 'transform 0.1s linear';
                 });
 
-                img.addEventListener('mouseleave', () => {
-                    img.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+                el.addEventListener('mouseleave', () => {
+                    el.style.transform = '';
+                    setTimeout(() => {
+                        el.style.transition = '';
+                    }, 100);
                 });
             });
 
+            // Magnetic Buttons Effect
+            const magneticBtns = document.querySelectorAll('.btn, .btn-icon, .audience-pill');
+            magneticBtns.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+                    btn.style.transition = 'transform 0.1s linear';
+                });
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = '';
+                    setTimeout(() => {
+                        btn.style.transition = '';
+                    }, 100);
+                });
+            });
         });
     </script>
 </body>
