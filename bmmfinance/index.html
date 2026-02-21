@@ -10,15 +10,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
-        #bmm-widget-root *,
-        #bmm-widget-root *::before,
-        #bmm-widget-root *::after {
+        .bmm-widget-root *,
+        .bmm-widget-root *::before,
+        .bmm-widget-root *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        #bmm-widget-root {
+        .bmm-widget-root {
             --bg: #0a0705;
             --bg2: #120d0a;
             --surface: rgba(255, 255, 255, 0.02);
@@ -49,19 +49,19 @@
             display: block;
         }
 
-        #bmm-widget-root a {
+        .bmm-widget-root a {
             text-decoration: none;
             color: inherit
         }
 
-        #bmm-widget-root .container {
+        .bmm-widget-root .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 32px
         }
 
         /* MOUSE FOLLOWER */
-        #bmm-widget-root .cursor-glow {
+        .bmm-widget-root .cursor-glow {
             position: absolute;
             width: 500px;
             height: 500px;
@@ -74,7 +74,7 @@
         }
 
         /* HERO */
-        #bmm-widget-root .hero {
+        .bmm-widget-root .hero {
             height: 100%;
             display: flex;
             align-items: center;
@@ -83,13 +83,13 @@
             overflow: hidden
         }
 
-        #bmm-widget-root .hero-bg {
+        .bmm-widget-root .hero-bg {
             position: absolute;
             inset: 0;
             z-index: 0
         }
 
-        #bmm-widget-root .hero-orb {
+        .bmm-widget-root .hero-orb {
             position: absolute;
             border-radius: 50%;
             filter: blur(120px);
@@ -140,7 +140,7 @@
             }
         }
 
-        #bmm-widget-root .hero-content {
+        .bmm-widget-root .hero-content {
             position: relative;
             z-index: 2;
             display: flex;
@@ -150,13 +150,13 @@
             width: 100%
         }
 
-        #bmm-widget-root .hero-visual {
+        .bmm-widget-root .hero-visual {
             position: relative;
             flex-shrink: 0
         }
 
         /* ANIMATED SVG AVATAR */
-        #bmm-widget-root .avatar-wrap {
+        .bmm-widget-root .avatar-wrap {
             width: 360px;
             height: 360px;
             position: relative
@@ -360,7 +360,7 @@
         }
 
         /* RETRACTABLE NAV (New Palette) */
-        #bmm-widget-root .navbar {
+        .bmm-widget-root .navbar {
             position: absolute;
             top: 24px;
             left: 50%;
