@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Santu Das - BMM Finance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .bmm-widget-root *,
+        .bmm-widget-root *::before,
+        .bmm-widget-root *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .bmm-widget-root {
+            --bg: #050508;
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-hover: rgba(255, 255, 255, 0.09);
+            --gborder: rgba(255, 255, 255, 0.07);
+            --gborder-hover: rgba(255, 255, 255, 0.18);
+            --t1: #f5f5f7;
+            --t2: #a1a1aa;
+            --t3: #71717a;
+            --c1: #6366F1;
+            --c2: #A855F7;
+            --c3: #22D3EE;
+            --c4: #3B82F6;
+            --c5: #F472B6;
+            --grad: linear-gradient(135deg, var(--c1), var(--c2), var(--c5), var(--c3));
+            --font: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+            font-family: var(--font);
+            background: transparent !important;
+            color: var(--t1) !important;
+            line-height: 1.7;
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            padding-top: 40px;
+            scroll-behavior: smooth;
+        }
+
+        /* ANIMATED MESH BACKGROUND */
+        .bmm-widget-root .bmm-fixed-bg {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bmm-widget-root .bmm-fixed-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: auto, 60px 60px, 60px 60px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .bmm-widget-root .bmm-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            mix-blend-mode: screen;
+            will-change: transform;
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .bmm-widget-root .o1 {
+            width: 55vw;
+            height: 55vw;
+            background: var(--c1);
+            top: -25%;
+            left: -15%;
+            opacity: 0.5;
+        }
+
+        .bmm-widget-root .o2 {
+            width: 50vw;
+            height: 50vw;
+            background: var(--c2);
+            bottom: -15%;
+            right: -15%;
+            opacity: 0.45;
+        }
+
+        .bmm-widget-root .o3 {
+            width: 65vw;
+            height: 65vw;
+            background: var(--c4);
+            top: 15%;
+            left: 25%;
+            opacity: 0.2;
+        }
+
+        .bmm-widget-root .o4 {
+            width: 45vw;
+            height: 45vw;
+            background: var(--c5);
+            bottom: 5%;
+            left: 5%;
+            opacity: 0.35;
+        }
+
+        /* ---- PREMIUM GLASS ---- */
+        .bmm-widget-root .glass {
+            background: var(--glass);
+            backdrop-filter: blur(40px) saturate(1.6);
+            -webkit-backdrop-filter: blur(40px) saturate(1.6);
+            border: 1px solid var(--gborder);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            transition: all 0.5s var(--ease);
+            position: relative;
+        }
+
+        .bmm-widget-root .glass::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.06) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.6;
+            transition: opacity 0.5s;
+        }
+
+        .bmm-widget-root .glass:hover {
+            background: var(--glass-hover);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .bmm-widget-root .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bmm-widget-root .section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .bmm-widget-root .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .bmm-widget-root .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--t1) !important;
+            text-shadow: 0 0 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .bmm-widget-root .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--t3);
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ABOUT HERO */
+        .bmm-widget-root .about-hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 140px 0 80px 0;
+            text-align: center;
+        }
+
+        .bmm-widget-root .about-hero-content {
+            max-width: 900px;
+        }
+
+        .bmm-widget-root .about-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--c3);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 24px;
+        }
+
+        /* JOURNEY SECTION */
+        .bmm-widget-root .journey-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .bmm-widget-root .journey-visual {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+        }
+
+        .bmm-widget-root .journey-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.8s var(--ease);
+        }
+
+        .bmm-widget-root .journey-visual:hover img {
+            transform: scale(1.05);
+        }
+
+        .bmm-widget-root .journey-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 24px;
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+        }
+
+        .bmm-widget-root .journey-text p {
+            font-size: 1.1rem;
+            color: var(--t2);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* VALUES */
+        .bmm-widget-root .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .bmm-widget-root .value-card {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .bmm-widget-root .value-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--gborder);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            color: var(--c3);
+            transition: 0.4s var(--ease);
+        }
+
+        .bmm-widget-root .value-card:hover .value-icon {
+            background: var(--c3);
+            color: #fff;
+            transform: translateY(-8px) rotate(10deg);
+            box-shadow: 0 10px 30px rgba(34, 211, 238, 0.4);
+        }
+
+        .bmm-widget-root .value-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--t1);
+        }
+
+        .bmm-widget-root .value-desc {
+            font-size: 1rem;
+            color: var(--t3);
+        }
+
+        /* ANIMATIONS */
+        .bmm-widget-root .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s var(--ease);
+        }
+
+        .bmm-widget-root .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 960px) {
+            .bmm-widget-root .journey-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bmm-widget-root">
+        <div class="bmm-fixed-bg">
+            <div class="bmm-orb o1"></div>
+            <div class="bmm-orb o2"></div>
+            <div class="bmm-orb o3"></div>
+            <div class="bmm-orb o4"></div>
+        </div>
+
+        <!-- ABOUT HERO -->
+        <section class="about-hero">
+            <div class="container about-hero-content">
+                <div class="about-badge glass">Our Story</div>
+                <h1 class="section-title">The Vision Behind <br> <span>Bengal Money Mentor</span></h1>
+                <p class="section-subtitle">Empowering thousands through financial literacy, strategic digital
+                    marketing, and the power of ethical branding.</p>
+            </div>
+        </section>
+
+        <!-- OUR JOURNEY -->
+        <section class="section">
+            <div class="container">
+                <div class="journey-grid">
+                    <div class="journey-visual glass hidden">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+                            alt="Strategy Session">
+                    </div>
+                    <div class="journey-text hidden">
+                        <div class="about-badge glass" style="margin-bottom: 16px;">The Journey</div>
+                        <h3>From Vision to Visibility</h3>
+                        <p>Founded by <strong>Santu Das</strong>, BMM Finance (Bengal Money Mentor) started with a
+                            simple yet powerful mission: to bridge the gap between complex financial information and the
+                            everyday person.</p>
+                        <p>What began as a passion for sharing knowledge on YouTube has evolved into a comprehensive
+                            digital growth powerhouse. We don't just teach finance; we help businesses build the same
+                            trust and authority that made our channel a success.</p>
+                        <p>Today, we represent a blend of <strong>Financial Wisdom</strong> and <strong>Digital
+                                Excellence</strong>, helping entrepreneurs navigate the digital landscape with
+                            confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CORE VALUES -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header hidden">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <p class="section-subtitle">The principles that guide every strategy we build and every content
+                        piece we create.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card glass hidden">
+                        <div class="value-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Transparency</h3>
+                        <p class="value-desc">Honesty is our foundation. We provide clear, ethical, and result-oriented
+                            guidance without the jargon.</p>
+                    </div>
+
+                    <div class="value-card glass hidden">
+                        <div class="value-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Education</h3>
+                        <p class="value-desc">We believe that informed businesses make better decisions. We mentor while
+                            we market.</p>
+                    </div>
+
+                    <div class="value-card glass hidden">
+                        <div class="value-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M16 12l-4-4-4 4M12 16V9" />
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Growth</h3>
+                        <p class="value-desc">Sustainable, long-term growth is our goal. We avoid shortcuts and focus on
+                            building lasting legacies.</p>
+                    </div>
+
+                    <div class="value-card glass hidden">
+                        <div class="value-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h3 class="value-title">Community</h3>
+                        <p class="value-desc">Everything we do is for our community. Building trust is more important
+                            than closing a sale.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSION & VISION -->
+        <section class="section" style="padding-bottom: 160px;">
+            <div class="container">
+                <div class="journey-grid">
+                    <div class="journey-text hidden">
+                        <div class="about-badge glass" style="margin-bottom: 24px;">Our Mission</div>
+                        <h3
+                            style="background: linear-gradient(135deg, var(--c3), var(--c4)); -webkit-background-clip: text;">
+                            Empowering the Next Generation</h3>
+                        <p>Our mission is to empower 1 million entrepreneurs and small business owners with the tools
+                            they need to succeed in the digital economy.</p>
+                        <p>We aim to eliminate financial ignorance and replace it with strategic action, turning local
+                            businesses into national brands through the power of digital storytelling and performance
+                            marketing.</p>
+
+                        <div style="margin-top: 40px; display: flex; gap: 20px;">
+                            <div class="glass" style="padding: 20px; flex: 1;">
+                                <h4 style="color: var(--c3); margin-bottom: 10px;">90%</h4>
+                                <p style="font-size: 0.9rem; color: var(--t3);">Client Success Rate</p>
+                            </div>
+                            <div class="glass" style="padding: 20px; flex: 1;">
+                                <h4 style="color: var(--c2); margin-bottom: 10px;">500k+</h4>
+                                <p style="font-size: 0.9rem; color: var(--t3);">Community Reach</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="journey-visual glass hidden" style="aspect-ratio: 16/9;">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80&w=800"
+                            alt="Team Growth">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="container" style="text-align: center; padding: 60px 0; border-top: 1px solid var(--gborder);">
+            <p style="color: var(--t3); font-size: 0.9rem;">&copy; 2026 Santu Das | BMM Finance. All rights reserved.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+
+        // Background Animation Delay
+        document.querySelectorAll('.bmm-orb').forEach((orb, i) => {
+            orb.style.animation = `orbFloat ${20 + i * 5}s infinite ease-in-out`;
+            orb.style.animationDelay = `${i * -5}s`;
+        });
+
+        // Keyframes for background floating
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes orbFloat {
+                0% { transform: translate(0, 0) scale(1); }
+                33% { transform: translate(10vw, -15vh) scale(1.1); }
+                66% { transform: translate(-8vw, 10vh) scale(0.9); }
+                100% { transform: translate(0, 0) scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
