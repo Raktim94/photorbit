@@ -18,17 +18,19 @@
             box-sizing: border-box;
         }
 
+        /* BASE WIDGET STYLES (Light Premium Theme) */
         .bmm-widget-root {
-            --bg: #0a0705;
-            --bg2: #120d0a;
-            --surface: rgba(255, 255, 255, 0.02);
-            --glass: rgba(255, 255, 255, 0.03);
-            --gborder: rgba(175, 132, 76, 0.15);
-            --t1: #fdfbf8;
-            --t2: #d2c4b3;
-            --t3: #9f8f7b;
+            --bg: #FEFCFA;
+            --bg2: #F6F3EF;
+            --surface: rgba(0, 0, 0, 0.02);
+            --glass: rgba(255, 255, 255, 0.6);
+            --gborder: rgba(175, 138, 76, 0.15);
+            /* Text Colors */
+            --t1: #2A241F;
+            --t2: #594D42;
+            --t3: #8C7B6A;
             /* Client Palette */
-            --c1: #af844c;
+            --c1: #af8a4c;
             --c2: #e0c3a4;
             --c3: #9fc5dc;
             --c4: #bce4ec;
@@ -38,19 +40,30 @@
             --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
             font-family: var(--font);
-            background: var(--bg);
-            color: var(--t1);
+            background-color: var(--bg) !important;
+            color: var(--t1) !important;
             line-height: 1.7;
             position: relative;
             width: 100%;
             min-height: 100vh;
             overflow-x: hidden;
             display: block;
+            -webkit-font-smoothing: antialiased;
         }
 
         .bmm-widget-root a {
             text-decoration: none;
-            color: inherit
+            color: inherit;
+        }
+
+        .bmm-widget-root p,
+        .bmm-widget-root h1,
+        .bmm-widget-root h2,
+        .bmm-widget-root h3,
+        .bmm-widget-root div,
+        .bmm-widget-root span,
+        .bmm-widget-root li {
+            color: inherit;
         }
 
         .bmm-widget-root .container {
@@ -59,7 +72,7 @@
             padding: 0 32px
         }
 
-        /* MOUSE FOLLOWER */
+        /* MOUSE FOLLOWER (Light Mode) */
         .bmm-widget-root .cursor-glow {
             position: absolute;
             width: 500px;
@@ -67,9 +80,10 @@
             border-radius: 50%;
             pointer-events: none;
             z-index: 0;
-            background: radial-gradient(circle, rgba(175, 132, 76, 0.08) 0%, rgba(244, 172, 148, 0.03) 40%, transparent 70%);
+            background: radial-gradient(circle, rgba(175, 138, 76, 0.05) 0%, rgba(244, 172, 148, 0.02) 40%, transparent 70%);
             transform: translate(-50%, -50%);
-            transition: transform 0.05s linear
+            transition: transform 0.05s linear;
+            mix-blend-mode: multiply;
         }
 
         /* HERO */
@@ -93,8 +107,9 @@
             position: absolute;
             border-radius: 50%;
             filter: blur(120px);
-            opacity: 0.15;
-            animation: orbFloat 20s ease-in-out infinite
+            opacity: 0.3;
+            animation: orbFloat 20s ease-in-out infinite;
+            mix-blend-mode: multiply;
         }
 
         .orb1 {
@@ -299,9 +314,9 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--c1), var(--c2));
-            color: #110a05;
-            box-shadow: 0 10px 30px rgba(175, 132, 76, 0.3)
+            background: linear-gradient(135deg, var(--c1), #8e6a35);
+            color: #ffffff;
+            box-shadow: 0 10px 30px rgba(175, 138, 76, 0.25)
         }
 
         .btn-primary::before {
@@ -431,13 +446,13 @@
         }
 
         .bmm-widget-root .about-card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(159, 197, 220, 0.1);
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(159, 197, 220, 0.3);
             border-radius: 24px;
             padding: 40px;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
         }
 
         .bmm-widget-root .about-card::before {
@@ -453,9 +468,9 @@
         .bmm-widget-root .stat-box {
             text-align: center;
             padding: 24px;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.5);
             border-radius: 16px;
-            border: 1px solid rgba(244, 172, 148, 0.1);
+            border: 1px solid rgba(244, 172, 148, 0.3);
             transition: transform 0.3s;
         }
 
@@ -478,105 +493,239 @@
             letter-spacing: 1px;
         }
 
-        /* RETRACTABLE NAV (New Palette) */
-        .bmm-widget-root .navbar {
-            position: absolute;
-            top: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 200;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 12px;
-            border-radius: 60px;
-            background: rgba(10, 7, 5, 0.75);
-            backdrop-filter: blur(24px);
-            border: 1px solid var(--gborder);
-            transition: all 0.6s var(--ease);
-            max-width: fit-content;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .navbar.expanded {
-            padding: 10px 24px;
-            gap: 16px
-        }
-
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            padding: 4px 8px
-        }
-
-        .nav-brand span {
-            font-weight: 800;
-            font-size: 1rem;
-            color: var(--t1);
-            white-space: nowrap;
-            letter-spacing: 0.5px;
-        }
-
-        .nav-items {
-            display: flex;
-            gap: 4px;
-            max-width: 0;
+        /* INTERACTIVE IMAGE */
+        .bmm-widget-root .interactive-image {
+            position: relative;
+            border-radius: 24px;
             overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+            transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+            will-change: transform;
+            cursor: pointer;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .bmm-widget-root .interactive-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+            transition: transform 0.8s var(--ease);
+        }
+
+        .bmm-widget-root .interactive-image:hover img {
+            transform: scale(1.08);
+        }
+
+        .bmm-widget-root .image-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(42, 36, 31, 0.4) 0%, transparent 60%);
+            opacity: 0.8;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .bmm-widget-root .interactive-image:hover .image-overlay {
+            opacity: 0.3;
+        }
+
+
+        /* SERVICES SECTION */
+        .bmm-widget-root .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .bmm-widget-root .service-card {
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(175, 138, 76, 0.15);
+            border-radius: 20px;
+            padding: 40px 30px;
+            position: relative;
+            transition: all 0.5s var(--ease);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .bmm-widget-root .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(175, 138, 76, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .bmm-widget-root .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            border: 1px solid transparent;
+            background: linear-gradient(135deg, var(--c1), var(--c5)) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
             opacity: 0;
-            transition: all 0.5s var(--ease)
+            transition: opacity 0.5s;
+            pointer-events: none;
         }
 
-        .navbar.expanded .nav-items {
-            max-width: 500px;
+        .bmm-widget-root .service-card:hover::after {
             opacity: 1;
-            gap: 4px
         }
 
-        .nav-items a {
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--t2);
-            white-space: nowrap;
-            transition: all 0.3s
-        }
-
-        .nav-items a:hover {
-            color: var(--bg);
-            background: var(--c2)
-        }
-
-        .nav-hamburger {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--glass);
-            border: 1px solid var(--gborder);
+        .bmm-widget-root .service-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: rgba(175, 132, 76, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s var(--ease);
-            flex-shrink: 0;
-            color: var(--c2);
-        }
-
-        .nav-hamburger:hover {
-            background: rgba(175, 132, 76, 0.15);
-            border-color: var(--c1);
             color: var(--c1);
-            transform: scale(1.05);
+            margin-bottom: 10px;
         }
 
-        .nav-hamburger svg {
-            transition: transform 0.5s var(--ease)
+        .bmm-widget-root .service-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--t1);
         }
 
-        .navbar.expanded .nav-hamburger svg {
-            transform: rotate(180deg)
+        .bmm-widget-root .service-desc {
+            font-size: 1.05rem;
+            color: var(--t2);
+            line-height: 1.7;
+        }
+
+        .bmm-widget-root .service-list {
+            list-style: none;
+            margin-top: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 20px;
+        }
+
+        .bmm-widget-root .service-list li {
+            color: var(--t3);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bmm-widget-root .service-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--c5);
+        }
+
+        /* WHY WORK WITH ME */
+        .bmm-widget-root .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 50px;
+        }
+
+        .bmm-widget-root .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 24px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(175, 138, 76, 0.15);
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .bmm-widget-root .feature-item .icon {
+            color: var(--c2);
+            flex-shrink: 0;
+        }
+
+        .bmm-widget-root .feature-item .text {
+            font-weight: 600;
+            color: var(--t1);
+            font-size: 1.1rem;
+        }
+
+        /* AUDIENCE SECTION */
+        .bmm-widget-root .audience-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .bmm-widget-root .audience-pill {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(159, 197, 220, 0.4);
+            border-radius: 40px;
+            color: var(--t1) !important;
+            font-weight: 500;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            font-size: 0.95rem;
+        }
+
+        .bmm-widget-root .audience-pill:hover {
+            border-color: var(--c4);
+            transform: translateY(-3px) scale(1.05);
+            color: #110a05 !important;
+            background: var(--c4);
+            box-shadow: 0 10px 20px rgba(188, 228, 236, 0.5);
+        }
+
+        /* CTA SECTION */
+        .bmm-widget-root .final-cta {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7));
+            border: 1px solid rgba(175, 138, 76, 0.2);
+            border-radius: 32px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+        }
+
+        .bmm-widget-root .final-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(244, 172, 148, 0.1), transparent 50%);
+            pointer-events: none;
+        }
+
+        .bmm-widget-root .cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--t1) !important;
+            margin-bottom: 24px;
+            font-weight: 800;
+        }
+
+        .bmm-widget-root .cta-desc {
+            font-size: 1.1rem;
+            color: var(--t2) !important;
+            margin-bottom: 40px;
         }
 
         /* TEXT ANIMATIONS */
@@ -634,41 +783,10 @@
 
 <body>
 
-    <div id="bmm-widget-root">
+    <div class="bmm-widget-root">
 
         <div class="cursor-glow" id="cursorGlow"></div>
 
-        <!-- Retractable Navbar -->
-        <nav class="navbar" id="navbar">
-            <div class="nav-brand" id="navBrand">
-                <svg width="32" height="32" viewBox="0 0 32 32">
-                    <defs>
-                        <linearGradient id="navLg" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#af844c" />
-                            <stop offset="100%" stop-color="#e0c3a4" />
-                        </linearGradient>
-                    </defs>
-                    <circle cx="16" cy="16" r="14" fill="none" stroke="url(#navLg)" stroke-width="1.5">
-                        <animate attributeName="r" values="13;15;13" dur="4s" repeatCount="indefinite" />
-                    </circle>
-                    <text x="16" y="21" text-anchor="middle" fill="url(#navLg)" font-size="14" font-weight="900"
-                        font-family="Outfit">B</text>
-                </svg>
-                <span>BMM</span>
-            </div>
-            <div class="nav-items">
-                <a href="#home">Home</a>
-                <a href="mailto:info@bmmfinance.in">Contact</a>
-                <a href="https://www.youtube.com/@BengalMoneyMentor" target="_blank">YouTube</a>
-            </div>
-            <div class="nav-hamburger" id="navHam">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round">
-                    <line x1="4" y1="8" x2="20" y2="8" />
-                    <line x1="4" y1="16" x2="20" y2="16" />
-                </svg>
-            </div>
-        </nav>
 
         <section class="hero" id="home">
             <div class="hero-bg">
@@ -687,7 +805,7 @@
                                 <animateTransform attributeName="transform" type="rotate" from="0 230 230"
                                     to="360 230 230" dur="30s" repeatCount="indefinite" />
                             </ellipse>
-                            <circle r="6" fill="#af844c" opacity="0.9">
+                            <circle r="6" fill="#af8a4c" opacity="0.9">
                                 <animateMotion dur="30s" repeatCount="indefinite">
                                     <mpath href="#or1" />
                                 </animateMotion>
@@ -720,7 +838,7 @@
                                 <animate attributeName="opacity" values="0;0.9;0" dur="5s" begin="2s"
                                     repeatCount="indefinite" />
                             </circle>
-                            <circle cx="100" cy="350" r="2" fill="#af844c" opacity="0">
+                            <circle cx="100" cy="350" r="2" fill="#af8a4c" opacity="0">
                                 <animate attributeName="opacity" values="0;1;0" dur="3.5s" begin="0.5s"
                                     repeatCount="indefinite" />
                             </circle>
@@ -730,7 +848,7 @@
                         <svg class="avatar-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
                             <defs>
                                 <linearGradient id="abg" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#af844c" stop-opacity="0.15" />
+                                    <stop offset="0%" stop-color="#af8a4c" stop-opacity="0.15" />
                                     <stop offset="100%" stop-color="#9fc5dc" stop-opacity="0.15" />
                                 </linearGradient>
                                 <linearGradient id="skin" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -753,7 +871,7 @@
 
                             <!-- Body -->
                             <path d="M80 295 Q80 220 150 195 Q220 220 220 295" fill="#181310" filter="url(#shadow)" />
-                            <path d="M110 215 L150 245 L190 215" fill="none" stroke="#af844c" stroke-width="2.5"
+                            <path d="M110 215 L150 245 L190 215" fill="none" stroke="#af8a4c" stroke-width="2.5"
                                 opacity="0.8" />
                             <path d="M128 210 L150 238 L172 210" fill="none" stroke="#e0c3a4" stroke-width="1.5"
                                 opacity="0.4" />
@@ -848,9 +966,11 @@
                     <h1 class="hero-name"><span class="ln"><span>Santu</span></span><span
                             class="ln"><span>Das</span></span>
                     </h1>
-                    <p class="hero-role">Founder of <strong>Bengal Money Mentor</strong></p>
-                    <p class="hero-desc">Elevating businesses through strategic digital marketing, premium branding, and
-                        authentic influencer partnerships in the Indian market.</p>
+                    <p class="hero-role">Content Creator | Digital Marketing Expert | Blogger | Founder of
+                        <strong>Bengal Money Mentor</strong>
+                    </p>
+                    <p class="hero-desc">Helping Business Owners Grow Their Digital Presence Through Strategic Digital
+                        Marketing, Branding & Influencer Marketing</p>
 
                     <div class="hero-actions">
                         <a href="mailto:info@bmmfinance.in" class="btn btn-primary"><span>Work with Me</span>
@@ -880,22 +1000,36 @@
         <section class="section" id="about">
             <div class="container">
                 <div class="section-header">
-                    <h2 class="section-title">About Me</h2>
-                    <p class="section-subtitle">Strategy. Branding. Influence.</p>
+                    <h2 class="section-title">Welcome to My Official Website</h2>
+                    <p class="section-subtitle">Hello, I’m Santu Das, a passionate Content Creator, Digital Marketing
+                        Expert, and Blogger dedicated to helping business owners, entrepreneurs, and personal brands
+                        build a powerful digital presence.</p>
                 </div>
 
-                <div class="about-grid">
-                    <div class="about-text">
+                <div class="about-grid" style="margin-bottom: 40px;">
+                    <div class="about-image-wrap hidden delay-1">
+                        <div class="interactive-image">
+                            <!-- Professional Placeholder Image -->
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
+                                alt="Santu Das Portrait Placeholder" />
+                            <div class="image-overlay"></div>
+                        </div>
+                    </div>
+
+                    <div class="about-text hidden delay-2">
+                        <p style="margin-bottom: 20px;">In today’s fast-changing digital world, simply having a business
+                            is not enough. You need visibility, branding, trust, and influence. That’s where I help.</p>
+                        <p style="margin-bottom: 40px;">Through strategic digital marketing, powerful branding
+                            techniques, and result-driven influencer marketing campaigns, I guide businesses toward
+                            sustainable online growth.</p>
+
+                        <h3 style="font-size: 1.5rem; color: var(--t1); margin-bottom: 20px;">About Me</h3>
                         <p>I started my journey with a simple belief — <strong>smart strategy beats hard work without
                                 direction</strong>. Over the years, I have helped thousands of people understand
-                            finance,
-                            online income opportunities, digital growth strategies, and business expansion through my
-                            content
-                            and consulting.</p>
+                            finance, online income opportunities, digital growth strategies, and business expansion
+                            through my content and consulting.</p>
 
-                        <p>As the creator of the YouTube channel <strong>Bengal Money Mentor</strong>, my mission is to
-                            empower people with knowledge and provide practical strategies that deliver real results.
-                        </p>
+                        <p>As the creator of the YouTube channel <strong>Bengal Money Mentor</strong>, I focus on:</p>
 
                         <ul class="about-list">
                             <li>
@@ -932,26 +1066,351 @@
                             </li>
                         </ul>
                     </div>
+                </div>
 
-                    <div class="about-card">
-                        <h3 style="font-size: 1.5rem; color: var(--c2); margin-bottom: 24px;">My Mission</h3>
+                <div class="about-grid" style="grid-template-columns: 1fr;">
+                    <div class="about-card hidden delay-3">
+                        <h3 style="font-size: 1.5rem; color: var(--c1); margin-bottom: 24px;">My Mission</h3>
                         <p style="color: var(--t2); line-height: 1.8; margin-bottom: 32px;">
                             My mission is to help small and medium business owners grow digitally without wasting money
-                            on
-                            ineffective marketing. When strategy, branding, and influence combine — growth becomes
-                            inevitable.
+                            on ineffective marketing.<br><br>
+                            When strategy, branding, and influence combine — growth becomes inevitable.
                         </p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
-                            <div class="stat-box">
-                                <div class="stat-num">100K+</div>
-                                <div class="stat-label">Community</div>
-                            </div>
-                            <div class="stat-box">
-                                <div class="stat-num">Strategic</div>
-                                <div class="stat-label">Approach</div>
-                            </div>
-                        </div>
+                        <ul
+                            style="list-style: none; padding: 0; margin-bottom: 32px; display: flex; flex-direction: column; gap: 12px; color: var(--t2);">
+                            <li style="display: flex; gap: 12px; align-items: center;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--c1)"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                </svg>
+                                Digital marketing should be strategic.
+                            </li>
+                            <li style="display: flex; gap: 12px; align-items: center;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--c1)"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                </svg>
+                                Branding should create authority.
+                            </li>
+                            <li style="display: flex; gap: 12px; align-items: center;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--c1)"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                </svg>
+                                Content should provide value.
+                            </li>
+                            <li style="display: flex; gap: 12px; align-items: center;">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--c1)"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polygon
+                                        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                </svg>
+                                Marketing should build trust.
+                            </li>
+                        </ul>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="section" id="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What I Do</h2>
+                    <p class="section-subtitle">Every business is unique. I create personalized marketing plans tailored
+                        to
+                        your goals and target audience.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Digital Marketing Strategy</h3>
+                        <p class="service-desc">I help businesses build customized digital marketing strategies that
+                            increase visibility, generate leads, and boost revenue.</p>
+                        <ul class="service-list">
+                            <li>Social Media Marketing</li>
+                            <li>Performance Marketing</li>
+                            <li>SEO & Content Marketing</li>
+                            <li>Lead Generation Campaigns</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10" />
+                                <circle cx="12" cy="12" r="4" />
+                                <line x1="21.17" y1="8" x2="12" y2="8" />
+                                <line x1="3.95" y1="6.06" x2="8.54" y2="14" />
+                                <line x1="10.88" y1="21.94" x2="15.46" y2="14" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Branding & Positioning</h3>
+                        <p class="service-desc">Branding is more than just a logo. It’s about trust, identity, and
+                            emotional
+                            connection. A powerful brand builds long-term success.</p>
+                        <ul class="service-list">
+                            <li>Create a strong brand identity</li>
+                            <li>Develop authority in your niche</li>
+                            <li>Build trust with your audience</li>
+                            <li>Position as industry leaders</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Influencer Marketing</h3>
+                        <p class="service-desc">Influencer marketing is one of the fastest-growing methods today. With
+                            proper strategy, it can dramatically accelerate brand growth.</p>
+                        <ul class="service-list">
+                            <li>Connect with the right influencers</li>
+                            <li>Build authentic campaigns</li>
+                            <li>Increase product awareness</li>
+                            <li>Drive real conversions</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="23 7 16 12 23 17 23 7" />
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                            </svg>
+                        </div>
+                        <h3 class="service-title">Content Creation & Personal Branding</h3>
+                        <p class="service-desc">Content builds trust. Trust builds business. As a professional content
+                            creator, I understand how to create engaging video content and build digital authority.</p>
+                        <ul class="service-list">
+                            <li>Engaging video content</li>
+                            <li>Increase YouTube growth</li>
+                            <li>Build audience loyalty</li>
+                            <li>Monetize digital platforms</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY WORK WITH ME SECTION -->
+        <section class="section" id="features" style="background: var(--bg2);">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Work With Me?</h2>
+                    <p class="section-subtitle">I focus on long-term growth, not shortcuts. Success in the digital world
+                        is not about luck — it’s about the right strategy.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <div class="text">Proven Digital Experience</div>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <div class="text">Strong Personal Brand & Online Presence</div>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <div class="text">Strategic Approach (Not Random Marketing)</div>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <div class="text">Transparent Communication</div>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <div class="text">Result-Oriented Campaigns</div>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                            <polyline points="22 4 12 14.01 9 11.01" />
+                        </svg>
+                        <div class="text">Deep Understanding of Indian Digital Market</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AUDIENCE SECTION -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Who I Help</h2>
+                    <p class="section-subtitle" style="color: var(--t2);">If you want to grow your business online,
+                        increase visibility, and generate more leads — I’m here to help.</p>
+                </div>
+                <div class="audience-wrap">
+                    <div class="audience-pill">Small Business Owners</div>
+                    <div class="audience-pill">Startups</div>
+                    <div class="audience-pill">Coaches & Consultants</div>
+                    <div class="audience-pill">Financial Advisors</div>
+                    <div class="audience-pill">E-commerce Brands</div>
+                    <div class="audience-pill">Local Businesses</div>
+                    <div class="audience-pill">Personal Brands</div>
+                    <div class="audience-pill">Influencers</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YOUTUBE JOURNEY SECTION -->
+        <section class="section" id="youtube">
+            <div class="container hidden">
+                <div class="section-header">
+                    <h2 class="section-title">My YouTube Journey</h2>
+                    <p class="section-subtitle">Bengal Money Mentor</p>
+                </div>
+
+                <div class="about-card" style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p style="margin-bottom: 24px; color: var(--t2);">Through my YouTube channel, I regularly share:</p>
+                    <div
+                        style="display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 32px;">
+                        <span
+                            style="background: rgba(175, 138, 76, 0.1); color: var(--c1); padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Gold
+                            & Market Updates</span>
+                        <span
+                            style="background: rgba(175, 138, 76, 0.1); color: var(--c1); padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Financial
+                            Awareness</span>
+                        <span
+                            style="background: rgba(175, 138, 76, 0.1); color: var(--c1); padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Scam
+                            Alerts & Safety</span>
+                        <span
+                            style="background: rgba(175, 138, 76, 0.1); color: var(--c1); padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Digital
+                            Income Strategies</span>
+                        <span
+                            style="background: rgba(175, 138, 76, 0.1); color: var(--c1); padding: 8px 16px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;">Business
+                            Growth Insights</span>
+                    </div>
+                    <p style="margin-bottom: 32px; color: var(--t1); font-weight: 500;">The channel has built a strong
+                        and trusted community of viewers who rely on honest and practical guidance.</p>
+                    <p style="margin-bottom: 16px; font-weight: 600; color: var(--t1);">Subscribe and stay updated:</p>
+                    <a href="https://www.youtube.com/@BengalMoneyMentor" target="_blank" class="btn btn-primary"
+                        style="display: inline-flex;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31.9 31.9 0 000 12a31.9 31.9 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31.9 31.9 0 0024 12a31.9 31.9 0 00-.5-5.8zM9.5 15.6V8.4l6.3 3.6-6.3 3.6z" />
+                        </svg>
+                        Bengal Money Mentor
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION -->
+        <section class="section" id="contact" style="background: var(--bg2); padding-bottom: 120px;">
+            <div class="container hidden">
+                <div class="final-cta">
+                    <h2 class="cta-title">Let’s Grow Your Business Digitally</h2>
+                    <p class="cta-desc">If you are serious about scaling your business and building a strong digital
+                        presence, let’s connect.</p>
+
+                    <div
+                        style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;">
+                        <a href="mailto:info@bmmfinance.in" class="btn btn-primary" style="padding: 18px 40px;">
+                            <span>Email Me</span>
+                        </a>
+                        <a href="tel:+918016803593" class="btn btn-outline"
+                            style="padding: 18px 40px; border-color: rgba(175, 138, 76, 0.4); color: var(--c1);">
+                            Call: +91 80168 03593
+                        </a>
+                    </div>
+
+                    <h3 style="font-size: 1.5rem; color: var(--t1); margin-bottom: 20px;">I offer:</h3>
+                    <ul
+                        style="list-style: none; padding: 0; margin-bottom: 40px; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; color: var(--t2);">
+                        <li
+                            style="display: flex; gap: 8px; align-items: center; background: rgba(255,255,255,0.8); padding: 8px 16px; border-radius: 8px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c1)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Digital Marketing Consultation
+                        </li>
+                        <li
+                            style="display: flex; gap: 8px; align-items: center; background: rgba(255,255,255,0.8); padding: 8px 16px; border-radius: 8px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c1)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Branding Strategy Sessions
+                        </li>
+                        <li
+                            style="display: flex; gap: 8px; align-items: center; background: rgba(255,255,255,0.8); padding: 8px 16px; border-radius: 8px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c1)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Influencer Campaign Planning
+                        </li>
+                        <li
+                            style="display: flex; gap: 8px; align-items: center; background: rgba(255,255,255,0.8); padding: 8px 16px; border-radius: 8px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c1)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> YouTube Growth Guidance
+                        </li>
+                        <li
+                            style="display: flex; gap: 8px; align-items: center; background: rgba(255,255,255,0.8); padding: 8px 16px; border-radius: 8px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--c1)"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="20 6 9 17 4 12" />
+                            </svg> Complete Digital Growth Blueprint
+                        </li>
+                    </ul>
+
+                    <p
+                        style="color: var(--t1); font-weight: 500; font-size: 1.1rem; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+                        Final Words: Success in the digital world is not about luck — it’s about the right strategy.
+                        With the right digital marketing, branding, and influence, your business can reach the right
+                        audience, build trust, and achieve consistent growth.<br><br><strong>Let’s build something
+                            powerful together.</strong></p>
+                </div>
+
+                <div style="text-align: center; margin-top: 80px; color: var(--t3); font-size: 0.9rem;">
+                    <p style="margin-bottom: 8px; font-weight: 600;">&copy; Santu Das | Bengal Money Mentor</p>
+                    <p>Digital Marketing Expert | Content Creator | Blogger</p>
                 </div>
             </div>
         </section>
@@ -959,40 +1418,12 @@
     </div>
 
     <script>
-        /* RETRACTABLE NAV */
-        document.addEventListener('DOMContentLoaded', () => {
-            const navbar = document.getElementById('navbar');
-            const navHam = document.getElementById('navHam');
-            let navOpen = false;
-
-            navHam.addEventListener('click', () => {
-                navOpen = !navOpen;
-                navbar.classList.toggle('expanded', navOpen);
-            });
-
-            document.querySelectorAll('.nav-items a').forEach(a => {
-                a.addEventListener('click', () => {
-                    navOpen = false;
-                    navbar.classList.remove('expanded');
-                });
-            });
-
-            let lastScroll = 0;
-            window.addEventListener('scroll', () => {
-                if (Math.abs(window.scrollY - lastScroll) > 50 && navOpen) {
-                    navOpen = false;
-                    navbar.classList.remove('expanded');
-                }
-                lastScroll = window.scrollY;
-            });
-        });
-
         /* MOUSE GLOW & 3D TILT */
         document.addEventListener('DOMContentLoaded', () => {
             const glow = document.getElementById('cursorGlow');
             const avatarWrap = document.getElementById('avatarWrap');
             const hero = document.querySelector('.hero');
-            const widget = document.getElementById('bmm-widget-root');
+            const widget = document.querySelector('.bmm-widget-root');
 
             let mx = window.innerWidth / 2, my = window.innerHeight / 2;
             let gx = mx, gy = my;
@@ -1028,6 +1459,30 @@
             } else {
                 glow.style.display = 'none';
             }
+
+            // Interactive Image 3D effect (About Section)
+            const interactiveImages = document.querySelectorAll('.interactive-image');
+            interactiveImages.forEach(img => {
+                img.addEventListener('mousemove', (e) => {
+                    const rect = img.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    // Moderate tilt factor
+                    const rotateX = ((y - centerY) / centerY) * -12;
+                    const rotateY = ((x - centerX) / centerX) * 12;
+
+                    img.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                });
+
+                img.addEventListener('mouseleave', () => {
+                    img.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+                });
+            });
+
         });
     </script>
 </body>
