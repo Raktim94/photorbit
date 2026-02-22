@@ -5,20 +5,16 @@
      ============================================================ -->
 <div id="pb-wrap">
 
-    <!-- Mobile Exclusive Premium Hero -->
-    <div class="pb-mobile-premium">
-        <div class="pb-mobile-bg-shapes">
-            <div class="pb-mobile-blob pb-mobile-blob-1"></div>
-            <div class="pb-mobile-blob pb-mobile-blob-2"></div>
-        </div>
-        <div class="pb-mobile-card-container">
-            <div class="pb-mobile-card">
-                <div class="pb-hero-badge" style="margin-bottom: 20px; font-size: 0.75rem; padding: 8px 15px;">🏆 ISO
-                    9001:2015 Certified Company</div>
-                <div class="pb-mobile-logo">PHOTORBIT</div>
+    <!-- Unified Particle Hero Section -->
+    <section id="pb-hero" class="pb-hero">
+        <canvas id="pb-particle-canvas"></canvas>
+        <div class="pb-hero-content">
+            <div class="pb-brand-card">
+                <div class="pb-iso-badge">🏆 ISO 9001:2015 Certified Company</div>
+                <h1 class="pb-logo-text">PHOTORBIT</h1>
             </div>
         </div>
-    </div>
+    </section>
 
     <style>
         /* ── Google Font ── */
@@ -87,13 +83,15 @@
             }
         }
 
-        @keyframes pb-shimmer {
-            0% {
-                background-position: -200% center;
+        @keyframes pb-textGlow {
+
+            0%,
+            100% {
+                text-shadow: 0 0 20px rgba(255, 45, 122, 0.4), 0 0 10px rgba(255, 45, 122, 0.2);
             }
 
-            100% {
-                background-position: 200% center;
+            50% {
+                text-shadow: 0 0 40px rgba(255, 45, 122, 0.8), 0 0 15px rgba(255, 45, 122, 0.6);
             }
         }
 
@@ -167,295 +165,144 @@
             transform: translateX(0);
         }
 
-        /* ─────────────── HERO ─────────────── */
+        /* ─────────────── UNIFIED HERO & PARTICLES ─────────────── */
         #pb-wrap .pb-hero {
             position: relative;
-            min-height: 92vh;
+            min-height: 500px;
+            height: 100vh;
+            width: 100%;
+            background: #0d041a;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(-45deg, #1e142e, #490AB1, #df2a6b, #ff8c42);
-            background-size: 400% 400%;
-            animation: pb-gradientBg 10s ease infinite;
             overflow: hidden;
-            padding: 80px 40px;
             text-align: center;
         }
 
-        #pb-wrap .pb-hero::before {
-            content: '';
+        #pb-particle-canvas {
             position: absolute;
-            inset: 0;
-            background: radial-gradient(ellipse at 70% 50%, rgba(255, 255, 255, 0.07) 0%, transparent 60%);
-        }
-
-        #pb-wrap .pb-hero-particles {
-            position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
-        }
-
-        #pb-wrap .pb-hero-particles span {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            animation: pb-float 6s ease-in-out infinite;
         }
 
         #pb-wrap .pb-hero-content {
             position: relative;
-            z-index: 2;
-            max-width: 800px;
-        }
-
-        #pb-wrap .pb-hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1.5px solid rgba(255, 255, 255, 0.35);
-            color: #fff;
-            padding: 10px 26px;
-            border-radius: 50px;
-            font-size: 0.88rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin-bottom: 28px;
-            text-transform: uppercase;
-            animation: pb-fadeIn 1s ease 0.2s both;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        #pb-wrap .pb-hero-title {
-            font-size: clamp(4rem, 12vw, 8rem);
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: -3px;
-            line-height: 0.95;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 20%, #ffd6e0 60%, #c4b5fd 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: pb-fadeUp 1s ease 0.4s both;
-            filter: drop-shadow(0 4px 24px rgba(255, 255, 255, 0.15));
-        }
-
-        #pb-wrap .pb-hero-sub {
-            font-size: 1.35rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 10px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            animation: pb-fadeUp 1s ease 0.6s both;
-        }
-
-        #pb-wrap .pb-hero-gst {
-            font-size: 0.92rem;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 22px;
-            letter-spacing: 0.5px;
-            animation: pb-fadeUp 1s ease 0.65s both;
-        }
-
-        #pb-wrap .pb-hero-tagline {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.82);
-            margin-bottom: 44px;
-            max-width: 620px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.75;
-            font-weight: 400;
-            animation: pb-fadeUp 1s ease 0.7s both;
-        }
-
-        #pb-wrap .pb-hero-btns {
+            z-index: 10;
+            width: 100%;
+            padding: 20px;
             display: flex;
-            gap: 16px;
+            align-items: center;
             justify-content: center;
-            flex-wrap: wrap;
-            animation: pb-fadeUp 1s ease 0.9s both;
+            flex-direction: column;
         }
 
-        #pb-wrap .pb-btn {
-            display: inline-block;
-            padding: 16px 40px;
-            border-radius: 50px;
+        #pb-wrap .pb-brand-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 40px;
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 60px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            max-width: 95%;
+            width: fit-content;
+            min-width: min(300px, 90%);
+            margin: 0 auto;
+            /* Explicit fallback for centering */
+            box-shadow: 0 40px 120px rgba(0, 0, 0, 0.6);
+            animation: pb-scaleIn 1.2s cubic-bezier(0.19, 1, 0.22, 1) both;
+            overflow: visible;
+            text-align: center;
+        }
+
+        #pb-wrap .pb-iso-badge {
+            font-size: 0.85rem;
             font-weight: 700;
-            font-size: 1.05rem;
-            text-decoration: none !important;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.8);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 10px 24px;
+            border-radius: 50px;
+            display: inline-block;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        #pb-wrap .pb-btn-white {
-            background: #fff;
-            color: #1e142e !important;
+        #pb-wrap .pb-logo-text {
+            font-size: clamp(2rem, 12vw, 7rem);
+            font-weight: 950;
+            color: #ff2d7a;
+            letter-spacing: -0.02em;
+            line-height: normal;
+            margin: 0;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(255, 45, 122, 0.4);
+            animation: pb-textGlow 4s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            position: relative;
+            padding: 10px 0;
+            overflow: visible;
         }
 
-        #pb-wrap .pb-btn-white:hover {
-            background: #f7c6ce;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        #pb-wrap .pb-scroll-hint {
+            position: absolute;
+            bottom: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            animation: pb-fadeUp 1s ease 1.5s both;
         }
 
-        #pb-wrap .pb-btn-outline {
-            background: transparent;
-            color: #fff !important;
-            border: 2px solid rgba(255, 255, 255, 0.6);
-        }
-
-        #pb-wrap .pb-btn-outline:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-3px);
-        }
-
-        #pb-wrap .pb-hero-scroll::after {
-            content: '';
+        #pb-wrap .pb-scroll-line {
             width: 1px;
-            height: 40px;
+            height: 60px;
             background: linear-gradient(to bottom, rgba(255, 255, 255, 0.4), transparent);
             animation: pb-float 2s ease-in-out infinite;
         }
 
-        /* ─────────────── MOBILE PREMIUM VIEW (Exclusive) ─────────────── */
+        /* Responsive Hero Tweaks */
         @media (max-width: 767px) {
-            #pb-wrap .pb-hero {
-                display: none !important;
+            #pb-wrap .pb-brand-card {
+                padding: 40px 15px;
+                border-radius: 30px;
+                width: calc(100% - 20px);
+                max-width: 440px;
             }
 
-            #pb-wrap .pb-mobile-premium {
-                display: block;
-                height: 100vh;
-                background: radial-gradient(circle at 50% 50%, #2a0a55 0%, #110520 100%);
+            #pb-wrap .pb-logo-text {
+                font-size: clamp(1.6rem, 11vw, 3.5rem) !important;
+                letter-spacing: -0.01em;
                 display: flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20px;
-                overflow: hidden;
-                position: relative;
-            }
-
-            #pb-wrap .pb-mobile-card-container {
-                perspective: 1000px;
                 width: 100%;
-                max-width: 360px;
-                animation: pb-scaleIn 1s cubic-bezier(0.19, 1, 0.22, 1) both;
-            }
-
-            #pb-wrap .pb-mobile-card {
-                background: linear-gradient(145deg, rgba(45, 15, 85, 0.9), rgba(15, 5, 35, 0.95));
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
-                border-radius: 40px;
-                padding: 60px 40px;
-                border: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.05);
                 text-align: center;
-                transform-style: preserve-3d;
-                animation: pb-mobile-float 4s ease-in-out infinite;
+                overflow: visible !important;
+                padding: 10px 0;
             }
 
-            @keyframes pb-mobile-float {
-
-                0%,
-                100% {
-                    transform: translateY(0) rotateX(0deg) rotateY(0deg);
-                }
-
-                33% {
-                    transform: translateY(-10px) rotateX(2deg) rotateY(-2deg);
-                }
-
-                66% {
-                    transform: translateY(5px) rotateX(-1deg) rotateY(2deg);
-                }
-            }
-
-            #pb-wrap .pb-mobile-logo {
-                font-size: 3.5rem;
-                font-weight: 900;
-                color: #df2a6b;
-                letter-spacing: 2px;
-                margin-bottom: 30px;
-                text-shadow: 0 10px 20px rgba(223, 42, 107, 0.3);
-            }
-
-            #pb-wrap .pb-mobile-sub {
-                color: #fff;
-                font-size: 1rem;
-                font-weight: 400;
+            #pb-wrap .pb-iso-badge {
+                font-size: 9px;
+                padding: 6px 10px;
+                margin-bottom: 20px;
+                white-space: normal;
+                text-align: center;
                 line-height: 1.4;
-                margin-bottom: 5px;
-            }
-
-            #pb-wrap .pb-mobile-loc {
-                color: rgba(255, 255, 255, 0.6);
-                font-size: 0.85rem;
-                margin-bottom: 25px;
-            }
-
-            #pb-wrap .pb-mobile-gst {
-                display: inline-block;
-                border: 1px solid rgba(255, 255, 255, 0.3);
-                border-radius: 50px;
-                padding: 10px 25px;
-                color: #fff;
-                font-size: 0.8rem;
-                font-weight: 600;
-                margin-bottom: 50px;
-                background: rgba(255, 255, 255, 0.05);
-            }
-
-            #pb-wrap .pb-mobile-btn {
-                background: linear-gradient(90deg, #df2a6b, #490AB1);
-                color: #fff !important;
-                padding: 18px 30px;
-                border-radius: 20px;
-                font-weight: 700;
-                font-size: 1.1rem;
-                text-decoration: none !important;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 10px;
-                box-shadow: 0 15px 35px rgba(223, 42, 107, 0.4);
-            }
-
-            #pb-wrap .pb-mobile-bg-shapes {
-                position: absolute;
-                inset: 0;
-                z-index: -1;
-            }
-
-            #pb-wrap .pb-mobile-blob {
-                position: absolute;
-                width: 300px;
-                height: 300px;
-                background: #df2a6b;
-                filter: blur(100px);
-                opacity: 0.2;
-                border-radius: 50%;
-            }
-
-            #pb-wrap .pb-mobile-blob-1 {
-                top: -100px;
-                left: -100px;
-            }
-
-            #pb-wrap .pb-mobile-blob-2 {
-                bottom: -100px;
-                right: -100px;
-                background: #490AB1;
-            }
-        }
-
-        @media (min-width: 768px) {
-            #pb-wrap .pb-mobile-premium {
-                display: none !important;
+                width: 100%;
+                max-width: 200px;
             }
         }
 
@@ -555,11 +402,12 @@
         #pb-wrap .pb-company-meta {
             background: linear-gradient(135deg, #1e142e 0%, #490AB1 100%);
             border-radius: 28px;
-            padding: 52px 48px;
+            padding: 52px 30px;
             color: #fff;
             text-align: center;
-            margin: 0 auto 60px;
+            margin: 0 auto 50px;
             max-width: 760px;
+            width: 95%;
             position: relative;
             overflow: hidden;
             box-shadow: 0 24px 60px rgba(73, 10, 177, 0.3);
@@ -588,26 +436,37 @@
         }
 
         #pb-wrap .pb-company-meta h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            font-size: clamp(1.8rem, 10vw, 4.2rem);
+            font-weight: 950;
+            color: #ff2d7a;
+            text-shadow: 0 0 20px rgba(255, 45, 122, 0.4);
+            margin-bottom: 15px;
             position: relative;
             z-index: 1;
+            animation: pb-textGlow 4s ease-in-out infinite;
+            letter-spacing: -0.01em;
+            line-height: normal;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            overflow: visible;
         }
 
         #pb-wrap .pb-company-meta p {
-            color: rgba(255, 255, 255, 0.78);
-            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
             margin-bottom: 5px;
             position: relative;
             z-index: 1;
+            font-weight: 500;
         }
 
         #pb-wrap .pb-company-meta .pb-gst-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.12);
-            border: 1.5px solid rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50px;
             padding: 8px 22px;
             font-size: 0.88rem;
@@ -616,6 +475,7 @@
             font-weight: 700;
             position: relative;
             z-index: 1;
+            color: #fff;
         }
 
         /* Tab Buttons */
@@ -1764,26 +1624,6 @@
         }
     </style>
 
-    <!-- ════════════════════════════════
-     SECTION 1 — HERO
-════════════════════════════════ -->
-    <section class="pb-hero">
-        <!-- Floating particles -->
-        <div class="pb-hero-particles">
-            <span style="width:80px;height:80px;top:10%;left:8%;animation-delay:0s;"></span>
-            <span style="width:40px;height:40px;top:20%;right:12%;animation-delay:1s;"></span>
-            <span style="width:60px;height:60px;bottom:20%;left:15%;animation-delay:2s;"></span>
-            <span style="width:30px;height:30px;bottom:30%;right:8%;animation-delay:0.5s;"></span>
-            <span style="width:100px;height:100px;top:50%;left:3%;animation-delay:3s;opacity:0.07;"></span>
-            <span style="width:50px;height:50px;top:70%;right:20%;animation-delay:1.5s;"></span>
-        </div>
-
-        <div class="pb-hero-content">
-            <div class="pb-hero-badge">🏆 ISO 9001:2015 Certified Company</div>
-            <h1 class="pb-hero-title">PHOTORBIT</h1>
-        </div>
-        <div class="pb-hero-scroll">Scroll to explore</div>
-    </section>
 
     <!-- ════ MARQUEE TICKER STRIP ════ -->
     <div class="pb-ticker">
@@ -2598,8 +2438,8 @@
             </div>
             <div class="pb-about-media pb-reveal-right">
                 <div class="pb-about-deco"></div>
-                <img src="/web/image/2475-525f7cf6/USTOMIZED%20WOODEN%20MEMENTO%20%281%29.webp"
-                    alt="Customised Gift Product"
+                <img src="/web/image/2475-525f7cf6/CUSTOMIZED%20WOODEN%20MEMENTO%20%281%29.webp"
+                    alt="Customized Gift Product"
                     onerror="this.src='https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=600&h=500&fit=crop'">
             </div>
         </div>
@@ -2761,6 +2601,106 @@
             } else {
                 els.forEach(function (el) { el.classList.add('pb-visible'); });
             }
+
+            // ════════════════════════════════
+            // RADIATING PARTICLE SYSTEM
+            // ════════════════════════════════
+            (function () {
+                var canvas = document.getElementById('pb-particle-canvas');
+                if (!canvas) return;
+                var ctx = canvas.getContext('2d');
+                var particles = [];
+                var w, h;
+
+                function resize() {
+                    const rect = canvas.parentElement ? canvas.parentElement.getBoundingClientRect() : { width: window.innerWidth, height: window.innerHeight };
+                    w = canvas.width = rect.width || window.innerWidth;
+                    h = canvas.height = rect.height || window.innerHeight;
+                }
+                window.addEventListener('resize', resize);
+                resize();
+
+                function Particle() {
+                    this.reset = function () {
+                        this.x = w / 2;
+                        this.y = h / 2;
+                        var angle = Math.random() * Math.PI * 2;
+                        var speed = Math.random() * 3 + 1;
+                        this.vx = Math.cos(angle) * speed;
+                        this.vy = Math.sin(angle) * speed;
+                        this.size = Math.random() * 2 + 1;
+                        this.color = this.getRandomColor();
+                        this.alpha = 0;
+                        this.maxAlpha = Math.random() * 0.6 + 0.3;
+                        this.life = 0;
+                        this.maxLife = Math.random() * 150 + 80;
+                    };
+                    this.getRandomColor = function () {
+                        var colors = ['#ff2d7a', '#ff8c42', '#490AB1', '#ffffff'];
+                        return colors[Math.floor(Math.random() * colors.length)];
+                    };
+                    this.update = function () {
+                        this.x += this.vx;
+                        this.y += this.vy;
+                        this.life++;
+
+                        if (this.life < 30) {
+                            this.alpha = (this.life / 30) * this.maxAlpha;
+                        } else if (this.life > this.maxLife - 30) {
+                            this.alpha = ((this.maxLife - this.life) / 30) * this.maxAlpha;
+                        }
+
+                        if (this.life >= this.maxLife || this.x < 0 || this.x > (w || 1000) || this.y < 0 || this.y > (h || 1000)) {
+                            this.reset();
+                        }
+                    };
+                    this.draw = function () {
+                        ctx.beginPath();
+                        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                        ctx.fillStyle = this.color;
+                        ctx.globalAlpha = Math.max(0, this.alpha);
+                        ctx.fill();
+                    };
+                    this.reset();
+                }
+
+                for (var i = 0; i < 180; i++) {
+                    particles.push(new Particle());
+                }
+
+                function animate() {
+                    ctx.clearRect(0, 0, w, h);
+                    for (var i = 0; i < particles.length; i++) {
+                        particles[i].update();
+                        particles[i].draw();
+                    }
+                    requestAnimationFrame(animate);
+                }
+                animate();
+
+                // ── 3D Tilt for Card ──
+                var card = document.querySelector('.pb-brand-card');
+                if (card) {
+                    document.addEventListener('mousemove', function (e) {
+                        var xAxis = (window.innerWidth / 2 - e.pageX) / 20;
+                        var yAxis = (window.innerHeight / 2 - e.pageY) / 20;
+                        card.style.transform = "rotateY(" + xAxis + "deg) rotateX(" + yAxis + "deg)";
+                    });
+
+                    // Mobile Tilt (device orientation)
+                    if (window.DeviceOrientationEvent) {
+                        window.addEventListener('deviceorientation', function (e) {
+                            var beta = e.beta; // -180 to 180
+                            var gamma = e.gamma; // -90 to 90
+                            if (beta && gamma) {
+                                var x = Math.min(Math.max(gamma, -15), 15);
+                                var y = Math.min(Math.max(beta - 45, -15), 15);
+                                card.style.transform = "rotateY(" + x + "deg) rotateX(" + -y + "deg)";
+                            }
+                        });
+                    }
+                }
+            })();
         })();
     </script>
 
