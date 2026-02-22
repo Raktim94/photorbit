@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Santu Das - BMM Finance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        .bmm-widget-root *,
+        .bmm-widget-root *::before,
+        .bmm-widget-root *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .bmm-widget-root {
+            --bg: #050508;
+            --glass: rgba(255, 255, 255, 0.04);
+            --glass-hover: rgba(255, 255, 255, 0.09);
+            --gborder: rgba(255, 255, 255, 0.07);
+            --gborder-hover: rgba(255, 255, 255, 0.18);
+            --t1: #f5f5f7;
+            --t2: #a1a1aa;
+            --t3: #71717a;
+            --c1: #6366F1;
+            --c2: #A855F7;
+            --c3: #22D3EE;
+            --c4: #3B82F6;
+            --c5: #F472B6;
+            --grad: linear-gradient(135deg, var(--c1), var(--c2), var(--c5), var(--c3));
+            --font: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            --ease: cubic-bezier(0.22, 1, 0.36, 1);
+            font-family: var(--font);
+            background: transparent !important;
+            color: var(--t1) !important;
+            line-height: 1.7;
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            padding-top: 40px;
+            scroll-behavior: smooth;
+        }
+
+        /* ANIMATED MESH BACKGROUND */
+        .bmm-widget-root .bmm-fixed-bg {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bmm-widget-root .bmm-fixed-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"),
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: auto, 60px 60px, 60px 60px;
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .bmm-widget-root .bmm-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            mix-blend-mode: screen;
+            will-change: transform;
+            transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .bmm-widget-root .o1 {
+            width: 55vw;
+            height: 55vw;
+            background: var(--c1);
+            top: -25%;
+            left: -15%;
+            opacity: 0.5;
+        }
+
+        .bmm-widget-root .o2 {
+            width: 50vw;
+            height: 50vw;
+            background: var(--c2);
+            bottom: -15%;
+            right: -15%;
+            opacity: 0.45;
+        }
+
+        .bmm-widget-root .o3 {
+            width: 65vw;
+            height: 65vw;
+            background: var(--c4);
+            top: 15%;
+            left: 25%;
+            opacity: 0.2;
+        }
+
+        .bmm-widget-root .o4 {
+            width: 45vw;
+            height: 45vw;
+            background: var(--c5);
+            bottom: 5%;
+            left: 5%;
+            opacity: 0.35;
+        }
+
+        /* ---- PREMIUM GLASS ---- */
+        .bmm-widget-root .glass {
+            background: var(--glass);
+            backdrop-filter: blur(40px) saturate(1.6);
+            -webkit-backdrop-filter: blur(40px) saturate(1.6);
+            border: 1px solid var(--gborder);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            border-radius: 24px;
+            transition: all 0.5s var(--ease);
+            position: relative;
+        }
+
+        .bmm-widget-root .glass::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, transparent 40%, transparent 60%, rgba(255, 255, 255, 0.06) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.6;
+            transition: opacity 0.5s;
+        }
+
+        .bmm-widget-root .glass:hover {
+            background: var(--glass-hover);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .bmm-widget-root .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .bmm-widget-root .section {
+            padding: 120px 0;
+            position: relative;
+        }
+
+        .bmm-widget-root .section-header {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .bmm-widget-root .section-title {
+            font-size: clamp(2.5rem, 5vw, 3.8rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--t1) !important;
+            text-shadow: 0 0 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .bmm-widget-root .section-subtitle {
+            font-size: 1.15rem;
+            color: var(--t3);
+            max-width: 640px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* SERVICES GRID */
+        .bmm-widget-root .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+
+        .bmm-widget-root .service-card {
+            padding: 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            transition: all 0.6s var(--ease);
+            overflow: hidden;
+        }
+
+        .bmm-widget-root .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .bmm-widget-root .service-icon {
+            width: 72px;
+            height: 72px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--gborder);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c3);
+            transition: 0.5s var(--ease);
+        }
+
+        .bmm-widget-root .service-card:hover .service-icon {
+            background: var(--grad);
+            color: #fff;
+            transform: rotate(10deg);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .bmm-widget-root .service-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--t1);
+        }
+
+        .bmm-widget-root .service-desc {
+            font-size: 1.1rem;
+            color: var(--t2);
+            line-height: 1.8;
+        }
+
+        .bmm-widget-root .service-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .bmm-widget-root .service-features li {
+            font-size: 0.95rem;
+            color: var(--t3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bmm-widget-root .service-features li svg {
+            color: var(--c1);
+            flex-shrink: 0;
+        }
+
+        .bmm-widget-root .service-cta {
+            margin-top: auto;
+            padding-top: 30px;
+        }
+
+        .bmm-widget-root .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: 0.4s var(--ease);
+            cursor: pointer;
+        }
+
+        .bmm-widget-root .btn-primary {
+            background: var(--grad);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .bmm-widget-root .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.5);
+        }
+
+        /* ANIMATIONS */
+        .bmm-widget-root .hidden {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s var(--ease);
+        }
+
+        .bmm-widget-root .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 480px) {
+            .bmm-widget-root .service-card {
+                padding: 32px;
+            }
+
+            .bmm-widget-root .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bmm-widget-root">
+        <div class="bmm-fixed-bg">
+            <div class="bmm-orb o1"></div>
+            <div class="bmm-orb o2"></div>
+            <div class="bmm-orb o3"></div>
+            <div class="bmm-orb o4"></div>
+        </div>
+
+        <!-- SERVICES HERO -->
+        <section class="section" style="padding-top: 160px; text-align: center;">
+            <div class="container">
+                <div class="hidden">
+                    <span
+                        style="font-size: 0.85rem; font-weight: 700; color: var(--c3); text-transform: uppercase; letter-spacing: 4px;">Premium
+                        Offerings</span>
+                    <h1 class="section-title">Strategic Growth <br> <span>Solutions</span></h1>
+                    <p class="section-subtitle">We combine high-level marketing strategy with artistic content creation
+                        to build brands that don't just exist—they dominate.</p>
+                </div>
+
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card glass hidden">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M12 2v20m10-10H2" />
+                                <path d="m17 7-5-5-5 5" />
+                                <path d="m17 17-5 5-5-5" />
+                            </svg>
+                        </div>
+                        <h2 class="service-name">Digital Growth Strategy</h2>
+                        <p class="service-desc">We build the blueprint for your online success, ensuring every digital
+                            touchpoint serves a purpose.</p>
+                        <ul class="service-features">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Customized ROI-focused Roadmaps</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Competitor Analysis & Positioning</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Multi-channel Campaign Execution</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="mailto:info@bmmfinance.in" class="btn btn-primary">Book Consultation</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card glass hidden" style="transition-delay: 0.1s;">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="12" cy="12" r="10" />
+                                <path d="M12 16v-4" />
+                                <path d="M12 8h.01" />
+                            </svg>
+                        </div>
+                        <h2 class="service-name">Personal Branding</h2>
+                        <p class="service-desc">Transform from a business owner into a respected industry authority.
+                            Trust is the new currency.</p>
+                        <ul class="service-features">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Authority Building Content</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Lead Generation through Influence</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Strategic Networking Consulting</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="mailto:info@bmmfinance.in" class="btn btn-primary">Build My Brand</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card glass hidden" style="transition-delay: 0.2s;">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M23 7l-7 5 7 5V7z" />
+                                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                            </svg>
+                        </div>
+                        <h2 class="service-name">Content Creation</h2>
+                        <p class="service-desc">High-end video production and storytelling that captures attention and
+                            converts viewers into loyal fans.</p>
+                        <ul class="service-features">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Professional Video Marketing</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Viral Short-form Strategy</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> YouTube Growth Hack Sessions</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="mailto:info@bmmfinance.in" class="btn btn-primary">Produce My Content</a>
+                        </div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card glass hidden" style="transition-delay: 0.3s;">
+                        <div class="service-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                        </div>
+                        <h2 class="service-name">Influencer Marketing</h2>
+                        <p class="service-desc">Leverage the power of established trust to scale your brand quickly
+                            through authentic partnerships.</p>
+                        <ul class="service-features">
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Strategic Creator Sourcing</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Campaign Storyboarding</li>
+                            <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg> Tracking & Optimization</li>
+                        </ul>
+                        <div class="service-cta">
+                            <a href="mailto:info@bmmfinance.in" class="btn btn-primary">Start Campaign</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA SECTION -->
+        <section class="section">
+            <div class="container" style="text-align: center;">
+                <div class="glass hidden" style="padding: 80px 40px; border-radius: 40px; border: 1px solid var(--c1);">
+                    <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 20px;">Ready to Scale Your Impact?
+                    </h2>
+                    <p style="color: var(--t2); max-width: 600px; margin: 0 auto 40px;">Stop guessing and start growing
+                        with a proven framework designed for modern digital landscapes.</p>
+                    <a href="mailto:info@bmmfinance.in" class="btn btn-primary"
+                        style="padding: 18px 48px; font-size: 1rem;">Let's Talk Strategy</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="container" style="text-align: center; padding: 60px 0; border-top: 1px solid var(--gborder);">
+            <p style="color: var(--t3); font-size: 0.9rem;">&copy; 2026 Santu Das | BMM Finance. All rights reserved.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hidden').forEach(el => observer.observe(el));
+
+        // Background Animation Delay
+        document.querySelectorAll('.bmm-orb').forEach((orb, i) => {
+            orb.style.animation = `orbFloat ${20 + i * 5}s infinite ease-in-out`;
+            orb.style.animationDelay = `${i * -5}s`;
+        });
+
+        // Keyframes for background floating
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes orbFloat {
+                0% { transform: translate(0, 0) scale(1); }
+                33% { transform: translate(8vw, -12vh) scale(1.1); }
+                66% { transform: translate(-10vw, 8vh) scale(0.9); }
+                100% { transform: translate(0, 0) scale(1); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+
+</html>
