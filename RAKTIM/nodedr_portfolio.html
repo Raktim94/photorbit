@@ -1,0 +1,1074 @@
+<div class="nodedr-pf-root">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+        .nodedr-pf-root {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #05070a;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .nodedr-pf-root * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hero Section */
+        .pf-hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            background: radial-gradient(circle at center, #0f172a 0%, #05070a 100%);
+            overflow: hidden;
+        }
+
+        .pf-glow-bg {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.1) 0%, rgba(5, 7, 10, 0) 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 0.2s ease-out;
+            z-index: 1;
+        }
+
+        .pf-hero-content {
+            z-index: 10;
+            max-width: 900px;
+        }
+
+        .pf-badge {
+            background: rgba(56, 189, 248, 0.1);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 8px 24px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: #38bdf8;
+            margin-bottom: 30px;
+            display: inline-block;
+            text-transform: uppercase;
+        }
+
+        .pf-hero-content h1 {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin-bottom: 24px;
+        }
+
+        .pf-rotator {
+            color: #38bdf8;
+            display: inline-block;
+            min-width: 280px;
+            text-align: left;
+            transition: opacity 0.5s ease;
+        }
+
+        .pf-hero-content p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #94a3b8;
+            max-width: 650px;
+            margin: 0 auto 40px auto;
+        }
+
+        .pf-btn-primary {
+            background: #ffffff;
+            color: #000000;
+            padding: 18px 48px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pf-btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.3);
+            background: #38bdf8;
+            color: #ffffff;
+        }
+
+        /* Case Studies Section */
+        .pf-case-study {
+            padding: 100px 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .pf-case-study:nth-child(even) {
+            flex-direction: row-reverse;
+            background-color: #080b11;
+        }
+
+        .pf-case-content {
+            flex: 1;
+            max-width: 550px;
+            z-index: 2;
+        }
+
+        .pf-case-badge {
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .pf-case-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        .pf-case-content p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .pf-value-list {
+            list-style: none;
+            margin-bottom: 40px;
+        }
+
+        .pf-value-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #f1f5f9;
+        }
+
+        .pf-check {
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 2px;
+        }
+
+        .pf-tech-stack {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+        }
+
+        .pf-tech-title {
+            display: block;
+            color: #64748b;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .pf-tech-grid {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .pf-tech-pill {
+            background: #111827;
+            border: 1px solid #374151;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #e2e8f0;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Visual Frame with Static Image Link */
+        .pf-visual-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            perspective: 1000px;
+        }
+
+        .pf-browser-link {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 16px;
+            background: #0f172a;
+            display: block;
+            text-decoration: none;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .pf-browser-link:hover {
+            transform: translateY(-15px) scale(1.02) rotateX(2deg);
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.8);
+            z-index: 10;
+        }
+
+        .pf-browser-link::after {
+            content: 'Scroll to Explore ↓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 16px 32px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        .pf-browser-link:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .pf-browser-link:hover .pf-iframe-wrap iframe {
+            filter: brightness(0.6) blur(2px);
+            pointer-events: auto;
+            /* Allow interaction when hovering */
+        }
+
+        .pf-browser-top {
+            height: 40px;
+            background: #1e293b;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .pf-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .pf-dot.r {
+            background: #ff5f56;
+        }
+
+        .pf-dot.y {
+            background: #ffbd2e;
+        }
+
+        .pf-dot.g {
+            background: #27c93f;
+        }
+
+        .pf-url-bar {
+            margin-left: 16px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            background: #0f172a;
+            padding: 6px 16px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            flex-grow: 1;
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .pf-iframe-wrap {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+            position: relative;
+            background: #ffffff;
+            border-bottom-left-radius: 16px;
+            border-bottom-right-radius: 16px;
+            display: block;
+        }
+
+        .pf-iframe-wrap iframe {
+            width: 400%;
+            /* Massive virtual width */
+            height: 400%;
+            /* Massive virtual height */
+            border: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: scale(0.25);
+            /* Scale it back down beautifully */
+            transform-origin: top left;
+            transition: filter 0.3s ease;
+            display: block;
+            pointer-events: none;
+            /* Prevent scroll catching */
+        }
+
+        .pf-cta-link {
+            padding: 16px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 800;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-size: 1.05rem;
+        }
+
+        .pf-cta-link:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+
+        /* Project Specific Colors */
+        /* 1. Photorbit */
+        .color-photorbit .pf-case-badge {
+            color: #38bdf8;
+        }
+
+        .color-photorbit .pf-check {
+            color: #38bdf8;
+        }
+
+        .color-photorbit .pf-browser-link {
+            border-color: rgba(56, 189, 248, 0.3);
+        }
+
+        .color-photorbit .pf-cta-link {
+            background: #38bdf8;
+            color: #000;
+            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.2);
+        }
+
+        /* 2. Apna Kala */
+        .color-apnakala .pf-case-badge {
+            color: #f43f5e;
+        }
+
+        .color-apnakala .pf-check {
+            color: #f43f5e;
+        }
+
+        .color-apnakala .pf-browser-link {
+            border-color: rgba(244, 63, 94, 0.3);
+        }
+
+        .color-apnakala .pf-cta-link {
+            background: #f43f5e;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(244, 63, 94, 0.2);
+        }
+
+        /* 3. Success Point */
+        .color-success .pf-case-badge {
+            color: #facc15;
+        }
+
+        .color-success .pf-check {
+            color: #facc15;
+        }
+
+        .color-success .pf-browser-link {
+            border-color: rgba(250, 204, 21, 0.3);
+        }
+
+        .color-success .pf-cta-link {
+            background: #facc15;
+            color: #000;
+            box-shadow: 0 10px 20px rgba(250, 204, 21, 0.2);
+        }
+
+        /* 4. Altair */
+        .color-altair .pf-case-badge {
+            color: #60a5fa;
+        }
+
+        .color-altair .pf-check {
+            color: #60a5fa;
+        }
+
+        .color-altair .pf-browser-link {
+            border-color: rgba(96, 165, 250, 0.3);
+        }
+
+        .color-altair .pf-cta-link {
+            background: #60a5fa;
+            color: #000;
+            box-shadow: 0 10px 20px rgba(96, 165, 250, 0.2);
+        }
+
+        /* 5. Panchabati */
+        .color-eco .pf-case-badge {
+            color: #27c93f;
+        }
+
+        .color-eco .pf-check {
+            color: #27c93f;
+        }
+
+        .color-eco .pf-browser-link {
+            border-color: rgba(39, 201, 63, 0.3);
+        }
+
+        .color-eco .pf-cta-link {
+            background: #27c93f;
+            color: #000;
+            box-shadow: 0 10px 20px rgba(39, 201, 63, 0.2);
+        }
+
+        /* 6. Mus Construction */
+        .color-ind .pf-case-badge {
+            color: #f97316;
+        }
+
+        .color-ind .pf-check {
+            color: #f97316;
+        }
+
+        .color-ind .pf-browser-link {
+            border-color: rgba(249, 115, 22, 0.3);
+        }
+
+        .color-ind .pf-cta-link {
+            background: #f97316;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(249, 115, 22, 0.2);
+        }
+
+        /* 7. LNG */
+        .color-lng .pf-case-badge {
+            color: #6366f1;
+        }
+
+        .color-lng .pf-check {
+            color: #6366f1;
+        }
+
+        .color-lng .pf-browser-link {
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .color-lng .pf-cta-link {
+            background: #6366f1;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        /* 8. Tajpur Hotel */
+        .color-hotel .pf-case-badge {
+            color: #d4af37;
+        }
+
+        .color-hotel .pf-check {
+            color: #d4af37;
+        }
+
+        .color-hotel .pf-browser-link {
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .color-hotel .pf-cta-link {
+            background: #d4af37;
+            color: #000;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+        /* 9. BMM Finance */
+        .color-bmm .pf-case-badge {
+            color: #cbbc9c;
+        }
+
+        .color-bmm .pf-check {
+            color: #cbbc9c;
+        }
+
+        .color-bmm .pf-browser-link {
+            border-color: rgba(203, 188, 156, 0.3);
+        }
+
+        .color-bmm .pf-cta-link {
+            background: #cbbc9c;
+            color: #000;
+            box-shadow: 0 10px 20px rgba(203, 188, 156, 0.2);
+        }
+
+        /* 10. Shivamco */
+        .color-shivamco .pf-case-badge {
+            color: #10b981;
+        }
+
+        .color-shivamco .pf-check {
+            color: #10b981;
+        }
+
+        .color-shivamco .pf-browser-link {
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .color-shivamco .pf-cta-link {
+            background: #10b981;
+            color: #fff;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+
+        @media (max-width: 992px) {
+
+            .pf-case-study,
+            .pf-case-study:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+                padding: 80px 20px;
+                gap: 40px;
+            }
+
+            .pf-case-content {
+                max-width: 100%;
+            }
+
+            .pf-value-item,
+            .pf-tech-grid {
+                justify-content: center;
+            }
+
+            .pf-url-bar {
+                display: none;
+                /* Simplify on mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pf-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .pf-case-content h2 {
+                font-size: 2rem;
+            }
+
+            .pf-browser-top {
+                height: 30px;
+            }
+
+            .pf-browser-link::after {
+                font-size: 0.9rem;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+
+    <!-- Hero Section -->
+    <div class="pf-hero" id="pf-hero">
+        <div class="pf-glow-bg" id="pf-glow"></div>
+
+        <div class="pf-hero-content">
+            <span class="pf-badge">Selected Works 2024-2026</span>
+            <h1>We Engineer <br /> <span class="pf-rotator" id="pf-rotate-text">Interfaces</span></h1>
+            <p>A collection of high-performance websites, AI automations, and scalable infrastructure built by Nodedr.
+            </p>
+
+            <a href="/contactus" class="pf-btn-primary">
+                Get in Touch
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- Case Study 1: Photorbit -->
+    <section class="pf-case-study color-photorbit">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Featured E-Commerce Tooling</span>
+            <h2>Scaling Photorbit to New Heights.</h2>
+            <p>We engineered a high-conversion sales engine that handles thousands of custom photo orders with seamless
+                automation.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> Reduced processing time by 40%</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Automated laser-print workflow</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Mobile-first conversion design</li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">The Tech Behind the Growth</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">Python</div>
+                    <div class="pf-tech-pill">PostgreSQL</div>
+                    <div class="pf-tech-pill">Nginx</div>
+                    <div class="pf-tech-pill">REST APIs</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Build My Vision →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.photorbit.in/</div>
+                </div>
+                <!-- Interactive Iframe -->
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.photorbit.in/" loading="lazy" title="Photorbit Website Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 2: Apna Kala -->
+    <section class="pf-case-study color-apnakala">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Featured Cultural Platform</span>
+            <h2>Digitizing India's Folk Heritage.</h2>
+            <p>We engineered India’s first digital folk registry—preserving cultural identity through high-performance
+                architecture and seamless booking engines.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> Unified National Folk Artist Registry</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Secure Razorpay API Integration</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Artist-to-Organizer Booking Engine</li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">The Tech Stack</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">PHP</div>
+                    <div class="pf-tech-pill">MySQL</div>
+                    <div class="pf-tech-pill">REST APIs</div>
+                    <div class="pf-tech-pill">JavaScript</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Build My Platform →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.apnakala.com/</div>
+                </div>
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.apnakala.com/" loading="lazy" title="Apna Kala Website Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 3: Success Point -->
+    <section class="pf-case-study color-success">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Automotive Digital Sales</span>
+            <h2>Driving Digital Sales for Success Point.</h2>
+            <p>We transformed Contai's leading bike showroom into a premium digital marketplace, streamlining lead
+                generation for certified pre-owned motorcycles.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> Dynamic Inventory Management</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> WhatsApp Lead Integration</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Interactive Customer Experience Gallery</li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">The Engine Under the Hood</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">PHP</div>
+                    <div class="pf-tech-pill">MySQL</div>
+                    <div class="pf-tech-pill">HTML5/CSS3</div>
+                    <div class="pf-tech-pill">Nginx</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Scale My Showroom →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.secondhandbikepoint.com/</div>
+                </div>
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.secondhandbikepoint.com/" loading="lazy"
+                        title="Success Point Website Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 4: Altair Realestate -->
+    <section class="pf-case-study color-altair">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Enterprise Real Estate</span>
+            <h2>Engineering the Future of Eastern India.</h2>
+            <p>For Altair Realestate, we developed a high-performance digital portal to manage 500+ acres of residential
+                development and inventory for 2,200+ units.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> Interactive Master Plan & Plot Mapping</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Automated Lead Gen for Newtown Action Area III
+                </li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Multi-Project Inventory Infrastructure</li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">The Enterprise Tech Stack</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">JavaScript</div>
+                    <div class="pf-tech-pill">PHP</div>
+                    <div class="pf-tech-pill">MySQL</div>
+                    <div class="pf-tech-pill">RESTful APIs</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Launch Enterprise Site →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.altairrealestate.com/</div>
+                </div>
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.altairrealestate.com/" loading="lazy"
+                        title="Altair Realestate Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 5: Panchabati Homestay -->
+    <section class="pf-case-study color-eco">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Eco-Tourism Ecosystem</span>
+            <h2>Scaling Eco-Tourism in Jungle Mahal.</h2>
+            <p>We built a comprehensive booking ecosystem for Jhargram's premier lakefront stay, integrating "Fooding +
+                Lodging + Sightseeing" package logic for a seamless guest experience.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> All-Inclusive Package Booking Engine</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Dynamic Room & Inventory Management</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> WhatsApp Integration for Instant Conversions
+                </li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">The Tourism Tech Stack</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">PHP</div>
+                    <div class="pf-tech-pill">MySQL</div>
+                    <div class="pf-tech-pill">REST APIs</div>
+                    <div class="pf-tech-pill">JavaScript</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Digitize My Homestay →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.panchabatihomestay.in/</div>
+                </div>
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.panchabatihomestay.in/" loading="lazy"
+                        title="Panchabati Homestay Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 6: Mus Construction -->
+    <section class="pf-case-study color-ind">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Industrial Infrastructure</span>
+            <h2>Building the Foundations of Industry.</h2>
+            <p>We engineered a robust digital presence for Mus Construction, showcasing their expertise in civil
+                engineering and large-scale industrial infrastructure.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> Industrial Project Portfolio Management</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> B2B Service Enquiry Infrastructure</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Geo-Targeted Infrastructure SEO</li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">The Engineering Tech Stack</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">PHP</div>
+                    <div class="pf-tech-pill">MySQL</div>
+                    <div class="pf-tech-pill">Nginx</div>
+                    <div class="pf-tech-pill">JavaScript</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Build My Brand →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.musconstruction.in/</div>
+                </div>
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.musconstruction.in/" loading="lazy"
+                        title="Mus Construction Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 7: LNG Enterprises -->
+    <section class="pf-case-study color-lng">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Heavy Fabrication</span>
+            <h2>Precision Engineering for LNG Enterprises.</h2>
+            <p>We digitized a leading industrial fabrication powerhouse, creating a high-performance portal that
+                showcases complex projects and streamlines B2B procurement logic.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> Industrial Fabrication Portfolio Showcase</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Streamlined B2B Request for Quote logic</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Global Supply Chain SEO Strategy</li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">Precision Technical Stack</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">PHP</div>
+                    <div class="pf-tech-pill">MySQL</div>
+                    <div class="pf-tech-pill">RESTful APIs</div>
+                    <div class="pf-tech-pill">CDN</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Modernize My Factory →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.lngenterprises.in/</div>
+                </div>
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.lngenterprises.in/" loading="lazy"
+                        title="LNG Enterprises Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 8: Tajpur Hotel -->
+    <section class="pf-case-study color-hotel">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Premium Hospitality</span>
+            <h2>Elevating the Coastal Retreat Experience.</h2>
+            <p>We designed a premium digital gateway for Tajpur Hotel, blending immersive visual storytelling with a
+                seamless booking interface to capture the essence of seaside luxury.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> High-Conversion Direct Booking Integration
+                </li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Dynamic Room & Gallery Showcase</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Mobile-First Travel SEO Optimization</li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">Experience Features</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">Fast Booking</div>
+                    <div class="pf-tech-pill">Visual Gallery</div>
+                    <div class="pf-tech-pill">Responsive Design</div>
+                    <div class="pf-tech-pill">Secure Payment</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Upgrade Web Presence →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.tajpurhotel.com/</div>
+                </div>
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.tajpurhotel.com/" loading="lazy" title="Tajpur Hotel Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 9: BMM Finance -->
+    <section class="pf-case-study color-bmm">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Financial Services</span>
+            <h2>Modernizing Financial Services.</h2>
+            <p>We engineered a robust, secure, and professional digital platform for BMM Finance to streamline their
+                loan application process and showcase their financial offerings.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> Secure & Professional UI/UX
+                </li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Streamlined Customer Onboarding</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> Mobile-Responsive Design</li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">The Tech Stack</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">PHP</div>
+                    <div class="pf-tech-pill">JavaScript</div>
+                    <div class="pf-tech-pill">Nginx</div>
+                    <div class="pf-tech-pill">MySQL</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Scale Your Firm →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.bmmfinance.in/</div>
+                </div>
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.bmmfinance.in/" loading="lazy" title="BMM Finance Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study 10: Shivamco -->
+    <section class="pf-case-study color-shivamco">
+        <div class="pf-case-content">
+            <span class="pf-case-badge">Enterprise E-Commerce</span>
+            <h2>Driving Corporate Growth.</h2>
+            <p>We developed a sleek, dynamic digital presence for Shivamco, featuring seamless product catalogs and a
+                highly optimized B2B interaction platform.</p>
+
+            <ul class="pf-value-list">
+                <li class="pf-value-item"><span class="pf-check">✓</span> Dynamic Product Catalog
+                </li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> B2B Enquiry System</li>
+                <li class="pf-value-item"><span class="pf-check">✓</span> High-Performance Architecture</li>
+            </ul>
+
+            <div class="pf-tech-stack">
+                <span class="pf-tech-title">The Engine</span>
+                <div class="pf-tech-grid">
+                    <div class="pf-tech-pill">PHP</div>
+                    <div class="pf-tech-pill">MySQL</div>
+                    <div class="pf-tech-pill">REST APIs</div>
+                    <div class="pf-tech-pill">Nginx</div>
+                </div>
+            </div>
+
+            <a href="/contactus" class="pf-cta-link">Build Your Store →</a>
+        </div>
+
+        <div class="pf-visual-container">
+            <div class="pf-browser-link">
+                <div class="pf-browser-top">
+                    <div class="pf-dot r"></div>
+                    <div class="pf-dot y"></div>
+                    <div class="pf-dot g"></div>
+                    <div class="pf-url-bar"><span style="opacity:0.5">https://</span>www.shivamco.in/</div>
+                </div>
+                <div class="pf-iframe-wrap">
+                    <iframe src="https://www.shivamco.in/" loading="lazy" title="Shivamco Preview"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Hero Mouse Follow Glow Effect
+        const hero = document.getElementById('pf-hero');
+        const glow = document.getElementById('pf-glow');
+
+        if (hero && glow) {
+            hero.addEventListener('mousemove', (e) => {
+                const rect = hero.getBoundingClientRect();
+                const x = e.clientX - rect.left - 400; // 400 is half of width
+                const y = e.clientY - rect.top - 400;  // 400 is half of height
+                glow.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        }
+
+        // Text Rotator Animation
+        const words = ["Experiences", "Automation", "Platforms", "Scalability", "Interfaces"];
+        let i = 0;
+        const rotateEl = document.getElementById('pf-rotate-text');
+
+        if (rotateEl) {
+            setInterval(() => {
+                rotateEl.style.opacity = '0';
+                setTimeout(() => {
+                    i = (i + 1) % words.length;
+                    rotateEl.innerText = words[i];
+                    rotateEl.style.opacity = '1';
+                }, 500);
+            }, 3000);
+        }
+    </script>
+</div>
