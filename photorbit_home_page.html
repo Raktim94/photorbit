@@ -172,7 +172,8 @@
         /* ─────────────── UNIFIED HERO & PARTICLES ─────────────── */
         #pb-wrap .pb-hero {
             position: relative;
-            padding: 120px 20px 80px;
+            padding: 120px 20px 25px;
+            /* Reduced bottom padding */
             min-height: auto;
             width: 100%;
             background: #0d041a;
@@ -204,7 +205,7 @@
         }
 
         #pb-wrap .pb-brand-card {
-            padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 60px);
+            padding: clamp(40px, 8vw, 80px) clamp(20px, 5vw, 60px) clamp(20px, 4vw, 30px);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -238,59 +239,108 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
+            padding: 14px 30px;
+            border-radius: 8px;
+            /* Classic console blocky look */
+            font-weight: 800;
+            font-size: 1rem;
+            letter-spacing: 2px;
             transition: all 0.1s ease;
             text-decoration: none !important;
-            border: 1px solid transparent;
+            border: 2px solid #1e142e;
+            /* Hard border */
             cursor: pointer;
-        }
-
-        #pb-wrap .pb-3d-btn:active {
-            transform: translateY(6px);
+            text-transform: uppercase;
         }
 
         #pb-wrap .pb-3d-btn:hover {
             filter: brightness(1.1);
+            transform: translateY(-2px);
         }
 
-        /* Pink Variation (Default) */
+        #pb-wrap .pb-3d-btn:active {
+            transform: translateY(8px);
+        }
+
+        /* Pink Variation (Retro game style) */
         #pb-wrap .pb-btn-pink {
             background: #ff2d7a;
             color: #fff !important;
-            border-color: #ff4d8d;
-            box-shadow: 0 6px 0 #cc0052, 0 10px 20px rgba(255, 45, 122, 0.4);
+            box-shadow:
+                inset -4px -4px 0px rgba(0, 0, 0, 0.25),
+                inset 4px 4px 0px rgba(255, 255, 255, 0.35),
+                0 8px 0 #1e142e,
+                0 15px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #pb-wrap .pb-btn-pink:hover {
+            box-shadow:
+                inset -4px -4px 0px rgba(0, 0, 0, 0.25),
+                inset 4px 4px 0px rgba(255, 255, 255, 0.35),
+                0 10px 0 #1e142e,
+                0 15px 20px rgba(0, 0, 0, 0.3);
         }
 
         #pb-wrap .pb-btn-pink:active {
-            box-shadow: 0 0 0 #cc0052, 0 4px 10px rgba(255, 45, 122, 0.4);
+            box-shadow:
+                inset -4px -4px 0px rgba(0, 0, 0, 0.25),
+                inset 4px 4px 0px rgba(255, 255, 255, 0.35),
+                0 0px 0 #1e142e,
+                0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* Purple Variation */
         #pb-wrap .pb-btn-purple {
             background: #490AB1;
             color: #fff !important;
-            border-color: #6312e0;
-            box-shadow: 0 6px 0 #2e0573, 0 10px 20px rgba(73, 10, 177, 0.4);
+            box-shadow:
+                inset -4px -4px 0px rgba(0, 0, 0, 0.3),
+                inset 4px 4px 0px rgba(255, 255, 255, 0.2),
+                0 8px 0 #1e142e,
+                0 15px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        #pb-wrap .pb-btn-purple:hover {
+            box-shadow:
+                inset -4px -4px 0px rgba(0, 0, 0, 0.3),
+                inset 4px 4px 0px rgba(255, 255, 255, 0.2),
+                0 10px 0 #1e142e,
+                0 15px 20px rgba(0, 0, 0, 0.3);
         }
 
         #pb-wrap .pb-btn-purple:active {
-            box-shadow: 0 0 0 #2e0573, 0 4px 10px rgba(73, 10, 177, 0.4);
+            box-shadow:
+                inset -4px -4px 0px rgba(0, 0, 0, 0.3),
+                inset 4px 4px 0px rgba(255, 255, 255, 0.2),
+                0 0px 0 #1e142e,
+                0 5px 10px rgba(0, 0, 0, 0.3);
         }
 
         /* White/Outline Variation */
         #pb-wrap .pb-btn-white {
             background: #fff;
             color: #ff2d7a !important;
-            border-color: #f0f0f0;
-            box-shadow: 0 6px 0 #cccccc, 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow:
+                inset -4px -4px 0px rgba(0, 0, 0, 0.1),
+                inset 4px 4px 0px rgba(255, 255, 255, 0.8),
+                0 8px 0 #1e142e,
+                0 15px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        #pb-wrap .pb-btn-white:hover {
+            box-shadow:
+                inset -4px -4px 0px rgba(0, 0, 0, 0.1),
+                inset 4px 4px 0px rgba(255, 255, 255, 0.8),
+                0 10px 0 #1e142e,
+                0 15px 20px rgba(0, 0, 0, 0.2);
         }
 
         #pb-wrap .pb-btn-white:active {
-            box-shadow: 0 0 0 #cccccc, 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow:
+                inset -4px -4px 0px rgba(0, 0, 0, 0.1),
+                inset 4px 4px 0px rgba(255, 255, 255, 0.8),
+                0 0px 0 #1e142e,
+                0 5px 10px rgba(0, 0, 0, 0.2);
         }
 
         #pb-wrap .pb-hero-tagline {
@@ -571,45 +621,95 @@
         }
 
         #pb-wrap .pb-tab-btn {
-            background: #f0ecff;
-            color: #490AB1;
+            position: relative;
             border: none;
             cursor: pointer;
-            padding: 18px 40px;
-            border-radius: 16px;
-            font-size: 1.1rem;
-            font-weight: 700;
-            transition: all 0.35s cubic-bezier(.22, 1, .36, 1);
-            letter-spacing: 0.3px;
+            padding: 18px 45px;
+            border-radius: 20px;
+            font-size: 1.15rem;
+            font-weight: 800;
             font-family: 'Outfit', sans-serif;
-            position: relative;
+            letter-spacing: 0.5px;
+            color: #490AB1;
+            background: linear-gradient(to bottom, #ffffff, #f0ecff);
+            box-shadow: 0 6px 0 #d4c5f9, 0 15px 25px rgba(73, 10, 177, 0.15), inset 0 -2px 5px rgba(73, 10, 177, 0.05);
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
             overflow: hidden;
+            z-index: 1;
+            transform: translateY(0);
         }
 
         #pb-wrap .pb-tab-btn::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, #df2a6b, #490AB1);
+            background: linear-gradient(135deg, #df2a6b, #490AB1, #ff2d7a, #490AB1);
+            background-size: 300% 300%;
             opacity: 0;
-            transition: opacity 0.35s;
+            z-index: -1;
+            transition: opacity 0.35s ease;
+            animation: pb-btn-gradient-shift 4s ease infinite;
         }
 
-        #pb-wrap .pb-tab-btn.active,
         #pb-wrap .pb-tab-btn:hover {
-            color: #fff;
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(73, 10, 177, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #d4c5f9, 0 20px 30px rgba(73, 10, 177, 0.2), inset 0 -2px 5px rgba(73, 10, 177, 0.05);
         }
 
-        #pb-wrap .pb-tab-btn.active::before,
-        #pb-wrap .pb-tab-btn:hover::before {
+        #pb-wrap .pb-tab-btn:active {
+            transform: translateY(6px);
+            box-shadow: 0 0px 0 #d4c5f9, 0 5px 10px rgba(73, 10, 177, 0.2);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        #pb-wrap .pb-tab-btn.active {
+            color: #fff;
+            background: transparent;
+            box-shadow: 0 6px 0 #2e0573, 0 15px 30px rgba(223, 42, 107, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.2);
+            transform: translateY(0);
+        }
+
+        #pb-wrap .pb-tab-btn.active::before {
             opacity: 1;
+        }
+
+        #pb-wrap .pb-tab-btn.active:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #2e0573, 0 20px 40px rgba(223, 42, 107, 0.5), inset 0 2px 5px rgba(255, 255, 255, 0.2);
+        }
+
+        #pb-wrap .pb-tab-btn.active:active {
+            transform: translateY(6px);
+            box-shadow: 0 0px 0 #2e0573, 0 5px 15px rgba(223, 42, 107, 0.3);
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+
+        @keyframes pb-btn-gradient-shift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         #pb-wrap .pb-tab-btn span {
             position: relative;
             z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        #pb-wrap .pb-tab-btn:hover span {
+            transform: scale(1.05);
         }
 
         /* Tab Content */
